@@ -1,0 +1,59 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Prepare web files
+        run: |
+          mkdir www
+          cp index.html manifest.webmanifest sw.js icon-192.png icon-512.png apple-touch-icon.png www/
+
+      - name: Create Android project
+        run: |
+          npm init -y
+          npm install @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
+          npx cap init Habits com.yonif.habits --web-dir www
+          npx cap add android
+          npx cap sync android
+
+      - name: Set app name and icon
+        run: |
+          sed -i 's|<string name="app_name">.*</string>|<string name="app_name">מעקב הרגלים</string>|; s|<string name="title_activity_main">.*</string>|<string name="title_activity_main">מעקב הרגלים</string>|' android/app/src/main/res/values/strings.xml
+          for d in android/app/src/main/res/mipmap-*; do
+            for f in ic_launcher.png ic_launcher_round.png ic_launcher_foreground.png; do
+              if [ -f "$d/$f" ]; then
+                SIZE=$(identify -format "%w" "$d/$f")
+                convert icon-512.png -resize ${SIZE}x${SIZE} "$d/$f" || true
+              fi
+            done
+          done
+
+      - name: Build APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: habits-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
