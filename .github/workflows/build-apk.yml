@@ -34,14 +34,20 @@ jobs:
           npx cap add android
           npx cap sync android
 
-      - name: Set app name and icon
+      - name: Set app name
         run: |
           sed -i 's|<string name="app_name">.*</string>|<string name="app_name">מעקב הרגלים</string>|; s|<string name="title_activity_main">.*</string>|<string name="title_activity_main">מעקב הרגלים</string>|' android/app/src/main/res/values/strings.xml
+
+      - name: Set app icon (optional, build continues if this fails)
+        continue-on-error: true
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
           for d in android/app/src/main/res/mipmap-*; do
             for f in ic_launcher.png ic_launcher_round.png ic_launcher_foreground.png; do
               if [ -f "$d/$f" ]; then
                 SIZE=$(identify -format "%w" "$d/$f")
-                convert icon-512.png -resize ${SIZE}x${SIZE} "$d/$f" || true
+                convert icon-512.png -resize ${SIZE}x${SIZE} "$d/$f"
               fi
             done
           done
