@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב הרגלים</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#4f46e5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="הרגלים">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{
+--slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;--slate-400:#94a3b8;--slate-500:#64748b;--slate-700:#334155;--slate-900:#0f172a;
+--indigo-50:#eef2ff;--indigo-100:#e0e7ff;--indigo-500:#6366f1;--indigo-600:#4f46e5;--indigo-700:#4338ca;
+--emerald-50:#ecfdf5;--emerald-500:#10b981;--emerald-600:#059669;
+--rose-50:#fff1f2;--rose-500:#f43f5e;--rose-600:#e11d48;
+--amber-50:#fffbeb;--amber-100:#fef3c7;--amber-400:#fbbf24;--amber-500:#f59e0b;--amber-700:#b45309;
+--bg:var(--slate-50);--card:#fff;--text:var(--slate-900);--muted:var(--slate-500);--line:var(--slate-200);
+--shadow:0 1px 3px rgba(15,23,42,.08),0 4px 14px rgba(15,23,42,.05);
+}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#131c2e;--text:#e2e8f0;--muted:#94a3b8;--line:#243049;--slate-100:#1b2740;--slate-200:#243049;--indigo-50:#1c2250;--indigo-100:#2a3170;--emerald-50:#0c2a24;--rose-50:#33141c;--amber-50:#33270b;--amber-100:#4a3a10;--shadow:0 1px 3px rgba(0,0,0,.4)}}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Segoe UI",Heebo,Arial,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;transition:all .2s ease;color:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--indigo-500);outline-offset:2px}
+svg{width:1.2em;height:1.2em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hidden{display:none!important}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.center-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.25rem}
+.panel{background:var(--card);border-radius:1rem;box-shadow:var(--shadow);padding:2rem;width:100%;max-width:380px;text-align:center}
+.panel h1{font-size:1.5rem;margin:.75rem 0 .25rem}
+.panel p{color:var(--muted);margin-bottom:1.25rem}
+.badge{width:64px;height:64px;border-radius:1rem;background:var(--indigo-50);color:var(--indigo-600);display:inline-flex;align-items:center;justify-content:center}
+.badge svg{width:30px;height:30px}
+.badge.err{background:var(--rose-50);color:var(--rose-600)}
+
+input[type=password],input[type=text],input[type=date],select,textarea{width:100%;font:inherit;color:var(--text);background:var(--card);border:1.5px solid var(--line);border-radius:.75rem;padding:.7rem .9rem;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--indigo-500)}
+textarea{min-height:90px;resize:vertical}
+.err-msg{color:var(--rose-600);font-size:.9rem;min-height:1.4em;margin-top:.5rem}
+
+.btn{padding:.7rem 1.2rem;border-radius:.75rem;font-weight:600;background:var(--indigo-600);color:#fff}
+.btn:hover{background:var(--indigo-700);transform:translateY(-1px)}
+.btn.ghost{background:var(--slate-100);color:var(--text)}
+.btn.ghost:hover{background:var(--slate-200)}
+.btn.green{background:var(--emerald-600)}
+.btn.sm{padding:.35rem .75rem;font-size:.85rem}
+.btn:disabled{opacity:.4;cursor:default;transform:none}
+.block{width:100%;margin-top:.75rem}
+
+header.top{background:var(--indigo-600);color:#fff;padding:1rem 1rem .6rem}
+.wrap{max-width:720px;margin:0 auto}
+header.top h1{font-size:1.2rem}
+nav.tabs{display:flex;gap:.25rem;background:var(--card);box-shadow:var(--shadow);position:sticky;top:0;z-index:5;padding:.4rem;overflow-x:auto}
+nav.tabs .wrap{display:flex;gap:.25rem;width:100%}
+.tab{flex:1;white-space:nowrap;padding:.6rem .5rem;border-radius:.75rem;background:transparent;color:var(--muted);font-weight:600;font-size:.92rem}
+.tab:hover{background:var(--slate-100)}
+.tab.on{background:var(--indigo-50);color:var(--indigo-600)}
+main{padding:1rem 1rem 3rem}
+.card{background:var(--card);border-radius:1rem;box-shadow:var(--shadow);padding:1.25rem;margin-bottom:1rem}
+.card h2{font-size:1.1rem;margin-bottom:.6rem}
+.muted{color:var(--muted);font-size:.9rem}
+.row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.row.between{justify-content:space-between}
+
+.bar{height:.6rem;background:var(--slate-200);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--indigo-500);border-radius:99px;transition:width .5s ease}
+.bar.sm{height:.4rem}
+.bar.good>i{background:var(--emerald-500)}.bar.mid>i{background:var(--amber-500)}.bar.low>i{background:var(--rose-500)}
+
+.q{padding:.9rem 0;border-bottom:1px solid var(--line)}
+.q:last-of-type{border-bottom:0}
+.q p{margin-bottom:.6rem;font-weight:500}
+.ans{display:flex;gap:.6rem}
+.ans button{flex:1;padding:.6rem;border-radius:.75rem;background:var(--slate-100);font-weight:700}
+.ans button:hover{background:var(--slate-200)}
+.ans .yes.on{background:var(--emerald-600);color:#fff}
+.ans .no.on{background:var(--rose-600);color:#fff}
+.nav-row{display:flex;gap:.75rem;margin-top:1rem}
+.nav-row .btn{flex:1}
+.pill{display:inline-flex;gap:.3rem;align-items:center;background:var(--amber-100);color:var(--amber-700);border-radius:99px;padding:.2rem .7rem;font-weight:700;font-size:.9rem}
+
+.date-card h2{font-size:1rem;color:var(--indigo-600)}
+.note{padding:.75rem 0;border-top:1px solid var(--line)}
+.note .cat{font-weight:700;font-size:.9rem;color:var(--muted)}
+.heatwrap{overflow-x:auto;direction:ltr;padding-bottom:.4rem}
+.heat{display:grid;grid-template-rows:repeat(7,12px);grid-auto-flow:column;grid-auto-columns:12px;gap:3px;width:max-content}
+.hc{border-radius:3px;background:var(--slate-200);display:block}
+.hc.h1{background:var(--rose-500)}.hc.h2{background:var(--amber-400)}.hc.h3{background:#34d399}.hc.h4{background:var(--emerald-600)}
+.tl{stroke:var(--indigo-500);fill:none;stroke-width:2.5;stroke-linejoin:round}
+.td{fill:var(--indigo-600)}.gl{stroke:var(--line);stroke-width:1}.tx{fill:var(--muted);font-size:9px}
+.ins{padding:.55rem 0;border-top:1px solid var(--line);font-size:.95rem}
+.ins:first-of-type{border-top:0}
+.delta.up{color:var(--emerald-600)}.delta.dn{color:var(--rose-600)}
+#printArea{display:none;direction:rtl;color:#000;background:#fff;padding:12px}
+@media print{#app,#lock,#blocked,#overlay,#toastBox{display:none!important}#printArea{display:block!important}body{background:#fff}}
+.delnote{background:transparent;color:var(--rose-600);padding:.3rem .7rem;border-radius:99px;font-size:.88rem;font-weight:600}
+.delnote:hover{background:var(--rose-50)}
+.note .txt{white-space:pre-wrap;margin:.2rem 0 .5rem}
+.star{background:var(--slate-100);padding:.3rem .8rem;border-radius:99px;font-size:.88rem;font-weight:600}
+.star:hover{background:var(--slate-200)}
+.star.gold{background:var(--amber-100);color:var(--amber-700)}
+.star.gold svg{fill:var(--amber-500);stroke:var(--amber-500)}
+
+.big{font-size:3.2rem;font-weight:800;color:var(--indigo-600);line-height:1.1}
+.seg{display:flex;background:var(--slate-100);border-radius:.75rem;padding:.2rem;gap:.2rem}
+.seg button{flex:1;background:transparent;padding:.4rem .6rem;border-radius:.6rem;font-weight:600;font-size:.88rem;color:var(--muted)}
+.seg button.on{background:var(--card);color:var(--indigo-600);box-shadow:var(--shadow)}
+details.cat-stat{border-top:1px solid var(--line);padding:.7rem 0}
+details.cat-stat summary{cursor:pointer;list-style:none}
+details.cat-stat summary::-webkit-details-marker{display:none}
+details.cat-stat .qs{padding:.6rem .3rem 0}
+.qrow{margin-top:.7rem}
+.qrow .row{font-size:.92rem}
+.qrow .row span:last-child{margin-inline-start:auto;font-weight:700}
+
+.qitem{display:flex;gap:.5rem;align-items:center;padding:.5rem 0;border-top:1px solid var(--line)}
+.qitem span{flex:1}
+.qitem.arch span{text-decoration:line-through;color:var(--muted)}
+.alert{background:var(--amber-50);color:var(--amber-700);border-radius:.75rem;padding:.75rem 1rem;margin-bottom:1rem;font-weight:500}
+
+.overlay{position:fixed;inset:0;background:var(--bg);z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.5rem;animation:fade .35s ease both}
+.overlay .tick{width:96px;height:96px;border-radius:50%;background:var(--emerald-500);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.overlay .tick svg{width:52px;height:52px;stroke-width:3}
+.toast{position:fixed;bottom:1.25rem;inset-inline:1rem;margin:auto;max-width:340px;background:var(--slate-900);color:#fff;padding:.7rem 1rem;border-radius:.75rem;text-align:center;z-index:30;animation:fade .25s ease both}
+</style>
+</head>
+<body>
+
+<!-- Storage blocked -->
+<div id="blocked" class="center-screen hidden">
+  <div class="panel fade">
+    <div class="badge err"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M12 15v3"/></svg></div>
+    <h1>האחסון בדפדפן חסום</h1>
+    <p>האפליקציה שומרת את הנתונים שלך רק במכשיר, והדפדפן חוסם כרגע את הגישה לאחסון. זה קורה בדרך כלל בגלישה בסתר (Incognito) או כשהגדרות הפרטיות חוסמות אחסון אתרים.<br><br>פתח את הקובץ בחלון גלישה רגיל, או אפשר אחסון לאתר בהגדרות הדפדפן, ואז רענן את הדף.</p>
+    <button class="btn block" onclick="location.reload()">נסה שוב</button>
+  </div>
+</div>
+
+<!-- Lock -->
+<div id="lock" class="center-screen hidden">
+  <div class="panel fade">
+    <div class="badge"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+    <h1>מעקב הרגלים</h1>
+    <p>הכנס סיסמה כדי להמשיך</p>
+    <input type="password" id="pw" placeholder="סיסמה" autocomplete="off">
+    <div class="err-msg" id="pwErr"></div>
+    <button class="btn block" id="pwBtn">כניסה</button>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app" class="hidden">
+  <header class="top"><div class="wrap"><h1>מעקב הרגלים</h1></div></header>
+  <nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+  <main><div class="wrap" id="view"></div></main>
+</div>
+<div id="overlay"></div>
+<div id="printArea"></div>
+<div id="toastBox"></div>
+<input type="file" id="file" accept="application/json,.json" class="hidden">
+
+<script>
+(function(){
+"use strict";
+var PWH="a78da832eec130e042b068a1a8ee03df768a703d988c628520fb5424fe328a91", KEY="habitTrackerV1", SYNC_KEY="habitTrackerV1_sync", SESSION_PW="";
+var SEED={
+ cats:["למידה","בריאות וגוף","תרגול רגיעה","שחרור","ביטחון"],
+ qs:{
+  "למידה":["האם התקדמת עם המאמרים בבוקר?","האם עמדת היום באנקי היומי?","האם התקדמת כשני דפים היום?","האם למדת בסדר אמונה היום?","האם התקדמת עם ההלכה לפי ההספק היומי היום?"],
+  "בריאות וגוף":["האם ישנת אתמול ב-23:00?","האם קמת היום ב-06:20?","האם שתית היום שלושה בקבוקים?","האם עשית ספורט היום? (מתח או ריצה בהתאם ליום)"],
+  "תרגול רגיעה":["האם תרגלת היום נשימות?","האם חילקת את הסדר היום לחצי שעה?","האם נתת לעצמך הפסקה בין 12:30-14:30?"],
+  "שחרור":["האם שחררת היום ביחס לשיחה עמוקה עם חברים פעם אחת?","האם שחררת היום בנוגע לשאלות באנקי?"],
+  "ביטחון":["האם פרגנת לעצמך באלוקי נצור בלפחות תפילה אחת וחיזקת את תחושת הביטחון של עצמך?"]
+ }
+};
+var ICON={
+ star:'<svg viewBox="0 0 24 24"><polygon points="12 2 15.1 8.6 22 9.3 16.8 14 18.2 21 12 17.5 5.8 21 7.2 14 2 9.3 8.9 8.6 12 2"/></svg>',
+ check:'<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>',
+ flame:'<svg viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-7 0-3-2-5-3-7-1 2-2 3-3 3 0-4-2-7-5-9 0 4-3 6-3 11 0 5 3 9 7 9z"/></svg>',
+ down:'<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>',
+ up:'<svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L8 7m4-4l4 4M4 21h16"/></svg>'
+};
+
+var db=null, tab="wizard", fresh=false;
+var W={date:null,idx:0,ans:{},notes:{}};
+var S={range:"all"}, St={sum:"week"}, J={onlyStar:false,q:"",cat:"",from:"",to:""};
+
+/* ---------- helpers ---------- */
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function pad(n){return (n<10?"0":"")+n}
+function ymd(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function today(){return ymd(new Date())}
+function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+function addDays(s,n){var d=parse(s);d.setDate(d.getDate()+n);return ymd(d)}
+function heDate(s){return parse(s).toLocaleDateString("he-IL",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+function uid(){return "q"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function toast(m){var b=$("toastBox");b.innerHTML='<div class="toast">'+esc(m)+'</div>';setTimeout(function(){b.innerHTML=""},3500)}
+
+/* ---------- storage ---------- */
+function seed(){
+ var qs=[];
+ SEED.cats.forEach(function(c){SEED.qs[c].forEach(function(t){qs.push({id:uid(),cat:c,text:t,archived:false})})});
+ return {version:1,cats:SEED.cats.slice(),questions:qs,logs:{},lastExport:null};
+}
+function persist(keep){
+ if(!keep)db.updatedAt=Date.now();
+ try{localStorage.setItem(KEY,JSON.stringify(db));if(Object.keys(db.logs).length)idbPut(JSON.stringify(db));return true}
+ catch(e){toast("לא ניתן לשמור: האחסון חסום או מלא");return false}
+}
+function loadDb(){
+ try{
+  localStorage.setItem(KEY+"_t","1");localStorage.removeItem(KEY+"_t");
+  var raw=localStorage.getItem(KEY);
+  if(!raw){db=seed();fresh=true;persist();return true}
+  var d=JSON.parse(raw);
+  if(!valid(d)){db=seed();persist()}else db=d;
+  return true;
+ }catch(e){
+  try{ if(!localStorage) return false; }catch(e2){return false}
+  /* JSON corrupted but storage works */
+  try{localStorage.setItem(KEY+"_t","1");localStorage.removeItem(KEY+"_t");db=seed();persist();return true}catch(e3){return false}
+ }
+}
+function valid(d){
+ return d&&typeof d==="object"&&Array.isArray(d.cats)&&Array.isArray(d.questions)&&d.logs&&typeof d.logs==="object"&&
+  d.questions.every(function(q){return q&&typeof q.id==="string"&&typeof q.cat==="string"&&typeof q.text==="string"});
+}
+
+/* ---------- automatic in-browser backup (IndexedDB) ---------- */
+function idb(cb){try{var r=indexedDB.open("habitBackup",1);r.onupgradeneeded=function(){r.result.createObjectStore("b")};r.onsuccess=function(){cb(r.result)};r.onerror=function(){cb(null)}}catch(e){cb(null)}}
+function idbPut(json){idb(function(d){if(!d)return;try{
+ var s=d.transaction("b","readwrite").objectStore("b");
+ s.put({json:json,at:Date.now()},"d"+today());
+ var k=s.getAllKeys();k.onsuccess=function(){var ks=k.result.filter(function(x){return /^d\d{4}/.test(x)}).sort();while(ks.length>7){s.delete(ks.shift())}};
+}catch(e){}})}
+function idbSnapKey(key,json){idb(function(d){if(!d)return;try{d.transaction("b","readwrite").objectStore("b").put({json:json,at:Date.now()},key)}catch(e){}})}
+function idbList(cb){idb(function(d){if(!d)return cb([]);try{
+ var s=d.transaction("b").objectStore("b"),k=s.getAllKeys();
+ k.onsuccess=function(){var g=s.getAll();g.onsuccess=function(){var o=[];k.result.forEach(function(key,i){if(/^d\d{4}/.test(key)||key==="pre-sync")o.push({key:key,v:g.result[i]})});o.sort(function(a,b){return a.key<b.key?1:-1});cb(o)};g.onerror=function(){cb([])}};
+ k.onerror=function(){cb([])};
+}catch(e){cb([])}})}
+
+function sha(pw){return crypto.subtle.digest("SHA-256",new TextEncoder().encode("habit-v1:"+pw)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return (x<16?"0":"")+x.toString(16)}).join("")})}
+
+/* ---------- cloud sync (private GitHub Gist, encrypted) ---------- */
+var GDESC="habit-tracker-sync",GFILE="habit-sync.json";
+function syncCfg(){try{return JSON.parse(localStorage.getItem(SYNC_KEY))||{}}catch(e){return {}}}
+function setCfg(c){try{localStorage.setItem(SYNC_KEY,JSON.stringify(c));return true}catch(e){return false}}
+function b64(buf){var s="",b=new Uint8Array(buf);for(var i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);return btoa(s)}
+function unb64(t){var r=atob(t),b=new Uint8Array(r.length);for(var i=0;i<r.length;i++)b[i]=r.charCodeAt(i);return b}
+function deriveKey(salt){
+ return crypto.subtle.importKey("raw",new TextEncoder().encode(SESSION_PW),"PBKDF2",false,["deriveKey"]).then(function(k){
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:150000,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])});
+}
+function encryptDb(d){
+ var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+ return deriveKey(salt).then(function(key){return crypto.subtle.encrypt({name:"AES-GCM",iv:iv},key,new TextEncoder().encode(JSON.stringify(d)))}).then(function(ct){
+  return JSON.stringify({v:1,salt:b64(salt),iv:b64(iv),data:b64(ct),days:Object.keys(d.logs).length,updatedAt:d.updatedAt||Date.now()});
+ });
+}
+function decryptPayload(txt){
+ var o=JSON.parse(txt);
+ return deriveKey(unb64(o.salt)).then(function(key){return crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(o.iv)},key,unb64(o.data))}).then(function(pt){return JSON.parse(new TextDecoder().decode(pt))});
+}
+function gh(cfg,path,opt){
+ opt=opt||{};opt.headers={"Authorization":"Bearer "+cfg.token,"Accept":"application/vnd.github+json"};
+ if(opt.body)opt.headers["Content-Type"]="application/json";
+ return fetch("https://api.github.com"+path,opt).then(function(r){if(!r.ok){var e=new Error("http");e.status=r.status;throw e}return r.json()});
+}
+function findGist(cfg){
+ return gh(cfg,"/gists?per_page=100").then(function(list){
+  var g=list.filter(function(x){return x.description===GDESC&&x.files&&x.files[GFILE]})[0];
+  return g?gh(cfg,"/gists/"+g.id):null;
+ });
+}
+function gistText(g){var f=g.files[GFILE];return f.truncated?fetch(f.raw_url).then(function(r){return r.text()}):Promise.resolve(f.content)}
+function busy(t){$("overlay").innerHTML='<div class="overlay"><p class="muted">'+esc(t)+'</p></div>'}
+function unbusy(){$("overlay").innerHTML=""}
+function syncErr(e){
+ if(e&&e.status===401)return "המפתח לא תקין או שפג תוקפו. הגדר חיבור מחדש.";
+ if(e&&e.status===403)return "אין הרשאה או שהגעת למגבלת בקשות. נסה שוב מאוחר יותר.";
+ if(e&&e.name==="OperationError")return "לא ניתן לפענח את נתוני הענן. הם הוצפנו עם סיסמה אחרת.";
+ return "הסנכרון נכשל. בדוק שיש חיבור לאינטרנט ונסה שוב.";
+}
+function mergeDb(a,b){
+ var w=(a.updatedAt||0)>=(b.updatedAt||0)?a:b,o=w===a?b:a,r=JSON.parse(JSON.stringify(w));
+ o.cats.forEach(function(c){if(r.cats.indexOf(c)<0)r.cats.push(c)});
+ var ids={};r.questions.forEach(function(q){ids[q.id]=1});
+ o.questions.forEach(function(q){if(!ids[q.id])r.questions.push(JSON.parse(JSON.stringify(q)))});
+ Object.keys(o.logs).forEach(function(d){var x=o.logs[d],y=r.logs[d];if(!y||(x.savedAt||0)>(y.savedAt||0))r.logs[d]=JSON.parse(JSON.stringify(x))});
+ r.lastExport=a.lastExport||null;r.updatedAt=Date.now();
+ return r;
+}
+function upload(cfg,g){
+ busy("מעלה לענן...");
+ return encryptDb(db).then(function(txt){
+  var files={};files[GFILE]={content:txt};
+  return g?gh(cfg,"/gists/"+g.id,{method:"PATCH",body:JSON.stringify({files:files})}):gh(cfg,"/gists",{method:"POST",body:JSON.stringify({description:GDESC,public:false,files:files})});
+ }).then(function(){cfg.last=Date.now();setCfg(cfg);unbusy();toast("נתוני המכשיר הועלו לענן");render(true)}).catch(function(e){unbusy();toast(syncErr(e))});
+}
+function applyLocal(nd,keepTs){
+ idbSnapKey("pre-sync",JSON.stringify(db));
+ db=nd;
+ if(persist(keepTs)){W.date=today();loadDraft()}
+}
+function dlg(html){$("overlay").innerHTML='<div class="overlay"><div class="panel" style="max-width:460px;text-align:right">'+html+'</div></div>'}
+function side(title,n,ts){return '<div class="card" style="margin:.4rem 0;box-shadow:none;border:1.5px solid var(--line)"><strong>'+title+'</strong><div class="muted">'+n+' ימים מתועדים · עודכן: '+(ts?esc(new Date(ts).toLocaleString("he-IL")):"לא ידוע")+'</div></div>'}
+function chooseSync(cfg,r){
+ var devN=Object.keys(db.logs).length;
+ if(!r){
+  dlg('<h2>אין עדיין נתונים בענן</h2><p class="muted" style="margin:.5rem 0">להעלות את נתוני המכשיר הזה ('+devN+' ימים מתועדים) לענן?</p>'+
+   '<button class="btn block" id="sUp">כן, העלה את נתוני המכשיר</button><button class="btn ghost block" id="sNo">ביטול</button>');
+  $("sUp").onclick=function(){upload(cfg,null)};$("sNo").onclick=unbusy;return;
+ }
+ var c=r.cdb;
+ dlg('<h2>איזה נתונים לשמור?</h2>'+side("המכשיר הזה",devN,db.updatedAt)+side("הענן",Object.keys(c.logs).length,r.meta.updatedAt)+
+  '<button class="btn block" id="sDev">לשמור את נתוני המכשיר</button><div class="muted">הענן יוחלף בנתוני המכשיר.</div>'+
+  '<button class="btn block" id="sCl">לשמור את נתוני הענן</button><div class="muted">נתוני המכשיר יוחלפו (נשמר גיבוי אוטומטי לפני כן).</div>'+
+  '<button class="btn green block" id="sMg">מיזוג של שניהם</button><div class="muted">איחוד לפי תאריך, הרשומה העדכנית יותר מנצחת. לא מוחק דבר, אבל גם לא מעביר מחיקות.</div>'+
+  '<button class="btn ghost block" id="sNo">ביטול, לא לשנות כלום</button>');
+ $("sNo").onclick=unbusy;
+ $("sDev").onclick=function(){upload(cfg,r.g)};
+ $("sCl").onclick=function(){
+  if(!valid(c)){unbusy();toast("נתוני הענן פגומים");return}
+  applyLocal(c,true);unbusy();cfg.last=Date.now();setCfg(cfg);toast("נתוני הענן נטענו למכשיר");render();
+ };
+ $("sMg").onclick=function(){
+  var mdb=mergeDb(db,c);if(!valid(mdb)){unbusy();toast("המיזוג נכשל");return}
+  applyLocal(mdb);upload(cfg,r.g);
+ };
+}
+function doSync(){
+ var cfg=syncCfg();
+ if(!cfg.token){toast("קודם צריך להגדיר חיבור");return}
+ if(!(window.crypto&&crypto.subtle)){toast("הדפדפן לא תומך בהצפנה");return}
+ busy("מתחבר לענן...");
+ findGist(cfg).then(function(g){
+  if(!g)return {g:null};
+  return gistText(g).then(function(txt){return decryptPayload(txt).then(function(cdb){return {g:g,cdb:cdb,meta:JSON.parse(txt)}})});
+ }).then(function(r){chooseSync(cfg,r.g?r:null)}).catch(function(e){unbusy();toast(syncErr(e))});
+}
+function setupSync(){
+ var cfg=syncCfg();
+ var v=window.prompt("הדבק כאן את מפתח הגישה של GitHub (מתחיל ב-ghp_). השאר ריק כדי להסיר את החיבור.","");
+ if(v===null)return;v=v.trim();
+ if(!v){if(cfg.token&&window.confirm("להסיר את החיבור לענן מהמכשיר הזה?")){try{localStorage.removeItem(SYNC_KEY)}catch(e){}toast("החיבור הוסר");render(true)}return}
+ busy("בודק את המפתח...");
+ gh({token:v},"/gists?per_page=1").then(function(){setCfg({token:v});unbusy();toast("החיבור נשמר");render(true)}).catch(function(e){unbusy();toast(syncErr(e))});
+}
+
+/* ---------- boot / lock ---------- */
+function boot(){
+ if(!loadDb()){$("blocked").classList.remove("hidden");return}
+ $("lock").classList.remove("hidden");
+ function tryPw(){
+  var v=$("pw").value;
+  if(!(window.crypto&&crypto.subtle)){$("pwErr").textContent="הדפדפן לא תומך בבדיקת סיסמה. פתח בדפדפן עדכני.";return}
+  sha(v).then(function(h){
+   if(h===PWH){SESSION_PW=v;$("lock").classList.add("hidden");$("app").classList.remove("hidden");W.date=today();loadDraft();renderTabs();render();if(fresh)idbList(function(l){if(l.length)toast("נמצא גיבוי אוטומטי קודם. אפשר לשחזר אותו בלשונית ניהול שאלות")})}
+   else{$("pwErr").textContent="הסיסמה שגויה, נסה שוב";$("pw").select()}
+  });
+ }
+ $("pwBtn").onclick=tryPw;
+ $("pw").onkeydown=function(e){if(e.key==="Enter")tryPw()};
+ $("pw").focus();
+}
+
+/* ---------- tabs ---------- */
+var TABS=[["wizard","שאלון יומי"],["journal","יומן הערות"],["stats","סטטיסטיקה"],["settings","ניהול שאלות"]];
+function renderTabs(){
+ $("tabs").innerHTML=TABS.map(function(t){return '<button class="tab'+(t[0]===tab?' on':'')+'" data-tab="'+t[0]+'">'+t[1]+'</button>'}).join("");
+}
+$("tabs").addEventListener("click",function(e){
+ var b=e.target.closest("[data-tab]");if(!b)return;
+ tab=b.dataset.tab;renderTabs();render();window.scrollTo(0,0);
+});
+function render(still){
+ var v=$("view");
+ v.innerHTML='<div class="'+(still===true?'':'fade')+'" id="pane"></div>';
+ ({wizard:rWizard,journal:rJournal,stats:rStats,settings:rSettings})[tab]($("pane"));
+}
+
+/* ---------- wizard ---------- */
+function activeCats(){
+ return db.cats.filter(function(c){return db.questions.some(function(q){return q.cat===c&&!q.archived})});
+}
+function loadDraft(){
+ var l=db.logs[W.date];
+ W.ans=l&&l.answers?JSON.parse(JSON.stringify(l.answers)):{};
+ W.notes=l&&l.notes?JSON.parse(JSON.stringify(l.notes)):{};
+ W.idx=0;
+}
+function rWizard(p){
+ var cats=activeCats();
+ if(!cats.length){p.innerHTML='<div class="card"><h2>אין שאלות פעילות</h2><p class="muted">הוסף שאלות בלשונית "ניהול שאלות".</p></div>';return}
+ if(W.idx>=cats.length)W.idx=cats.length-1;
+ var cat=cats[W.idx], last=W.idx===cats.length-1;
+ var qs=db.questions.filter(function(q){return q.cat===cat&&!q.archived});
+ var pct=Math.round((W.idx+1)/cats.length*100);
+ var isToday=W.date===today();
+ p.innerHTML=
+ '<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label>'+
+ '<input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
+ '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?'':' (מילוי רטרואקטיבי)')+(db.logs[W.date]?' · כבר נשמר, שמירה מחדש תעדכן אותו':'')+'</div></div>'+
+ '<div class="card"><div class="row between" style="margin-bottom:.5rem"><span class="muted">קטגוריה '+(W.idx+1)+' מתוך '+cats.length+'</span><span class="muted">'+pct+'%</span></div>'+
+ '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
+ '<div class="card" key="'+W.idx+'"><h2>'+esc(cat)+'</h2>'+
+ qs.map(function(q){var a=W.ans[q.id];return '<div class="q"><p>'+esc(q.text)+'</p><div class="ans">'+
+  '<button class="yes'+(a===true?' on':'')+'" data-a="1" data-q="'+q.id+'">כן</button>'+
+  '<button class="no'+(a===false?' on':'')+'" data-a="0" data-q="'+q.id+'">לא</button></div></div>'}).join("")+
+ '<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label>'+
+ '<textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[cat]||"")+'</textarea></div>'+
+ '<div class="nav-row"><button class="btn ghost" id="prev"'+(W.idx===0?' disabled':'')+'>הקודם</button>'+
+ '<button class="btn'+(last?' green':'')+'" id="next">'+(last?'שמירה':'הבא')+'</button></div></div>';
+ $("wdate").onchange=function(){if(this.value&&this.value<=today()){W.date=this.value;loadDraft();render()}};
+ p.querySelectorAll(".ans button").forEach(function(b){b.onclick=function(){
+  var id=b.dataset.q,val=b.dataset.a==="1";
+  if(W.ans[id]===val)delete W.ans[id];else W.ans[id]=val;
+  var pair=b.parentNode;
+  pair.querySelector(".yes").classList.toggle("on",W.ans[id]===true);
+  pair.querySelector(".no").classList.toggle("on",W.ans[id]===false);
+ }});
+ $("prev").onclick=function(){keepNote(cat);W.idx--;render();window.scrollTo(0,0)};
+ $("next").onclick=function(){
+  keepNote(cat);
+  if(!last){W.idx++;render();window.scrollTo(0,0)}else saveLog();
+ };
+}
+function keepNote(cat){var t=$("wnote");if(t){var v=t.value.trim();if(v)W.notes[cat]=v;else delete W.notes[cat]}}
+function qtext(id){var q=db.questions.filter(function(x){return x.id===id})[0];return q?q.text:""}
+function goalsMet(){return db.questions.filter(function(q){return q.goal&&!q.archived&&weekCount(q.id,W.date)>=q.goal}).map(function(q){return q.id})}
+function saveLog(){
+ var old=db.logs[W.date]||{};
+ var notes={};Object.keys(W.notes).forEach(function(k){if(W.notes[k])notes[k]=W.notes[k]});
+ var sig={};var os=old.noteSignificance||{};
+ Object.keys(os).forEach(function(k){if(notes[k])sig[k]=os[k]});
+ var before=goalsMet();
+ db.logs[W.date]={answers:W.ans,notes:notes,noteSignificance:sig,savedAt:Date.now()};
+ if(!persist())return;
+ var nw=goalsMet().filter(function(id){return before.indexOf(id)<0});
+ var goalMsg=nw.length?'<div class="pill" style="margin-bottom:1.25rem">יעד שבועי הושג: '+nw.map(function(id){return esc(qtext(id))}).join(", ")+'</div>':"";
+ $("overlay").innerHTML='<div class="overlay"><div class="tick">'+ICON.check+'</div><h1>נשמר בהצלחה</h1>'+
+  '<p class="muted" style="margin:.5rem 0 1.25rem">התשובות של '+esc(heDate(W.date))+' נשמרו.</p>'+goalMsg+
+  '<button class="btn" id="ovOk">חזרה לאפליקציה</button></div>';
+ $("ovOk").onclick=function(){$("overlay").innerHTML="";W.date=today();loadDraft();render();window.scrollTo(0,0)};
+}
+
+/* ---------- journal ---------- */
+function rJournal(p){
+ p.innerHTML='<div class="card"><div style="display:grid;gap:.6rem">'+
+  '<input type="text" id="jq" placeholder="חיפוש בהערות..." value="'+esc(J.q)+'" aria-label="חיפוש">'+
+  '<div class="row"><select id="jc" style="flex:1;min-width:120px" aria-label="קטגוריה"><option value="">כל הקטגוריות</option>'+
+  db.cats.map(function(c){return '<option'+(J.cat===c?' selected':'')+'>'+esc(c)+'</option>'}).join("")+'</select>'+
+  '<input type="date" id="jfrom" value="'+J.from+'" style="flex:1;min-width:130px" aria-label="מתאריך">'+
+  '<input type="date" id="jto" value="'+J.to+'" style="flex:1;min-width:130px" aria-label="עד תאריך"></div>'+
+  '<div class="row between"><button class="btn sm ghost" id="jf"></button><button class="btn sm ghost" id="jclr">ניקוי סינון</button></div></div></div><div id="jlist"></div>';
+ $("jq").oninput=function(){J.q=this.value;drawJ()};
+ $("jc").onchange=function(){J.cat=this.value;drawJ()};
+ $("jfrom").onchange=function(){J.from=this.value;drawJ()};
+ $("jto").onchange=function(){J.to=this.value;drawJ()};
+ $("jf").onclick=function(){J.onlyStar=!J.onlyStar;drawJ()};
+ $("jclr").onclick=function(){J={onlyStar:false,q:"",cat:"",from:"",to:""};render(true)};
+ drawJ();
+}
+function drawJ(){
+ var q=J.q.trim().toLowerCase();
+ var dates=Object.keys(db.logs).filter(function(d){var n=db.logs[d].notes;return n&&Object.keys(n).length&&(!J.from||d>=J.from)&&(!J.to||d<=J.to)}).sort().reverse();
+ var html='',shown=0;
+ dates.forEach(function(d){
+  var l=db.logs[d],sig=l.noteSignificance||{};
+  var cats=db.cats.concat(Object.keys(l.notes).filter(function(c){return db.cats.indexOf(c)<0}));
+  var items=cats.filter(function(c){
+   return l.notes[c]&&(!J.cat||c===J.cat)&&(!J.onlyStar||(sig[c]||0)>0)&&(!q||l.notes[c].toLowerCase().indexOf(q)>=0);
+  });
+  if(!items.length)return;
+  shown++;
+  html+='<div class="card date-card"><h2>'+esc(heDate(d))+'</h2>'+items.map(function(c){
+   var n=sig[c]||0;
+   return '<div class="note"><div class="cat">'+esc(c)+'</div><div class="txt">'+esc(l.notes[c])+'</div>'+
+   '<button class="star'+(n>0?' gold':'')+'" data-d="'+d+'" data-c="'+esc(c)+'">'+ICON.star+' משמעותי עבורי'+(n>0?' ('+n+')':'')+'</button> '+
+   '<button class="delnote" data-dd="'+d+'" data-dc="'+esc(c)+'">מחיקת הערה</button></div>';
+  }).join("")+'</div>';
+ });
+ var filtered=J.onlyStar||q||J.cat||J.from||J.to;
+ if(!shown)html='<div class="card"><p class="muted">'+(filtered?'לא נמצאו הערות שמתאימות לסינון.':'עדיין אין הערות. הוסף הערות בשאלון היומי והן יופיעו כאן.')+'</p></div>';
+ var L=$("jlist");L.innerHTML=html;
+ var f=$("jf");f.className="btn sm "+(J.onlyStar?"":"ghost");f.innerHTML=ICON.star+" "+(J.onlyStar?"מציג רק משמעותיות":"רק משמעותיות");
+ L.querySelectorAll(".delnote").forEach(function(b){b.onclick=function(){
+  if(!window.confirm("למחוק את ההערה הזו? לא ניתן לשחזר אותה (התשובות כן/לא של אותו יום יישארו)."))return;
+  var l=db.logs[b.dataset.dd];if(!l)return;
+  delete l.notes[b.dataset.dc];
+  if(l.noteSignificance)delete l.noteSignificance[b.dataset.dc];l.savedAt=Date.now();
+  if(persist()){toast("ההערה נמחקה");drawJ()}
+ }});
+ L.querySelectorAll(".star").forEach(function(b){b.onclick=function(){
+  var l=db.logs[b.dataset.d];if(!l.noteSignificance)l.noteSignificance={};
+  l.noteSignificance[b.dataset.c]=(l.noteSignificance[b.dataset.c]||0)+1;l.savedAt=Date.now();
+  if(persist())drawJ();
+ }});
+}
+
+/* ---------- stats ---------- */
+var DN=["ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת"];
+function cls(p){return p>=70?"good":p>=40?"mid":"low"}
+function streak(){
+ var d=today();if(!db.logs[d])d=addDays(d,-1);
+ var n=0;while(db.logs[d]){n++;d=addDays(d,-1)}return n;
+}
+function qmap(){var m={};db.questions.forEach(function(q){m[q.id]=q});return m}
+function sdate(d){return parse(d).toLocaleDateString("he-IL",{day:"numeric",month:"numeric"})}
+function pc(o){return o&&o.t?Math.round(o.y/o.t*100):null}
+function dayStat(d,m){
+ var l=db.logs[d];if(!l||!l.answers)return null;var y=0,t=0;
+ for(var id in l.answers){if(!m[id])continue;t++;if(l.answers[id]===true)y++}
+ return t?{y:y,t:t}:null;
+}
+function aggr(from,to,m){
+ var y=0,t=0,days=0,pq={};
+ for(var d=from;d<=to;d=addDays(d,1)){
+  var l=db.logs[d];if(!l)continue;days++;var a=l.answers||{};
+  for(var id in a){if(!m[id])continue;t++;var o=pq[id]||(pq[id]={y:0,t:0});o.t++;if(a[id]===true){y++;o.y++}}
+ }
+ return {y:y,t:t,days:days,pq:pq,p:t?Math.round(y/t*100):null};
+}
+function weekCount(id,anchor){
+ var st=addDays(anchor,-parse(anchor).getDay()),c=0;
+ for(var i=0;i<7;i++){var l=db.logs[addDays(st,i)];if(l&&l.answers&&l.answers[id]===true)c++}
+ return c;
+}
+function heat(m){
+ var t=today(),start=addDays(t,-parse(t).getDay()-52*7),h='';
+ for(var i=0;i<53*7;i++){
+  var d=addDays(start,i);
+  if(d>t){h+='<i class="hc" style="visibility:hidden"></i>';continue}
+  var p=pc(dayStat(d,m));
+  h+='<i class="hc '+(p===null?'':p<40?'h1':p<70?'h2':p<90?'h3':'h4')+'" title="'+d+(p===null?'':' · '+p+'%')+'"></i>';
+ }
+ return '<div class="heatwrap" id="hw"><div class="heat">'+h+'</div></div>'+
+  '<div class="muted" style="margin-top:.4rem">שנה אחרונה. אפור: לא מולא. אדום עד ירוק כהה: מאחוז הצלחה נמוך לגבוה.</div>';
+}
+function trend(m){
+ var t=today(),pts=[];
+ for(var i=11;i>=0;i--){var to=addDays(t,-7*i);pts.push(aggr(addDays(to,-6),to,m).p)}
+ if(pts.filter(function(x){return x!==null}).length<2)return '<p class="muted">צריך לפחות שני שבועות עם נתונים כדי להציג מגמה.</p>';
+ var W=300,H=110,pl=28,pr=8,pt=8,pb=8,n=pts.length;
+ function X(i){return pl+i*(W-pl-pr)/(n-1)}
+ function Y(v){return pt+(100-v)/100*(H-pt-pb)}
+ var g=[0,50,100].map(function(v){return '<line class="gl" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(v)+'" y2="'+Y(v)+'"/><text class="tx" x="0" y="'+(Y(v)+3)+'">'+v+'%</text>'}).join("");
+ var d="",pen=false,dots="";
+ pts.forEach(function(v,i){if(v===null){pen=false;return}d+=(pen?"L":"M")+X(i)+" "+Y(v)+" ";pen=true;dots+='<circle class="td" cx="'+X(i)+'" cy="'+Y(v)+'" r="3"><title>'+v+'%</title></circle>'});
+ return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;direction:ltr" role="img" aria-label="גרף מגמה שבועי">'+g+'<path class="tl" d="'+d+'"/>'+dots+'</svg>'+
+  '<div class="muted">אחוז הצלחה שבועי ב-12 השבועות האחרונים (ימין = הכי חדש)</div>';
+}
+function insights(m){
+ var out=[],t=today(),wd=[];
+ for(var k=0;k<7;k++)wd.push({y:0,t:0,n:0});
+ Object.keys(db.logs).forEach(function(d){var s=dayStat(d,m);if(!s)return;var o=wd[parse(d).getDay()];o.y+=s.y;o.t+=s.t;o.n++});
+ var q=wd.map(function(o,i){return {i:i,p:pc(o),n:o.n}}).filter(function(o){return o.n>=3});
+ if(q.length>=2){
+  q.sort(function(a,b){return b.p-a.p});
+  var b=q[0],w=q[q.length-1];
+  if(b.p-w.p>=8)out.push('היום החזק שלך הוא יום '+DN[b.i]+' ('+b.p+'%), והחלש הוא יום '+DN[w.i]+' ('+w.p+'%).');
+ }
+ var cur=aggr(addDays(t,-13),t,m),prv=aggr(addDays(t,-27),addDays(t,-14),m),best=null,worst=null,low=null;
+ Object.keys(cur.pq).forEach(function(id){
+  var c=cur.pq[id],pp=prv.pq[id];if(c.t<3)return;
+  var cp=pc(c);
+  if(pp&&pp.t>=3){var dl=cp-pc(pp);if(dl>=15&&(!best||dl>best.d))best={id:id,d:dl,cp:cp};if(dl<=-15&&(!worst||dl<worst.d))worst={id:id,d:dl,cp:cp}}
+  if(cp<50&&(!low||cp<low.cp))low={id:id,cp:cp};
+ });
+ if(best)out.push('הכי השתפר ב-14 הימים האחרונים: "'+qtext(best.id)+'" (עלייה של '+best.d+' נקודות, '+best.cp+'% עכשיו).');
+ if(worst)out.push('ירידה ב-14 הימים האחרונים: "'+qtext(worst.id)+'" (ירידה של '+Math.abs(worst.d)+' נקודות).');
+ if(low)out.push('שווה תשומת לב: "'+qtext(low.id)+'" עומד על '+low.cp+'% בשבועיים האחרונים.');
+ return out;
+}
+function corr(m){
+ var ids=Object.keys(m),res=[];
+ ids.forEach(function(id){
+  var yes=[],no=[];
+  Object.keys(db.logs).forEach(function(d){
+   var a=db.logs[d].answers;if(!a||(a[id]!==true&&a[id]!==false))return;
+   var y=0,t=0;for(var k in a){if(k===id||!m[k])continue;t++;if(a[k]===true)y++}
+   if(t<2)return;(a[id]===true?yes:no).push(y/t*100);
+  });
+  if(yes.length<3||no.length<3)return;
+  function av(x){return x.reduce(function(s2,v){return s2+v},0)/x.length}
+  var ay=Math.round(av(yes)),an=Math.round(av(no));
+  if(ay-an>=10)res.push({id:id,ay:ay,an:an,d:ay-an,ny:yes.length,nn:no.length});
+ });
+ res.sort(function(a,b){return b.d-a.d});
+ return res.slice(0,3);
+}
+function period(kind){
+ var t=today(),from,to,pf,pto;
+ if(kind==="week"){var dw=parse(t).getDay();to=addDays(t,-dw-1);from=addDays(to,-6);pto=addDays(from,-1);pf=addDays(pto,-6)}
+ else{var d=parse(t),y=d.getFullYear(),mo=d.getMonth();from=ymd(new Date(y,mo-1,1));to=ymd(new Date(y,mo,0));pf=ymd(new Date(y,mo-2,1));pto=ymd(new Date(y,mo-1,0))}
+ return {from:from,to:to,pf:pf,pto:pto};
+}
+function summary(m){
+ var per=period(St.sum),A=aggr(per.from,per.to,m),B=aggr(per.pf,per.pto,m);
+ var h='<div class="seg" style="margin-bottom:.8rem"><button data-sm="week" class="'+(St.sum==="week"?'on':'')+'">שבוע שעבר</button><button data-sm="month" class="'+(St.sum==="month"?'on':'')+'">חודש שעבר</button></div>';
+ h+='<div class="muted">'+sdate(per.from)+' עד '+sdate(per.to)+'</div>';
+ if(A.p===null)return h+'<p class="muted" style="margin-top:.5rem">אין נתונים בתקופה הזו.</p>';
+ var dl=B.p===null?"":A.p-B.p;
+ h+='<div class="row" style="margin:.4rem 0"><span class="big" style="font-size:2.2rem">'+A.p+'%</span>'+
+  (dl===""?'':'<span class="delta '+(dl>=0?'up':'dn')+'"><b>'+(dl>=0?'+':'')+dl+' נק\u2019</b> לעומת התקופה שלפניה</span>')+'</div>'+
+  '<div class="muted">'+A.days+' ימים מתועדים</div>';
+ var arr=Object.keys(A.pq).filter(function(id){return A.pq[id].t>=2}).map(function(id){return {id:id,p:pc(A.pq[id])}}).sort(function(a,b){return b.p-a.p});
+ if(arr.length>=2){
+  h+='<div class="ins">החזק ביותר: "'+esc(qtext(arr[0].id))+'" ('+arr[0].p+'%)</div><div class="ins">החלש ביותר: "'+esc(qtext(arr[arr.length-1].id))+'" ('+arr[arr.length-1].p+'%)</div>';
+ }
+ var notes=[];
+ for(var d=per.from;d<=per.to;d=addDays(d,1)){
+  var l=db.logs[d];if(!l||!l.noteSignificance)continue;
+  for(var c in l.noteSignificance){if(l.noteSignificance[c]>0&&l.notes&&l.notes[c])notes.push({d:d,c:c,t:l.notes[c]})}
+ }
+ if(notes.length)h+='<div style="margin-top:.7rem"><strong>הערות משמעותיות בתקופה</strong>'+notes.map(function(n){return '<div class="ins"><span class="muted">'+sdate(n.d)+' · '+esc(n.c)+'</span><br>'+esc(n.t.length>140?n.t.slice(0,140)+"...":n.t)+'</div>'}).join("")+'</div>';
+ return h;
+}
+function printReport(m,A,all){
+ var t=today(),row='display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:2px 0;font-size:13px';
+ var h='<h1 style="font-size:20px;margin:0 0 4px">דוח מעקב הרגלים</h1><div style="color:#555;margin-bottom:12px">'+esc(heDate(t))+' · '+(S.range==="all"?"כל הזמן":S.range+" ימים אחרונים")+' · '+A.days+' ימים מתועדים</div>'+
+  '<div style="font-size:28px;font-weight:700;margin-bottom:8px">הצלחה כוללת: '+all+'%</div>';
+ db.cats.forEach(function(c){
+  var qs=db.questions.filter(function(q){return q.cat===c&&A.pq[q.id]});if(!qs.length)return;
+  var cy=0,ct=0;qs.forEach(function(q){cy+=A.pq[q.id].y;ct+=A.pq[q.id].t});
+  h+='<h2 style="font-size:15px;margin:12px 0 4px">'+esc(c)+' · '+Math.round(cy/ct*100)+'%</h2>'+
+   qs.map(function(q){return '<div style="'+row+'"><span>'+esc(q.text)+'</span><b>'+pc(A.pq[q.id])+'%</b></div>'}).join("");
+ });
+ var from=S.range==="all"?"0000-00-00":addDays(t,-(+S.range-1)),nt="";
+ Object.keys(db.logs).sort().reverse().forEach(function(d){
+  if(d<from||d>t)return;var l=db.logs[d],sg=l.noteSignificance||{};
+  Object.keys(sg).forEach(function(c){if(sg[c]>0&&l.notes&&l.notes[c])nt+='<div style="border-bottom:1px solid #ddd;padding:4px 0;font-size:13px"><b>'+sdate(d)+' · '+esc(c)+' (★ '+sg[c]+')</b><div style="white-space:pre-wrap">'+esc(l.notes[c])+'</div></div>'});
+ });
+ if(nt)h+='<h2 style="font-size:15px;margin:16px 0 4px">הערות משמעותיות</h2>'+nt;
+ return h;
+}
+function rStats(p){
+ var m=qmap(),t=today();
+ var from=S.range==="all"?(Object.keys(db.logs).sort()[0]||t):addDays(t,-(+S.range-1));
+ var A=aggr(from,t,m),yes={},tot={};
+ Object.keys(A.pq).forEach(function(id){tot[id]=A.pq[id].t;yes[id]=A.pq[id].y});
+ var all=A.p===null?0:A.p,st=streak(),days=A.days;
+ var html='<div class="seg" style="margin-bottom:1rem">'+[["7","7 ימים"],["30","30 ימים"],["all","כל הזמן"]].map(function(r){
+  return '<button data-r="'+r[0]+'" class="'+(S.range===r[0]?'on':'')+'">'+r[1]+'</button>'}).join("")+'</div>'+
+ '<div class="card"><div class="muted">אחוז הצלחה כולל</div><div class="big">'+all+'%</div>'+
+ '<div class="bar '+cls(all)+'" style="margin:.7rem 0"><i style="width:'+all+'%"></i></div>'+
+ '<div class="row between"><span class="muted">'+days+' ימים מתועדים בתקופה</span>'+
+ '<span class="pill">'+ICON.flame+' רצף: '+st+' '+(st===1?'יום':'ימים')+'</span></div></div>';
+ var gq=db.questions.filter(function(q){return q.goal&&!q.archived});
+ if(gq.length)html+='<div class="card"><h2>יעדים שבועיים</h2><div class="muted" style="margin-bottom:.4rem">השבוע (מיום ראשון)</div>'+gq.map(function(q){
+  var c=weekCount(q.id,t),ok=c>=q.goal;
+  return '<div class="qrow"><div class="row"><span>'+esc(q.text)+'</span><span>'+(ok?'<span class="pill">'+ICON.check+' הושג, כל הכבוד!</span>':c+' מתוך '+q.goal)+'</span></div>'+
+   '<div class="bar sm '+(ok?'good':'')+'" style="margin-top:.3rem"><i style="width:'+Math.min(100,Math.round(c/q.goal*100))+'%"></i></div></div>';
+ }).join("")+'</div>';
+ var ins=insights(m);
+ html+='<div class="card"><h2>תובנות</h2>'+(ins.length?ins.map(function(x){return '<div class="ins">'+esc(x)+'</div>'}).join(""):'<p class="muted">צריך עוד כמה ימים של נתונים כדי לזהות דפוסים.</p>')+'</div>';
+ html+='<div class="card"><h2>סיכום תקופה</h2>'+summary(m)+'</div>';
+ html+='<div class="card"><h2>מגמה</h2>'+trend(m)+'</div>';
+ html+='<div class="card"><h2>מפת חום</h2>'+heat(m)+'</div>';
+ var cr=corr(m);
+ html+='<div class="card"><h2>קשרים בין הרגלים</h2>'+(cr.length?cr.map(function(c){
+  return '<div class="ins">בימים שבהם ענית כן על "'+esc(qtext(c.id))+'" עמדת ב-<b>'+c.ay+'%</b> משאר השאלות, לעומת <b>'+c.an+'%</b> בימים שענית לא.</div>';
+ }).join("")+'<div class="muted" style="margin-top:.4rem">זה קשר סטטיסטי ולא הוכחה לסיבה ותוצאה.</div>':'<p class="muted">עדיין אין מספיק נתונים לקשרים ברורים (דרושים לפחות 3 ימים עם כן ו-3 עם לא לכל הרגל).</p>')+'</div>';
+ var cats=db.cats.filter(function(c){return db.questions.some(function(q){return q.cat===c&&(!q.archived||tot[q.id])})});
+ html+='<div class="card"><h2>לפי קטגוריות</h2>'+(cats.length?cats.map(function(c){
+  var qs=db.questions.filter(function(q){return q.cat===c&&(!q.archived||tot[q.id])});
+  var cy=0,ct=0;qs.forEach(function(q){cy+=yes[q.id]||0;ct+=tot[q.id]||0});
+  var cp=ct?Math.round(cy/ct*100):null;
+  return '<details class="cat-stat"><summary><div class="row between"><strong>'+esc(c)+'</strong><span><strong>'+(cp===null?'טרם נענה':cp+'%')+'</strong> <span class="muted">▾</span></span></div>'+
+   '<div class="bar sm '+(cp===null?'':cls(cp))+'" style="margin-top:.4rem"><i style="width:'+(cp||0)+'%"></i></div></summary><div class="qs">'+
+   qs.map(function(q){
+    var tt=tot[q.id]||0,pp=tt?Math.round((yes[q.id]||0)/tt*100):null;
+    return '<div class="qrow"><div class="row"><span>'+esc(q.text)+(q.archived?' (בארכיון)':'')+'</span><span>'+(pp===null?'<span class="muted">טרם נענה</span>':pp+'%')+'</span></div>'+
+     '<div class="bar sm '+(pp===null?'':cls(pp))+'" style="margin-top:.3rem"><i style="width:'+(pp||0)+'%"></i></div></div>';
+   }).join("")+'</div></details>';
+ }).join(""):'<p class="muted">אין נתונים עדיין.</p>')+'</div>'+
+ '<button class="btn ghost block" id="prt">הדפסה או שמירה כ-PDF</button>';
+ p.innerHTML=html;
+ p.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){S.range=b.dataset.r;render(true)}});
+ p.querySelectorAll("[data-sm]").forEach(function(b){b.onclick=function(){St.sum=b.dataset.sm;render(true)}});
+ $("prt").onclick=function(){$("printArea").innerHTML=printReport(m,A,all);window.print()};
+ var hw=$("hw");if(hw)hw.scrollLeft=hw.scrollWidth;
+}
+
+/* ---------- settings ---------- */
+function rSettings(p){
+ var logsN=Object.keys(db.logs).length;
+ var stale=logsN>0&&(!db.lastExport||Date.now()-db.lastExport>14*864e5);
+ var html='';
+ if(stale)html+='<div class="alert">'+(db.lastExport?'עברו יותר משבועיים מהגיבוי האחרון.':'עוד לא ייצאת גיבוי.')+' הנתונים נשמרים רק בדפדפן הזה, מומלץ לייצא קובץ גיבוי.</div>';
+ html+='<div class="card"><h2>הוספת שאלה</h2><div style="display:grid;gap:.6rem">'+
+  '<select id="ncat" aria-label="קטגוריה">'+db.cats.map(function(c){return '<option>'+esc(c)+'</option>'}).join("")+'</select>'+
+  '<input type="text" id="ntxt" placeholder="נוסח שאלת כן/לא, למשל: האם ...?">'+
+  '<button class="btn" id="nadd">הוספת שאלה</button></div></div>';
+ html+='<div class="card"><h2>השאלות שלי</h2><p class="muted" style="margin-bottom:.4rem">שאלה בארכיון לא מופיעה בשאלון, אבל התשובות הקודמות שלה נשמרות בסטטיסטיקה.</p>'+
+  db.cats.map(function(c){
+   var qs=db.questions.filter(function(q){return q.cat===c});
+   return '<div style="margin-top:.8rem"><strong>'+esc(c)+'</strong>'+(qs.length?qs.map(function(q){
+    return '<div class="qitem'+(q.archived?' arch':'')+'"><span>'+esc(q.text)+'</span>'+
+     '<button class="btn ghost sm" data-e="'+q.id+'">עריכה</button>'+
+     '<button class="btn ghost sm" data-g="'+q.id+'">יעד'+(q.goal?' ('+q.goal+')':'')+'</button>'+'<button class="btn ghost sm" data-ar="'+q.id+'">'+(q.archived?'שחזור':'ארכוב')+'</button></div>';
+   }).join(""):'<div class="muted">אין שאלות</div>')+'</div>';
+  }).join("")+'</div>';
+ var sc=syncCfg();
+ html+='<div class="card"><h2>סנכרון בין מכשירים</h2><p class="muted" style="margin-bottom:.8rem">שולח ומקבל נתונים מוצפנים דרך חשבון GitHub שלך. דורש אינטרנט רק ברגע הלחיצה. לפני כל החלפה תתבקש לבחור איזה נתונים לשמור.</p>'+
+  '<div class="row"><button class="btn" id="sync">סנכרון</button><button class="btn ghost" id="syncCfg">'+(sc.token?'שינוי חיבור':'הגדרת חיבור')+'</button></div>'+
+  '<div class="muted" style="margin-top:.6rem">'+(sc.token?'מחובר'+(sc.last?' · סנכרון אחרון: '+esc(new Date(sc.last).toLocaleString("he-IL")):' · עוד לא סונכרן'):'החיבור עוד לא הוגדר במכשיר הזה')+'</div></div>';
+ html+='<div class="card"><h2>גיבוי ושחזור</h2><p class="muted" style="margin-bottom:.8rem">'+
+  (db.lastExport?'גיבוי אחרון: '+esc(new Date(db.lastExport).toLocaleDateString("he-IL")):'עוד לא בוצע גיבוי')+'</p>'+
+  '<div class="row"><button class="btn" id="exp">'+ICON.down+' ייצוא נתונים</button><button class="btn ghost" id="imp">'+ICON.up+' ייבוא נתונים</button></div><div id="snaps" style="margin-top:1rem"></div></div>';
+ p.innerHTML=html;
+ $("nadd").onclick=function(){
+  var t=$("ntxt").value.trim();if(!t){toast("כתוב את נוסח השאלה");return}
+  db.questions.push({id:uid(),cat:$("ncat").value,text:t,archived:false});
+  if(persist()){toast("השאלה נוספה");render(true)}
+ };
+ p.querySelectorAll("[data-e]").forEach(function(b){b.onclick=function(){
+  var q=db.questions.filter(function(x){return x.id===b.dataset.e})[0];
+  var t=window.prompt("עריכת השאלה",q.text);
+  if(t&&t.trim()){q.text=t.trim();if(persist())render(true)}
+ }});
+ p.querySelectorAll("[data-ar]").forEach(function(b){b.onclick=function(){
+  var q=db.questions.filter(function(x){return x.id===b.dataset.ar})[0];
+  q.archived=!q.archived;if(persist())render(true);
+ }});
+ p.querySelectorAll("[data-g]").forEach(function(b){b.onclick=function(){
+  var q=db.questions.filter(function(x){return x.id===b.dataset.g})[0];
+  var v=window.prompt("יעד שבועי: כמה ימים בשבוע (1-7)? השאר ריק כדי להסיר.",q.goal||"");
+  if(v===null)return;v=v.trim();
+  if(v===""){delete q.goal}else{var n=parseInt(v,10);if(!(n>=1&&n<=7)){toast("הזן מספר בין 1 ל-7");return}q.goal=n}
+  if(persist())render(true);
+ }});
+ idbList(function(list){
+  var el=$("snaps");if(!el||!list.length)return;
+  el.innerHTML='<div class="muted" style="margin-bottom:.4rem">גיבויים אוטומטיים בדפדפן (עד 7 ימים אחרונים)</div>'+list.map(function(o){
+   var n="";try{n=Object.keys(JSON.parse(o.v.json).logs).length+" ימים מתועדים"}catch(e){}
+   return '<div class="qitem"><span>'+esc((o.key==='pre-sync'?'לפני הסנכרון האחרון':heDate(o.key.slice(1))))+' <span class="muted">· '+n+'</span></span><button class="btn ghost sm" data-sk="'+o.key+'">שחזור</button></div>';
+  }).join("");
+  el.querySelectorAll("[data-sk]").forEach(function(b){b.onclick=function(){
+   var o=list.filter(function(x){return x.key===b.dataset.sk})[0];
+   if(!o||!window.confirm("לשחזר את הגיבוי הזה? הנתונים הנוכחיים יוחלפו."))return;
+   try{var d=JSON.parse(o.v.json);if(!valid(d))throw 0;db=d;if(persist()){W.date=today();loadDraft();toast("הגיבוי שוחזר");render()}}
+   catch(e){toast("הגיבוי פגום")}
+  }});
+ });
+ $("sync").onclick=doSync;$("syncCfg").onclick=setupSync;
+ $("exp").onclick=exportData;
+ $("imp").onclick=function(){$("file").value="";$("file").click()};
+}
+function exportData(){
+ try{
+  var blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="habit-backup-"+today()+".json";document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
+  db.lastExport=Date.now();persist();toast("הגיבוי הורד");render();
+ }catch(e){toast("הייצוא נכשל")}
+}
+$("file").onchange=function(){
+ var f=this.files[0];if(!f)return;
+ var r=new FileReader();
+ r.onload=function(){
+  try{
+   var d=JSON.parse(r.result);
+   if(!valid(d))throw new Error("bad");
+   if(!window.confirm("הייבוא יחליף את כל הנתונים הנוכחיים ("+Object.keys(db.logs).length+" ימים מתועדים). להמשיך?"))return;
+   db=d;if(!db.lastExport)db.lastExport=null;
+   if(persist()){W.date=today();loadDraft();toast("הנתונים יובאו בהצלחה");render()}
+  }catch(e){toast("הקובץ אינו קובץ גיבוי תקין")}
+ };
+ r.onerror=function(){toast("קריאת הקובץ נכשלה")};
+ r.readAsText(f);
+};
+
+boot();
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+})();
+</script>
+</body>
+</html>
