@@ -37,6 +37,7 @@ jobs:
       - name: Set app name
         run: |
           sed -i 's|<string name="app_name">.*</string>|<string name="app_name">מעקב הרגלים</string>|; s|<string name="title_activity_main">.*</string>|<string name="title_activity_main">מעקב הרגלים</string>|' android/app/src/main/res/values/strings.xml
+          sed -i "s/versionCode 1/versionCode ${{ github.run_number }}/" android/app/build.gradle
 
       - name: Set app icon (optional, build continues if this fails)
         continue-on-error: true
@@ -51,6 +52,14 @@ jobs:
               fi
             done
           done
+
+      - name: Use fixed signing key
+        env:
+          KS: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KS" ]; then echo "::error::The secret DEBUG_KEYSTORE_BASE64 is missing in the repository settings"; exit 1; fi
+          mkdir -p ~/.android
+          echo "$KS" | base64 -d > ~/.android/debug.keystore
 
       - name: Build APK
         working-directory: android
