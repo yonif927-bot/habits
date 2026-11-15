@@ -121,6 +121,14 @@ main{padding:1rem 1rem 3rem}
 .tbl th{background:var(--bg)}
 .tbl tr.cur{background:var(--amber-100)}.tbl tr.dn{color:var(--muted)}
 .hc.hx{opacity:.35}
+.rbg{fill:none;stroke:var(--slate-200);stroke-width:10}
+.rfg{fill:none;stroke:var(--emerald-500);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.rtx{fill:var(--text);font-size:26px;font-weight:800}
+.hqi{border-top:1px solid var(--line);padding:.8rem 0;display:grid;gap:.5rem}
+.hqi .qt{white-space:pre-wrap;font-weight:600}
+.mrow{display:flex;gap:.4rem;margin-bottom:.4rem;align-items:stretch}
+.mbtn{flex:1;display:flex;justify-content:space-between;align-items:center;padding:.65rem .9rem;border-radius:.75rem;color:#fff;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.mbtn.cur{outline:3px solid var(--amber-400);outline-offset:2px}
 .delnote{background:transparent;color:var(--rose-600);padding:.3rem .7rem;border-radius:99px;font-size:.88rem;font-weight:600}
 .delnote:hover{background:var(--rose-50)}
 .note .txt{white-space:pre-wrap;margin:.2rem 0 .5rem}
@@ -211,6 +219,7 @@ var ICON={
 
 var SCHED=[["2026-11-12", "ח\"א קיט.", "סי׳ פט", "הלכות תפלה וזמנה", "פתיחת הלוח"], ["2026-11-15", "ח\"א קכ.", "סי׳ פט", "הלכות תפלה וזמנה", ""], ["2026-11-16", "ח\"א קכא.", "סי׳ צ", "מקום הראוי להתפלל, תפלה בצבור וההולך בדרך", ""], ["2026-11-17", "ח\"א קכב.", "סי׳ צ", "מקום הראוי להתפלל, תפלה בצבור וההולך בדרך", ""], ["2026-11-18", "ח\"א קכג.", "סי׳ צ", "מקום הראוי להתפלל, תפלה בצבור וההולך בדרך", ""], ["2026-11-19", "ח\"א קכד.", "סי׳ צא–צב", "שיאזור מתניו ויכסה ראשו; הנצרך לנקביו ורחיצה", ""], ["2026-11-22", "ח\"א קכה.", "סי׳ צב", "הנצרך לנקביו, רחיצה ושאר הכנות לתפלה", ""], ["2026-11-23", "ח\"א קכו.", "סי׳ צג–צד", "שיהוי קודם תפלה; לכונן נגד א\"י, רוכב או בספינה", ""], ["2026-11-24", "ח\"א קכז.", "סי׳ צד", "צריך לכונן נגד ארץ ישראל, רוכב או בספינה", ""], ["2026-11-25", "ח\"א קכח.", "סי׳ צה–צז", "כוון אבריו, מניעת טרדות, שלא יגהק ושלא יפהק", ""], ["2026-11-26", "ח\"א קכט.", "סי׳ צח", "צריך שיהיה לו כונה בתפלתו", ""], ["2026-11-29", "ח\"א קל.", "סי׳ צט–קא", "שתוי ושכור; תפלת המועד; כונה בכל הברכות ולשון", ""], ["2026-11-30", "ח\"א קלא.", "סי׳ קב", "שלא להפסיק כנגד המתפלל", ""], ["2026-12-01", "ח\"א קלב.", "סי׳ קג–קד", "מי שנזדמן לו רוח או עטוש; שלא להפסיק בתפלה", ""], ["2026-12-02", "ח\"א קלג.", "סי׳ קה–קו", "דין המתפלל שתי תפלות; מי הם הפטורים מתפלה", ""], ["2026-12-03", "ח\"א קלד.", "סי׳ קז", "המספק אם התפלל, ודין תפלת נדבה", ""], ["2026-12-06", "ח\"א קלה.", "סי׳ קח", "מי שלא התפלל לסבת טעות, או אנס, או במזיד", "חנוכה 1/3"], ["2026-12-07", "ח\"א קלו.", "סי׳ קח", "מי שלא התפלל לסבת טעות, או אנס, או במזיד", "חנוכה 2/3"], ["2026-12-08", "ח\"א קלז.", "סי׳ קט", "דין איך יתנהג היחיד לכוון בתפלתו עם הצבור", "חנוכה 3/3"], ["2026-12-13", "ח\"א קלח.", "סי׳ קי", "היוצא לדרך ופועלים, תפלת הדרך ובית המדרש", ""], ["2026-12-14", "ח\"א קלט.", "סי׳ קיא", "דין סמיכת גאלה לתפלה", ""], ["2026-12-15", "ח\"א קמ.", "סי׳ קיב–קיג", "שלא להפסיק בג' ראשונות ואחרונות; כריעות שמו\"ע", ""], ["2026-12-16", "ח\"א קמא.", "סי׳ קיד", "דין הזכרת הרוח, וגשם, וטל", ""], ["2026-12-17", "ח\"א קמב.", "סי׳ קיד", "דין הזכרת הרוח, וגשם, וטל", ""], ["2026-12-20", "ח\"א קמג.", "סי׳ קטו–קיז", "טעם אתה חונן; פרוש רפאנו; דיני ברכת השנים", "עשרה בטבת"], ["2026-12-21", "ח\"א קמד.", "סי׳ קיח", "חתימת ברכת השיבה", ""], ["2026-12-22", "ח\"א קמה.", "סי׳ קיט–קכ", "הרוצה להוסיף בברכות; שראוי לומר רצה בכל תפלה", ""], ["2026-12-23", "ח\"א קמו.", "סי׳ קכא–קכב", "דין מודים; דינים השיכים בין שמו\"ע ליהיו לרצון", ""], ["2026-12-24", "ח\"א קמז.", "סי׳ קכג–קכד", "כריעות בסיום שמו\"ע; הנהגת הש\"ץ וענית אמן", ""], ["2026-12-27", "ח\"א קמח.", "סי׳ קכד", "דין הנהגת הש\"ץ בשמונה עשרה, ודין ענית אמן", ""], ["2026-12-28", "ח\"א קמט.", "סי׳ קכד", "דין הנהגת הש\"ץ בשמונה עשרה, ודין ענית אמן", ""], ["2026-12-29", "ח\"א קנ.", "סי׳ קכה–קכו", "דיני קדושה; דיני ש\"ץ שטעה", ""], ["2026-12-30", "ח\"א קנא.", "סי׳ קכז", "דין מודים דרבנן", "סיום חלק א׳"], ["2026-12-31", "ח\"ב ב.", "סי׳ קכח", "דיני נשיאת כפים", "תחילת ח\"ב"], ["2027-01-03", "ח\"ב ג.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-04", "ח\"ב ד.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-05", "ח\"ב ה.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-06", "ח\"ב ו.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-07", "ח\"ב ז.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-10", "ח\"ב ח.", "סי׳ קכח", "דיני נשיאת כפים", ""], ["2027-01-11", "ח\"ב ט.", "סי׳ קכט–קלא", "נשיאת כפים במנחה ובתענית; נפילת אפים ותחנונים", ""], ["2027-01-12", "ח\"ב י.", "סי׳ קלא", "דיני נפילת אפים ותחנונים", ""], ["2027-01-13", "ח\"ב יא.", "סי׳ קלא", "דיני נפילת אפים ותחנונים", ""], ["2027-01-14", "ח\"ב יב.", "סי׳ קלא", "דיני נפילת אפים ותחנונים", ""], ["2027-01-17", "ח\"ב יג.", "סי׳ קלב–קלד", "אשרי ובא לציון; קדיש יתום; פיטום הקטורת", ""], ["2027-01-18", "ח\"ב יד.", "סי׳ קלד", "אשרי ובא לציון; קדיש יתום; פיטום הקטורת", ""], ["2027-01-19", "ח\"ב טו.", "סי׳ קלד", "אשרי ובא לציון; קדיש יתום; פיטום הקטורת", ""], ["2027-01-20", "ח\"ב טז.", "סי׳ קלד", "אשרי ובא לציון; קדיש יתום; פיטום הקטורת", "סיום הל׳ תפילה"], ["2027-01-21", "ח\"ב ל.", "סי׳ קנ", "חיוב בנין בית הכנסת, ושיהיה גבוה", "תחילת ביהכ\"נ"], ["2027-01-24", "ח\"ב לא.", "סי׳ קנא", "דיני קדשת בית הכנסת", ""], ["2027-01-25", "ח\"ב לב.", "סי׳ קנא", "דיני קדשת בית הכנסת", ""], ["2027-01-26", "ח\"ב לג.", "סי׳ קנא", "דיני קדשת בית הכנסת", ""], ["2027-01-27", "ח\"ב לד.", "סי׳ קנב", "שלא לסתר שום בית הכנסת", ""], ["2027-01-28", "ח\"ב לה.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-01-31", "ח\"ב לו.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-02-01", "ח\"ב לז.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-02-02", "ח\"ב לח.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-02-03", "ח\"ב לט.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-02-04", "ח\"ב מ.", "סי׳ קנג", "דיני בנין בית הכנסת", ""], ["2027-02-07", "ח\"ב מא.", "סי׳ קנד", "דיני תשמיש קדשה ונרות בית הכנסת", ""], ["2027-02-08", "ח\"ב מב.", "סי׳ קנד", "דיני תשמיש קדשה ונרות בית הכנסת", ""], ["2027-02-09", "ח\"ב מג.", "סי׳ קנד", "דיני תשמיש קדשה ונרות בית הכנסת", ""], ["2027-02-10", "ח\"ב מד.", "סי׳ קנה", "לילך מבית הכנסת לבית המדרש", ""], ["2027-02-11", "ח\"ב מה.", "סי׳ קנו", "סדר משא ומתן", "סיום ביהכ\"נ"], ["2027-02-14", "ח\"ב קה.", "סי׳ רב", "דיני ברכת פרות האילן", "תחילת ברכות"], ["2027-02-15", "ח\"ב קו.", "סי׳ רב", "דיני ברכת פרות האילן", ""], ["2027-02-16", "ח\"ב קז.", "סי׳ רב", "דיני ברכת פרות האילן", ""], ["2027-02-17", "ח\"ב קח.", "סי׳ רב", "דיני ברכת פרות האילן", ""], ["2027-02-18", "ח\"ב קט.", "סי׳ רג", "דיני ברכת פרות הארץ", ""], ["2027-02-21", "ח\"ב קי.", "סי׳ רד", "דיני הברכות ליתר מאכלין", ""], ["2027-02-22", "ח\"ב קיא.", "סי׳ רד", "דיני הברכות ליתר מאכלין", ""], ["2027-02-23", "ח\"ב קיב.", "סי׳ רד", "דיני הברכות ליתר מאכלין", ""], ["2027-02-24", "ח\"ב קיג.", "סי׳ רה", "דיני ברכת ירקות", ""], ["2027-02-25", "ח\"ב קיד.", "סי׳ רו", "דיני הפסק וטעות בברכת הפרות", ""], ["2027-02-28", "ח\"ב קטו.", "סי׳ רו", "דיני הפסק וטעות בברכת הפרות", ""], ["2027-03-01", "ח\"ב קטז.", "סי׳ רז–רח", "ברכה אחרונה על הפרות; ברכה מעין שלש", ""], ["2027-03-02", "ח\"ב קיז.", "סי׳ רח", "ברכה מעין שלש אחרי ה' מיני פרות ודגן", ""], ["2027-03-03", "ח\"ב קיח.", "סי׳ רח", "ברכה מעין שלש אחרי ה' מיני פרות ודגן", ""], ["2027-03-04", "ח\"ב קיט.", "סי׳ רח", "ברכה מעין שלש אחרי ה' מיני פרות ודגן", ""], ["2027-03-07", "ח\"ב קכ.", "סי׳ רט", "דין טעות וספק בברכת היין", ""], ["2027-03-08", "ח\"ב קכא.", "סי׳ רי", "האוכל פחות מכזית מה דינו", ""], ["2027-03-09", "ח\"ב קכב.", "סי׳ רי", "האוכל פחות מכזית מה דינו", ""], ["2027-03-10", "ח\"ב קכג.", "סי׳ ריא", "דיני קדימה בברכת הפרות", ""], ["2027-03-11", "ח\"ב קכד.", "סי׳ ריא", "דיני קדימה בברכת הפרות", ""], ["2027-03-14", "ח\"ב קכה.", "סי׳ ריב", "שהעקר פוטר הטפל", ""], ["2027-03-15", "ח\"ב קכו.", "סי׳ ריג", "מי שיצא אם מוציא אחרים", ""], ["2027-03-16", "ח\"ב קכז.", "סי׳ ריד–רטו", "שם ומלכות בכל ברכה; ענית אמן אחר הברכות", ""], ["2027-03-17", "ח\"ב קכח.", "סי׳ רטז", "דיני ברכת הריח", ""], ["2027-03-18", "ח\"ב קכט.", "סי׳ רטז", "דיני ברכת הריח", ""], ["2027-03-21", "ח\"ב קל.", "סי׳ רטז", "דיני ברכת הריח", ""], ["2027-03-22", "ח\"ב קלא.", "סי׳ רטז", "דיני ברכת הריח", "תענית אסתר"], ["2027-03-25", "ח\"ב קלב.", "סי׳ ריז", "דיני ברכת הבשמים והמגמר", "אחרי פורים"], ["2027-03-28", "ח\"ב קלג.", "סי׳ ריח", "ברכות הנעשים על הנסים", ""], ["2027-03-29", "ח\"ב קלד.", "סי׳ ריח", "ברכות הנעשים על הנסים", ""], ["2027-03-30", "ח\"ב קלה.", "סי׳ ריט", "ברכת הודאת היחיד", ""], ["2027-03-31", "ח\"ב קלו.", "סי׳ ריט", "ברכת הודאת היחיד", ""], ["2027-04-01", "ח\"ב קלז.", "סי׳ רכ–רכא", "הטבת החלום ותעניתו; ברכת הודאת הגשמים", ""], ["2027-04-04", "ח\"ב קלח.", "סי׳ רכב–רכג", "הודאת הטוב והרע; ברכות מאורעות וכלים חדשים", ""], ["2027-04-05", "ח\"ב קלט.", "סי׳ רכג", "ילדה אשתו, מת מורישו, בנה בית וקנה כלים", ""], ["2027-04-06", "ח\"ב קמ.", "סי׳ רכד", "דיני ברכות פרטיות", ""], ["2027-04-07", "ח\"ב קמא.", "סי׳ רכה", "דיני ברכת שהחינו", "ערב ר\"ח ניסן"]],
  IYUN=[["רו, א", "סוגיה כח: טעויות בברכה"], ["רו, ה", "סוגיה לז: הפסק בברכות הנהנין"], ["רו, ו", "סוגיה מא: הוצאת אחרים ידי חובתם"], ["רז", "סוגיה נ: ברכת \"בורא נפשות\""], ["רח", "פקיעת שם לחם / שיעור ברכה אחרונה"], ["רט, ג", "מהות חיוב הברכות / יין ושמן"], ["רי, א-ב", "בציעת הפת / מעין שלוש"], ["ריא, א-ו", "דיני קדימה בברכות"], ["ריב, א", "סוגיה מה: עיקר וטפל נפרדים"], ["ריג, א", "סוגיה מא: הוצאת אחרים"], ["רטו, א", "סוגיה נז: עניית אמן"], ["ריז, ג", "סוגיה מג: ברכות הריח"], ["ריח, א-ז", "ברכות הראייה והנסים"], ["ריט", "סוגיה פט: ברכת הגומל"], ["רכ-רכב", "תענית חלום והודאה (גשמים)"], ["רכג", "ברכת שהחיינו וכלים חדשים"], ["רכד", "ברכות מעשה אנוש ובתי ישראל"], ["רכה", "ברכות הראייה (יסוד, שהחיינו)"], ["רכו-רל", "ברכות פרטיות ותופעות טבע"], ["פט, א", "סוגיה עב: זמן תפילת שחרית"], ["פט, ב", "סוגיה פב: אכילה ועשיית צרכי האדם לפני התפילה (7)"], ["פט, ג", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ד-ה", "סוגיה פ: אכילה ועשיית צרכי האדם לפני התפילה (5)"], ["פט, ו", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ח", "סוגיה צה: שהייה בין תפילה לתפילה"], ["צ, א-ב", "סוגיה קכא: תיקון מקום התפילה (4)"], ["צ, ד", "סוגיה קיט: תיקון מקום התפילה (2)"], ["צ, ה", "סוגיה קכ: תיקון מקום התפילה (3)"], ["צ, ו", "סוגיה קכג: תיקון מקום התפילה (6)"], ["צ, ז", "סוגיה קכה: תיקון מקום התפילה (8)"], ["צ, ט · צ, טז · צ, יח", "סוגיה קכט: חיוב אמירת קדיש"], ["צ, יט", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כ", "סוגיה קכו: תיקון הגוף"], ["צ, כא-כג", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["צ, כז", "סוגיה סג: דיני ערוה לקריאת שמע (4)"], ["צב, א-ב", "סוגיה נב: דיני ערוה לקריאת שמע (1)"], ["צב, ד", "סוגיה לג: נטילת ידיים לקריאת שמע"], ["צג, א · צג, ב · צג, ג", "סוגיה צט: הכנה לתפילה"], ["צג, ד", "סוגיה מא: חתן הרוצה להחמיר"], ["צד, א-ב", "סוגיה צב: נוכח המקדש"], ["צד, ד", "סוגיה צא: תפילה מעומד (1)"], ["צד, ט", "סוגיה צד: תפילת מוסף - בציבור או ביחיד?"], ["צה", "סוגיה קכז: הסדרת התפילה"], ["צז, א-ד", "סוגיה קב: השווית הקול"], ["צח, א", "סוגיה ק: כוונה בתפילה"], ["צח, ג", "סוגיה פט: תפילה קצרה"], ["צח, ד", "סוגיה קכז: הסדרת התפילה"], ["צט, א · צט, ג", "סוגיה קג: תפילת שיכור"], ["ק", "סוגיה קכח: תפילה בציבור"], ["קא, א", "סוגיה ק: כוונה בתפילה"], ["קא, ב", "סוגיה קב: השווית הקול"], ["קא, ד", "סוגיה כו: קריאת שמע ותפילה בלעז"], ["קב, א-ד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["קג", "סוגיה קב: השווית הקול"], ["קד, א", "סוגיה קו: הפסקה בתפילה"], ["קד, ב", "סוגיה קז: הבדלה בתפילה"], ["קד, ג", "סוגיה קו: הפסקה בתפילה"], ["קד, ד · קד, ה · קד, ו", "סוגיה קז: הבדלה בתפילה"], ["קה", "סוגיה צה: שהייה בין תפילה לתפילה"], ["קו, א", "סוגיה מו: הרהור כדיבור"], ["קח, ו · קח, יא", "סוגיה עב: זמן תפילת שחרית"], ["קח, יב", "סוגיה קז: הבדלה בתפילה"], ["קט, א", "סוגיה קל: קדיש"], ["קי, א", "סוגיה פד: נוסח תפילת עמידה"], ["קי, ג", "סוגיה פט: תפילה קצרה"], ["קי, ו-ז", "סוגיה צ: תפילת הדרך"], ["קי, ח", "סוגיה פג: תפילה בכניסה לבית המדרש"], ["קיא, א", "סוגיה ח: סוף זמן קריאת שמע של ערבית (1)"], ["קיב, א", "סוגיה קיב: \"לעולם יסדר אדם שבחו...\" (2)"], ["קיב, ב", "סוגיה טו: שינוי נוסח הברכה (2)"], ["קיג, א · קיג, ד-ה", "סוגיה קיז: נפילת אפיים"], ["קיג, ט", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קיד, ג-ו", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיד, ו", "סוגיה צט: הכנה לתפילה"], ["קיד, ז", "סוגיה קז: הבדלה בתפילה"], ["קיז, ג-ד · קיז, ה", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיח", "סוגיה קטו: טעות בנוסח התפילה"], ["קיט, א", "סוגיה קיד: תוספות בתפילה"], ["קיט, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קכב", "סוגיה פח: \"העושה תפילתו קבע...\""], ["קכב, א", "סוגיה צג: בתי ישראל בישובם"], ["קכג, א-ג", "סוגיה קיז: נפילת אפיים"], ["קכד, א · קכד, י", "סוגיה צח: השלמת תוספת בין ברכה לברכה"], ["קכו, א · קכו, ב", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קכו, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קל", "סוגיה פד: נוסח תפילת עמידה"], ["קלא, א-ב · קלא, ד · קלא, ו-ח", "סוגיה קיח: תיקון מקום התפילה (1)"], ["קלב, א", "סוגיה קח: הוספת שמות תואר"], ["קלב, ב", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קנ, א", "סוגיה מח: היקף חיוב קריאת שמע מהתורה"], ["קנב, א", "סוגיה לא: הפסקה בקריאת שמע להנחת תפילין"], ["קנג, א", "סוגיה כב: נוסח הברכה שלאחר קריאת שמע"], ["קנג, ב", "סוגיה יג: עמידה והטיה בקריאת שמע"], ["רב, א", "סוגיה ד: ברכה על דבר מזיק"], ["רב, א (המשך)", "המשך הלכות ברכת המזון"], ["רב, ב", "סוגיה יב: ברכה על פלפל"], ["רב, ג", "סוגיה יא: ברכה על פרי בוסר"], ["רב, ד", "סוגיה ה+ו: עיקר וטפל בתערובת"], ["רב, ה", "סוגיה ט: הגדרת פרי עץ"], ["רב, ו", "סוגיה י: גרעינים וקליפות"], ["רב, ז", "סוגיה כ: שתיתא"], ["רב, י", "סוגיה כד: שיעור ברכה אחרונה"], ["רב, יח", "סוגיה יג: ברכה על חמשת מיני דגן"], ["רג, ב-ג", "סוגיה כז: הגדרת עץ לעניין ברכה"], ["רד, ח-יא", "סוגיה כא/כט/נא: ברכה על איסור/שהכל"], ["רה, א", "סוגיה כד: שיעור ברכה אחרונה"]];
+var SHAS=[["ברכות", 64, "זרעים"], ["שבת", 157, "מועד"], ["עירובין", 105, "מועד"], ["פסחים", 121, "מועד"], ["יומא", 88, "מועד"], ["סוכה", 56, "מועד"], ["ביצה", 40, "מועד"], ["ראש השנה", 35, "מועד"], ["תענית", 31, "מועד"], ["מגילה", 32, "מועד"], ["מועד קטן", 29, "מועד"], ["חגיגה", 27, "מועד"], ["יבמות", 122, "נשים"], ["כתובות", 112, "נשים"], ["נדרים", 91, "נשים"], ["נזיר", 66, "נשים"], ["סוטה", 49, "נשים"], ["גיטין", 90, "נשים"], ["קידושין", 82, "נשים"], ["בבא קמא", 119, "נזיקין"], ["בבא מציעא", 119, "נזיקין"], ["בבא בתרא", 176, "נזיקין"], ["סנהדרין", 113, "נזיקין"], ["מכות", 24, "נזיקין"], ["שבועות", 49, "נזיקין"], ["עבודה זרה", 76, "נזיקין"], ["הוריות", 14, "נזיקין"], ["זבחים", 120, "קדשים"], ["מנחות", 110, "קדשים"], ["חולין", 142, "קדשים"], ["בכורות", 61, "קדשים"], ["ערכין", 34, "קדשים"], ["תמורה", 34, "קדשים"], ["כריתות", 28, "קדשים"], ["מעילה", 22, "קדשים"], ["תמיד", 9, "קדשים"], ["נדה", 73, "טהרות"]];
 var db=null, tab="wizard", fresh=false;
 var W={date:null,idx:0,ans:{},notes:{},why:{}};
 var S={range:"all"}, St={sum:"week"}, J={onlyStar:false,q:"",cat:"",from:"",to:""};
@@ -225,7 +234,17 @@ function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
 function addDays(s,n){var d=parse(s);d.setDate(d.getDate()+n);return ymd(d)}
 function heDate(s){return parse(s).toLocaleDateString("he-IL",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
 function counted(d){var w=parse(d).getDay();return w!==5&&w!==6}
-function ensure(){if(!db.study)db.study={h:0,i:0,log:{}};if(!db.study.log)db.study.log={};if(!db.reasons)db.reasons={}}
+function ensure(){if(!db.study)db.study={h:0,i:0,log:{}};if(!db.study.log)db.study.log={};if(!db.reasons)db.reasons={};
+ if(!db.gem)db.gem={cur:"בבא מציעא",prog:{"בבא מציעא":50}};if(!db.gem.prog)db.gem.prog={};
+ if(!db.hq)db.hq=[];if(!db.topics)db.topics=["שבת","כשרות","תפילה","ברכות"]}
+function heb(n){var o=["","א","ב","ג","ד","ה","ו","ז","ח","ט"],t=["","י","כ","ל","מ","נ","ס","ע","פ","צ"],h=["","ק","ר","ש","ת"];return (h[Math.floor(n/100)]+t[Math.floor(n%100/10)]+o[n%10]).replace("יה","טו").replace("יו","טז")}
+function masechta(n){return SHAS.filter(function(x){return x[0]===n})[0]||SHAS[0]}
+function gqId(){
+ ensure();var s=db.study;
+ if(s.gq&&db.questions.some(function(q){return q.id===s.gq}))return s.gq;
+ var q=db.questions.filter(function(x){return x.text.indexOf("התקדמת כשני דפים")>=0})[0]||db.questions.filter(function(x){return x.text.indexOf("בדף היום")>=0})[0];
+ if(q){s.gq=q.id;return q.id}return null;
+}
 function hqId(){
  ensure();var s=db.study;
  if(s.hq&&db.questions.some(function(q){return q.id===s.hq}))return s.hq;
@@ -322,8 +341,8 @@ function syncErr(e){
  return "הסנכרון נכשל. בדוק שיש חיבור לאינטרנט ונסה שוב.";
 }
 function mergeStudy(a,b){
- a=a||{};b=b||{};var r={h:Math.max(a.h||0,b.h||0),i:Math.max(a.i||0,b.i||0),log:{},hq:a.hq||b.hq};
- [a.log||{},b.log||{}].forEach(function(L){Object.keys(L).forEach(function(d){var o=r.log[d]||(r.log[d]={h:0,i:0});o.h=Math.max(o.h,L[d].h||0);o.i=Math.max(o.i,L[d].i||0)})});
+ a=a||{};b=b||{};var r={h:Math.max(a.h||0,b.h||0),i:Math.max(a.i||0,b.i||0),log:{},hq:a.hq||b.hq,gq:a.gq||b.gq};
+ [a.log||{},b.log||{}].forEach(function(L){Object.keys(L).forEach(function(d){var o=r.log[d]||(r.log[d]={h:0,i:0});o.h=Math.max(o.h,L[d].h||0);o.i=Math.max(o.i,L[d].i||0);o.g=Math.max(o.g||0,L[d].g||0)})});
  return r;
 }
 function mergeReasons(a,b){
@@ -331,12 +350,24 @@ function mergeReasons(a,b){
   var arr=r[q]||(r[q]=[]);S[q].forEach(function(x){var e=arr.filter(function(y){return y.id===x.id})[0];if(e)e.n=Math.max(e.n,x.n);else arr.push({id:x.id,t:x.t,n:x.n})})})});
  return r;
 }
+function mergeGem(a,b){
+ a=a||{};b=b||{};var r={cur:a.cur||b.cur||"בבא מציעא",prog:{}};
+ [a.prog||{},b.prog||{}].forEach(function(P){Object.keys(P).forEach(function(k){r.prog[k]=Math.max(r.prog[k]||0,P[k]||0)})});
+ return r;
+}
+function mergeHq(a,b){
+ var m={};(a||[]).concat(b||[]).forEach(function(x){var e=m[x.id];
+  if(!e||(x.at||0)>(e.at||0)||(!e.a&&x.a)||((x.at||0)===(e.at||0)&&(x.ts||0)>(e.ts||0)))m[x.id]=x});
+ return Object.keys(m).map(function(k){return m[k]});
+}
 function mergeDb(a,b){
  var w=(a.updatedAt||0)>=(b.updatedAt||0)?a:b,o=w===a?b:a,r=JSON.parse(JSON.stringify(w));
  o.cats.forEach(function(c){if(r.cats.indexOf(c)<0)r.cats.push(c)});
  var ids={};r.questions.forEach(function(q){ids[q.id]=1});
  o.questions.forEach(function(q){if(!ids[q.id])r.questions.push(JSON.parse(JSON.stringify(q)))});
  Object.keys(o.logs).forEach(function(d){var x=o.logs[d],y=r.logs[d];if(!y||(x.savedAt||0)>(y.savedAt||0))r.logs[d]=JSON.parse(JSON.stringify(x))});
+ r.gem=mergeGem(w.gem,o.gem);r.hq=mergeHq(a.hq,b.hq);
+ r.topics=(w.topics||[]).concat((o.topics||[]).filter(function(t){return (w.topics||[]).indexOf(t)<0}));
  r.study=mergeStudy(a.study,b.study);r.reasons=mergeReasons(a.reasons,b.reasons);
  r.lastExport=a.lastExport||null;r.updatedAt=Date.now();
  return r;
@@ -406,7 +437,7 @@ function boot(){
   var v=$("pw").value;
   if(!(window.crypto&&crypto.subtle)){$("pwErr").textContent="הדפדפן לא תומך בבדיקת סיסמה. פתח בדפדפן עדכני.";return}
   sha(v).then(function(h){
-   if(h===PWH){SESSION_PW=v;$("lock").classList.add("hidden");$("app").classList.remove("hidden");W.date=today();loadDraft();renderTabs();render();if(fresh)idbList(function(l){if(l.length)toast("נמצא גיבוי אוטומטי קודם. אפשר לשחזר אותו בלשונית ניהול שאלות")})}
+   if(h===PWH){SESSION_PW=v;$("lock").classList.add("hidden");$("app").classList.remove("hidden");W.date=today();loadDraft();renderTabs();render();startRem();if(fresh)idbList(function(l){if(l.length)toast("נמצא גיבוי אוטומטי קודם. אפשר לשחזר אותו בלשונית ניהול שאלות")})}
    else{$("pwErr").textContent="הסיסמה שגויה, נסה שוב";$("pw").select()}
   });
  }
@@ -450,9 +481,9 @@ function rWizard(p){
  var qs=db.questions.filter(function(q){return q.cat===cat&&!q.archived});
  var pct=Math.round((W.idx+1)/cats.length*100);
  var isToday=W.date===today();
- var hid=hqId(),showStudy=isToday&&counted(W.date);
+ var gid=gqId(),hid=hqId(),showStudy=isToday&&counted(W.date);
  p.innerHTML=
- '<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label>'+
+ remBanner()+'<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label>'+
  '<input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
  '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?'':' (מילוי רטרואקטיבי)')+(counted(W.date)?'':' · יום שישי/שבת: לא נכלל בסטטיסטיקה')+(db.logs[W.date]?' · כבר נשמר, שמירה מחדש תעדכן אותו':'')+'</div></div>'+
  '<div class="card"><div class="row between" style="margin-bottom:.5rem"><span class="muted">קטגוריה '+(W.idx+1)+' מתוך '+cats.length+'</span><span class="muted">'+pct+'%</span></div>'+
@@ -460,8 +491,8 @@ function rWizard(p){
  '<div class="card" key="'+W.idx+'"><h2>'+esc(cat)+'</h2>'+
  qs.map(function(q){var a=W.ans[q.id];return '<div class="q"><p>'+esc(q.text)+'</p><div class="ans">'+
   '<button class="yes'+(a===true?' on':'')+'" data-a="1" data-q="'+q.id+'">כן</button>'+
-  '<button class="no'+(a===false?' on':'')+'" data-a="0" data-q="'+q.id+'">לא</button></div><div id="why-'+q.id+'"></div>'+((q.id===hid&&showStudy)?'<div id="study"></div>':'')+'</div>'}).join("")+
- '<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label>'+
+  '<button class="no'+(a===false?' on':'')+'" data-a="0" data-q="'+q.id+'">לא</button></div><div id="why-'+q.id+'"></div>'+((q.id===hid&&showStudy)?'<div id="study"></div>':'')+((q.id===gid&&showStudy)?'<div id="gem"></div>':'')+'</div>'}).join("")+
+ (cat==="למידה"?hqBox():'')+'<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label>'+
  '<textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[cat]||"")+'</textarea></div>'+
  '<div class="nav-row"><button class="btn ghost" id="prev"'+(W.idx===0?' disabled':'')+'>הקודם</button>'+
  '<button class="btn'+(last?' green':'')+'" id="next">'+(last?'שמירה':'הבא')+'</button></div></div>';
@@ -473,9 +504,9 @@ function rWizard(p){
   pair.querySelector(".yes").classList.toggle("on",W.ans[id]===true);
   pair.querySelector(".no").classList.toggle("on",W.ans[id]===false);
   if(W.ans[id]!==false)delete W.why[id];
-  drawWhy(id);if(id===hid)drawStudy();
+  drawWhy(id);if(id===hid)drawStudy();if(id===gid)drawGem();
  }});
- drawStudy();qs.forEach(function(q){drawWhy(q.id)});
+ drawStudy();drawGem();bindHq();qs.forEach(function(q){drawWhy(q.id)});
  $("prev").onclick=function(){keepNote(cat);W.idx--;render();window.scrollTo(0,0)};
  $("next").onclick=function(){
   keepNote(cat);
@@ -507,6 +538,147 @@ function drawWhy(qid){
 function expBefore(){var t=today(),n=0;SCHED.forEach(function(r){if(r[0]<t)n++});return n}
 function daysLeft(){var t=today(),n=0;SCHED.forEach(function(r){if(r[0]>=t)n++});return n}
 function paceTxt(){var d=db.study.h-expBefore();return d===0?"בקצב הלוח":d>0?d+" סדרים לפני הלוח":(-d)+" סדרים אחרי הלוח"}
+var HQT={last:""},HQF={topic:"",st:"all"},REM_KEY=KEY+"_rem";
+function gemStats(){
+ var g=db.gem,m=masechta(g.cur),P=m[1]-1,done=Math.min(P,g.prog[g.cur]||0),rs=0,ra=0;
+ SHAS.forEach(function(x){var r=x[1]-1-Math.min(x[1]-1,g.prog[x[0]]||0);ra+=r;if(x[2]===m[2])rs+=r});
+ return {m:m,P:P,done:done,rem:P-done,remS:rs,remAll:ra};
+}
+function stepGem(dir){
+ var G=gemStats(),g=db.gem;
+ if(dir>0){if(G.done>=G.P)return;g.prog[g.cur]=G.done+1}else{if(G.done<=0)return;g.prog[g.cur]=G.done-1}
+ var t=today(),l=db.study.log[t]||(db.study.log[t]={h:0,i:0});l.g=Math.max(0,(l.g||0)+dir);
+ persist();drawGem();
+}
+function drawGem(){
+ var el=$("gem");if(!el)return;
+ if(W.ans[gqId()]!==true){el.innerHTML="";return}
+ var G=gemStats(),D=daysLeft(),l=db.study.log[today()]||{},h='<div class="srow"><div class="smain"><strong>דף יומי: '+esc(G.m[0])+'</strong><br>';
+ if(G.rem>0)h+='דף '+heb(G.done+2)+' · עברת '+G.done+' דפים, נשארו '+G.rem+' מתוך '+G.P;
+ else h+='סיימת את המסכת! <button class="btn sm" data-sh="1">בחירת מסכת חדשה</button>';
+ h+='<div class="muted">'+D+' ימי לימוד עד סוף הלוח'+(G.rem>0&&D>0?' (בממוצע '+(G.rem/D).toFixed(1)+' דפים ליום)':'')+(l.g?' · היום סומנו '+l.g:'')+' · <a href="#" data-sh="1">מסכת אחרת</a></div></div>'+
+  '<div class="sbtn"><button class="ok" data-sg="1" aria-label="סימנתי דף"'+(G.rem<=0?' disabled':'')+'>'+ICON.check+'</button><button class="un" data-ug="1" aria-label="ביטול"'+(G.done<=0?' disabled':'')+'>↶</button></div></div>';
+ el.innerHTML=h;
+ el.querySelectorAll("[data-sg]").forEach(function(b){b.onclick=function(){stepGem(1)}});
+ el.querySelectorAll("[data-ug]").forEach(function(b){b.onclick=function(){stepGem(-1)}});
+ el.querySelectorAll("[data-sh]").forEach(function(b){b.onclick=function(e){if(e&&e.preventDefault)e.preventDefault();openShas()}});
+}
+function openShas(){
+ var g=db.gem,sd=[],mp={};
+ SHAS.forEach(function(m){if(!mp[m[2]]){mp[m[2]]=[];sd.push(m[2])}mp[m[2]].push(m)});
+ var h='<div class="muted" style="margin:.5rem 0">לחיצה על מסכת בוחרת אותה כמסכת הנוכחית. הירוק מראה כמה כבר למדת והאדום כמה נשאר. הכפתור ✎ קובע באיזה דף אתה עומד (למסכות שכבר סיימת כתוב "סיום").</div>';
+ sd.forEach(function(x){h+='<h3 style="margin:.9rem 0 .4rem;font-size:1rem">סדר '+x+'</h3>'+mp[x].map(function(m){
+  var P=m[1]-1,d=Math.min(P,g.prog[m[0]]||0),pct=Math.round(d/P*100);
+  return '<div class="mrow"><button class="mbtn'+(m[0]===g.cur?' cur':'')+'" data-pick="'+esc(m[0])+'" style="background:linear-gradient(to left,var(--emerald-600) '+pct+'%,var(--rose-500) '+pct+'%)"><span>'+esc(m[0])+'</span><span>'+(d>=P?'סיימתי':'דף '+heb(d+2)+' · '+pct+'%')+'</span></button><button class="btn ghost sm" data-set="'+esc(m[0])+'" aria-label="קביעת דף">✎</button></div>';
+ }).join("")});
+ sheet("בחירת מסכת",h);
+ $("overlay").querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){
+  g.cur=b.dataset.pick;if(persist()){$("overlay").innerHTML="";toast("המסכת הנוכחית: "+g.cur);render(true)}}});
+ $("overlay").querySelectorAll("[data-set]").forEach(function(b){b.onclick=function(){
+  var m=masechta(b.dataset.set),P=m[1]-1,v=window.prompt("באיזה דף אתה עומד במסכת "+m[0]+"? (מספר, 2 הוא ההתחלה, או המילה סיום אם סיימת את המסכת)",(g.prog[m[0]]||0)+2);
+  if(v===null)return;v=v.trim();
+  if(v==="סיום"||v==="סיימתי")g.prog[m[0]]=P;
+  else{var n=parseInt(v,10);if(!(n>=2&&n<=m[1])){toast("הזן מספר דף בין 2 ל-"+m[1]);return}g.prog[m[0]]=n-2}
+  if(persist())openShas();
+ }});
+}
+function hqBox(){
+ var n=db.hq.length;
+ return '<div class="whybox" style="margin-top:1rem"><strong>שאלות הלכתיות שעלו לי</strong><div class="muted">לא חובה. השאלות נשמרות ומופיעות ביומן ההערות, בכפתור בסוף העמוד.</div>'+
+ '<textarea id="hq-text" placeholder="כתוב כאן שאלה הלכתית..." style="min-height:70px"></textarea>'+
+ '<div class="row"><select id="hq-topic" style="flex:1;min-width:120px" aria-label="נושא">'+db.topics.map(function(t){return '<option'+(t===HQT.last?' selected':'')+'>'+esc(t)+'</option>'}).join("")+'</select><button class="btn sm" id="hq-add">הוספת שאלה</button></div>'+
+ '<div class="muted" id="hq-cnt">'+hqCnt()+'</div></div>';
+}
+function hqCnt(){var n=db.hq.length;return n?'נשמרו '+n+' שאלות ('+db.hq.filter(function(x){return !(x.a&&x.a.trim())}).length+' ממתינות לתשובה)':''}
+function bindHq(){
+ var b=$("hq-add");if(!b)return;
+ b.onclick=function(){
+  var t=$("hq-text").value.trim(),tp=$("hq-topic").value;
+  if(!t){toast("כתוב את השאלה");return}
+  if(!tp){toast("הוסף קודם נושא בלשונית ניהול שאלות");return}
+  db.hq.push({id:uid(),t:t,topic:tp,ts:Date.now(),date:W.date,a:"",at:0});HQT.last=tp;
+  if(persist()){$("hq-text").value="";$("hq-cnt").textContent=hqCnt();toast("השאלה נוספה")}
+ };
+}
+function hqPct(){var n=db.hq.length,a=db.hq.filter(function(x){return x.a&&x.a.trim()}).length;return {n:n,a:a,p:n?Math.round(a/n*100):0}}
+function ringHtml(){
+ var s=hqPct(),C=2*Math.PI*52;
+ return '<div style="text-align:center;margin:.6rem 0"><svg viewBox="0 0 120 120" style="width:140px;height:140px" role="img" aria-label="אחוז השאלות שנענו"><circle cx="60" cy="60" r="52" class="rbg"/><circle id="rfg" cx="60" cy="60" r="52" class="rfg" stroke-dasharray="'+C.toFixed(2)+'" stroke-dashoffset="'+(C*(1-s.p/100)).toFixed(2)+'" transform="rotate(-90 60 60)"/><text id="rtx" x="60" y="68" text-anchor="middle" class="rtx">'+s.p+'%</text></svg><div class="muted" id="rcap">'+s.a+' מתוך '+s.n+' שאלות נענו</div></div>';
+}
+function updRing(){var s=hqPct(),C=2*Math.PI*52;$("rfg").setAttribute("stroke-dashoffset",(C*(1-s.p/100)).toFixed(2));$("rtx").textContent=s.p+"%";$("rcap").textContent=s.a+" מתוך "+s.n+" שאלות נענו"}
+function openHQ(){sheet("שאלות הלכתיות",'<div id="hqbody"></div>');drawHQ()}
+function drawHQ(){
+ var B=$("hqbody");if(!B)return;
+ var topics=db.topics.slice();db.hq.forEach(function(x){if(topics.indexOf(x.topic)<0)topics.push(x.topic)});
+ var ans=function(x){return !!(x.a&&x.a.trim())};
+ var list=db.hq.filter(function(x){return (!HQF.topic||x.topic===HQF.topic)&&(HQF.st==="all"||(HQF.st==="open"?!ans(x):ans(x)))}).sort(function(a,b){return b.ts-a.ts});
+ var chip=function(attr,val,label,on){return '<span class="chip'+(on?' on':'')+'"><button '+attr+'="'+esc(val)+'">'+esc(label)+'</button></span>'};
+ var h=ringHtml()+'<div class="chips" style="margin:.4rem 0">'+chip("data-ft","","כל הנושאים",!HQF.topic)+topics.map(function(t){return chip("data-ft",t,t,HQF.topic===t)}).join("")+'</div>'+
+  '<div class="chips" style="margin-bottom:.6rem">'+chip("data-fs","all","הכול",HQF.st==="all")+chip("data-fs","open","ממתינות",HQF.st==="open")+chip("data-fs","done","נענו",HQF.st==="done")+'</div>';
+ h+=list.length?list.map(function(x){
+  return '<div class="hqi" data-id="'+x.id+'"><div class="row between"><span class="pill">'+esc(x.topic)+'</span><span class="muted">'+(x.date?sdate(x.date):'')+'</span></div><div class="qt">'+esc(x.t)+'</div>'+
+   '<textarea placeholder="התשובה שלי..." aria-label="תשובה">'+esc(x.a||"")+'</textarea>'+
+   '<div class="row"><button class="btn sm" data-sv="1">שמירה</button><select data-tp="1" aria-label="נושא" style="width:auto">'+topics.map(function(t){return '<option'+(t===x.topic?' selected':'')+'>'+esc(t)+'</option>'}).join("")+'</select><button class="delnote" data-dl="1">מחיקה</button><span class="muted" data-stt="1">'+(ans(x)?'נענתה':'ממתינה לתשובה')+'</span></div></div>';
+ }).join(""):'<p class="muted">'+(db.hq.length?'אין שאלות שמתאימות לסינון.':'עדיין אין שאלות. אפשר להוסיף אותן בסוף עמוד הלמידה בשאלון היומי.')+'</p>';
+ B.innerHTML=h;
+ B.querySelectorAll("[data-ft]").forEach(function(b){b.onclick=function(){HQF.topic=b.dataset.ft;drawHQ()}});
+ B.querySelectorAll("[data-fs]").forEach(function(b){b.onclick=function(){HQF.st=b.dataset.fs;drawHQ()}});
+ B.querySelectorAll(".hqi").forEach(function(el){
+  var it=db.hq.filter(function(x){return x.id===el.dataset.id})[0];if(!it)return;
+  el.querySelector("[data-sv]").onclick=function(){
+   it.a=el.querySelector("textarea").value;it.at=Date.now();
+   if(persist()){updRing();el.querySelector("[data-stt]").textContent=ans(it)?"נענתה":"ממתינה לתשובה";toast("נשמר")}};
+  el.querySelector("[data-tp]").onchange=function(){it.topic=this.value;persist()};
+  el.querySelector("[data-dl]").onclick=function(){
+   if(!window.confirm("למחוק את השאלה הזו?"))return;
+   db.hq=db.hq.filter(function(x){return x!==it});if(persist())drawHQ()};
+ });
+}
+function isNative(){return !!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())}
+function remCfg(){try{return JSON.parse(localStorage.getItem(REM_KEY))||{}}catch(e){return {}}}
+function hmOf(t){var p=(t||"22:00").split(":");return (+p[0]||0)*60+(+p[1]||0)}
+function nowMin(){var d=new Date();return d.getHours()*60+d.getMinutes()}
+function remBanner(){
+ var c=remCfg();if(!c.on||W.date!==today()||db.logs[today()])return "";
+ if(!counted(today())&&!c.wk)return "";
+ if(nowMin()<hmOf(c.t))return "";
+ return '<div class="alert">עדיין לא מילאת את השאלון של היום.</div>';
+}
+function applyReminder(c){
+ if(isNative()){
+  var LN=(Capacitor.Plugins&&Capacitor.Plugins.LocalNotifications)||(Capacitor.registerPlugin&&Capacitor.registerPlugin("LocalNotifications"));
+  if(!LN)return Promise.reject(new Error("noplugin"));
+  var all=[1,2,3,4,5,6,7].map(function(i){return {id:i}});
+  return Promise.resolve(LN.cancel({notifications:all})).catch(function(){}).then(function(){
+   if(!c.on)return "off";
+   return LN.requestPermissions().then(function(p){
+    if(p.display!=="granted")return "denied";
+    var tm=hmOf(c.t),days=c.wk?[1,2,3,4,5,6,7]:[1,2,3,4,5];
+    return Promise.resolve(LN.createChannel?LN.createChannel({id:"habit",name:"תזכורת יומית",importance:4}):0).catch(function(){}).then(function(){
+     return LN.schedule({notifications:days.map(function(d){return {id:d,title:"מעקב הרגלים",body:"הגיע הזמן למלא את השאלון היומי",channelId:"habit",schedule:{on:{weekday:d,hour:Math.floor(tm/60),minute:tm%60},allowWhileIdle:true}}})});
+    }).then(function(){
+     if(!LN.checkExactNotificationSetting)return "ok";
+     return LN.checkExactNotificationSetting().then(function(r){
+      if(r&&r.exact_alarm==="denied"&&LN.changeExactNotificationSetting){toast("כדי שההתראה תגיע בדיוק בשעה, אשר 'התראות ושעונים מעוררים' במסך שייפתח");return LN.changeExactNotificationSetting().then(function(){return "ok"})}
+      return "ok"}).catch(function(){return "ok"});
+    });
+   });
+  });
+ }
+ if(!c.on)return Promise.resolve("off");
+ if(!("Notification" in window))return Promise.resolve("nosupport");
+ return Notification.requestPermission().then(function(p){return p==="granted"?"web":"denied"});
+}
+function startRem(){
+ var rc=remCfg();if(rc.on&&isNative())applyReminder(rc).catch(function(){});
+ setInterval(function(){
+  var c=remCfg();if(!c.on||isNative()||!("Notification" in window)||Notification.permission!=="granted")return;
+  if(nowMin()<hmOf(c.t))return;
+  var d=today();if(db.logs[d]||(!counted(d)&&!c.wk)||c.last===d)return;
+  c.last=d;try{localStorage.setItem(REM_KEY,JSON.stringify(c))}catch(e){}
+  try{new Notification("מעקב הרגלים",{body:"הגיע הזמן למלא את השאלון היומי"})}catch(e){}
+ },30000);
+}
 function stepStudy(k,dir){
  var s=db.study,n=k==="h"?SCHED.length:IYUN.length;
  if(dir>0){if(s[k]>=n)return;s[k]++}else{if(s[k]<=0)return;s[k]--}
@@ -561,7 +733,7 @@ function rJournal(p){
   db.cats.map(function(c){return '<option'+(J.cat===c?' selected':'')+'>'+esc(c)+'</option>'}).join("")+'</select>'+
   '<input type="date" id="jfrom" value="'+J.from+'" style="flex:1;min-width:130px" aria-label="מתאריך">'+
   '<input type="date" id="jto" value="'+J.to+'" style="flex:1;min-width:130px" aria-label="עד תאריך"></div>'+
-  '<div class="row between"><button class="btn sm ghost" id="jf"></button><button class="btn sm ghost" id="jclr">ניקוי סינון</button></div></div></div><div id="jlist"></div>';
+  '<div class="row between"><button class="btn sm ghost" id="jf"></button><button class="btn sm ghost" id="jclr">ניקוי סינון</button></div></div></div><div id="jlist"></div><div class="card"><button class="btn block" id="hqBtn"></button></div>';
  $("jq").oninput=function(){J.q=this.value;drawJ()};
  $("jc").onchange=function(){J.cat=this.value;drawJ()};
  $("jfrom").onchange=function(){J.from=this.value;drawJ()};
@@ -569,6 +741,8 @@ function rJournal(p){
  $("jf").onclick=function(){J.onlyStar=!J.onlyStar;drawJ()};
  $("jclr").onclick=function(){J={onlyStar:false,q:"",cat:"",from:"",to:""};render(true)};
  drawJ();
+ $("hqBtn").textContent="שאלות הלכתיות ("+db.hq.length+(db.hq.length?", "+hqPct().p+"% נענו":"")+")";
+ $("hqBtn").onclick=openHQ;
 }
 function drawJ(){
  var q=J.q.trim().toLowerCase();
@@ -751,12 +925,13 @@ function topWhy(qid){
 }
 function studyCard(){
  var s=db.study,H=SCHED.length,N=IYUN.length,D=daysLeft(),t=today();
- var wk=addDays(t,-parse(t).getDay()),mo=t.slice(0,7),w={h:0,i:0},m={h:0,i:0};
- Object.keys(s.log).forEach(function(d){var l=s.log[d];if(d>=wk&&d<=t){w.h+=l.h||0;w.i+=l.i||0}if(d.slice(0,7)===mo){m.h+=l.h||0;m.i+=l.i||0}});
+ var wk=addDays(t,-parse(t).getDay()),mo=t.slice(0,7),w={h:0,i:0,g:0},m={h:0,i:0,g:0},G=gemStats();
+ Object.keys(s.log).forEach(function(d){var l=s.log[d];if(d>=wk&&d<=t){w.h+=l.h||0;w.i+=l.i||0;w.g+=l.g||0}if(d.slice(0,7)===mo){m.h+=l.h||0;m.i+=l.i||0;m.g+=l.g||0}});
  return '<div class="card"><h2>התקדמות בלימוד</h2>'+
  '<div class="qrow"><div class="row"><span>משנה ברורה: '+s.h+' מתוך '+H+' סדרים</span><span>'+D+' ימי לימוד נותרו</span></div><div class="bar sm"><i style="width:'+Math.round(s.h/H*100)+'%"></i></div><div class="muted">'+paceTxt()+'</div></div>'+
  '<div class="qrow"><div class="row"><span>בעיון: '+s.i+' מתוך '+N+' סוגיות</span><span>'+(N-s.i)+' נותרו</span></div><div class="bar sm"><i style="width:'+Math.round(s.i/N*100)+'%"></i></div><div class="muted">'+(D>0&&N>s.i?'בממוצע '+((N-s.i)/D).toFixed(1)+' סוגיות ליום לימוד כדי לסיים עד סוף הלוח':'')+'</div></div>'+
- '<div class="muted" style="margin-top:.6rem">השבוע: '+w.h+' סדרים, '+w.i+' סוגיות · החודש: '+m.h+' סדרים, '+m.i+' סוגיות</div></div>';
+ '<div class="qrow"><div class="row"><span>גמרא: '+esc(G.m[0])+(G.rem>0?' · דף '+heb(G.done+2):' · סיימת')+'</span><span>'+G.done+' מתוך '+G.P+' דפים</span></div><div class="bar sm"><i style="width:'+Math.round(G.done/G.P*100)+'%"></i></div><div class="muted">נשארו '+G.rem+' דפים לסיום המסכת · '+G.remS+' לסיום הסדר ('+esc(G.m[2])+') · '+G.remAll+' לסיום הש״ס · '+D+' ימי לימוד</div></div>'+
+ '<div class="muted" style="margin-top:.6rem">השבוע: '+w.h+' סדרים, '+w.i+' סוגיות, '+w.g+' דפי גמרא · החודש: '+m.h+' סדרים, '+m.i+' סוגיות, '+m.g+' דפי גמרא</div></div>';
 }
 var DL=["א","ב","ג","ד","ה","ו","ש"];
 function sheet(title,body){
@@ -847,6 +1022,10 @@ function rSettings(p){
    }).join(""):'<div class="muted">אין שאלות</div>')+'</div>';
   }).join("")+'</div>';
  html+='<div class="card"><h2>מיקום בלימוד</h2><p class="muted" style="margin-bottom:.6rem">לקביעה ידנית של הסדר או הסוגיה שבהם אתה נמצא כרגע.</p><div class="row"><button class="btn ghost" id="posH">מיקום בהלכה (סדר '+(db.study.h+1)+')</button><button class="btn ghost" id="posI">מיקום בעיון (סוגיה '+(db.study.i+1)+')</button></div></div>';
+ var rc=remCfg();
+ html+='<div class="card"><h2>מסכת בגמרא</h2><p class="muted" style="margin-bottom:.6rem">המסכת הנוכחית: '+esc(db.gem.cur)+'</p><button class="btn" id="shasBtn">בחירת מסכת והתקדמות</button></div>';
+ html+='<div class="card"><h2>נושאי שאלות הלכתיות</h2><div class="chips" style="margin-bottom:.6rem">'+db.topics.map(function(t,i){return '<span class="chip"><button disabled>'+esc(t)+'</button><button class="ed" data-tdel="'+i+'" aria-label="מחיקת נושא">✕</button></span>'}).join("")+'</div><div class="row"><input type="text" id="ntopic" placeholder="נושא חדש..." style="flex:1;min-width:140px"><button class="btn sm" id="ntadd">הוספה</button></div></div>';
+ html+='<div class="card"><h2>תזכורת יומית</h2><p class="muted" style="margin-bottom:.6rem">בטלפון (אפליקציית ה-APK) התזכורת מגיעה כהתראה גם כשהאפליקציה סגורה. במחשב היא מופיעה כהודעה כשהאפליקציה פתוחה, וכשורה בראש השאלון.</p><div class="row"><label><input type="checkbox" id="remOn"'+(rc.on?' checked':'')+'> הפעלה</label><input type="time" id="remT" value="'+(rc.t||"22:00")+'" style="width:auto" aria-label="שעה"><label><input type="checkbox" id="remWk"'+(rc.wk?' checked':'')+'> גם בשישי ושבת</label></div><button class="btn block" id="remSave">שמירת התזכורת</button></div>';
  var sc=syncCfg();
  html+='<div class="card"><h2>סנכרון בין מכשירים</h2><p class="muted" style="margin-bottom:.8rem">שולח ומקבל נתונים מוצפנים דרך חשבון GitHub שלך. דורש אינטרנט רק ברגע הלחיצה. לפני כל החלפה תתבקש לבחור איזה נתונים לשמור.</p>'+
   '<div class="row"><button class="btn" id="sync">סנכרון</button><button class="btn ghost" id="syncCfg">'+(sc.token?'שינוי חיבור':'הגדרת חיבור')+'</button></div>'+
@@ -889,6 +1068,16 @@ function rSettings(p){
    catch(e){toast("הגיבוי פגום")}
   }});
  });
+ $("shasBtn").onclick=openShas;
+ p.querySelectorAll("[data-tdel]").forEach(function(b){b.onclick=function(){
+  var i=+b.dataset.tdel;if(!window.confirm("למחוק את הנושא "+db.topics[i]+"? שאלות קיימות ישמרו את הנושא שלהן."))return;
+  db.topics.splice(i,1);if(persist())render(true)}});
+ $("ntadd").onclick=function(){var v=$("ntopic").value.trim();if(!v)return;if(db.topics.indexOf(v)>=0){toast("הנושא כבר קיים");return}db.topics.push(v);if(persist())render(true)};
+ $("remSave").onclick=function(){
+  var c={on:$("remOn").checked,t:$("remT").value||"22:00",wk:$("remWk").checked,last:remCfg().last};
+  try{localStorage.setItem(REM_KEY,JSON.stringify(c))}catch(e){}
+  applyReminder(c).then(function(r){toast(r==="off"?"התזכורת כבויה":r==="denied"?"לא ניתנה הרשאה להתראות. אפשר לאשר בהגדרות המכשיר":r==="nosupport"?"הדפדפן לא תומך בהתראות":"התזכורת נשמרה לשעה "+c.t)}).catch(function(){toast("לא ניתן להגדיר התראות במכשיר הזה")});
+ };
  $("posH").onclick=function(){setPos("h",SCHED.length)};$("posI").onclick=function(){setPos("i",IYUN.length)};
  $("sync").onclick=doSync;$("syncCfg").onclick=setupSync;
  $("exp").onclick=exportData;
