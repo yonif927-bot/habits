@@ -55,7 +55,7 @@ textarea{min-height:90px;resize:vertical}
 .btn:disabled{opacity:.4;cursor:default;transform:none}
 .block{width:100%;margin-top:.75rem}
 
-header.top{background:var(--indigo-600);color:#fff;padding:1rem 1rem .6rem}
+header.top{background:linear-gradient(135deg,var(--indigo-600),#7c3aed);color:#fff;padding:1rem 1rem .6rem}
 .wrap{max-width:720px;margin:0 auto}
 header.top h1{font-size:1.2rem}
 nav.tabs{display:flex;gap:.25rem;background:var(--card);box-shadow:var(--shadow);position:sticky;top:0;z-index:5;padding:.4rem;overflow-x:auto}
@@ -129,6 +129,16 @@ main{padding:1rem 1rem 3rem}
 .mrow{display:flex;gap:.4rem;margin-bottom:.4rem;align-items:stretch}
 .mbtn{flex:1;display:flex;justify-content:space-between;align-items:center;padding:.65rem .9rem;border-radius:.75rem;color:#fff;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,.35)}
 .mbtn.cur{outline:3px solid var(--amber-400);outline-offset:2px}
+.rmd{background:var(--amber-100);color:var(--amber-700);border-radius:.6rem;padding:.45rem .7rem;margin:.3rem 0;font-weight:700;font-size:.9rem}
+.puline{display:flex;gap:.4rem;margin-top:.5rem}
+.puline label{flex:1;font-size:.76rem;color:var(--muted);display:grid;gap:.15rem}
+.puline input{padding:.4rem .5rem;font-size:.9rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:.5rem}
+.tile{background:var(--slate-100);border-radius:.75rem;padding:.6rem .4rem;text-align:center;font-size:.8rem;color:var(--muted)}
+.tile b{display:block;font-size:1.35rem;color:var(--text)}
+.rings{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;text-align:center;font-size:.85rem}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.overlay .tick{animation:pop .5s ease both}
 .delnote{background:transparent;color:var(--rose-600);padding:.3rem .7rem;border-radius:99px;font-size:.88rem;font-weight:600}
 .delnote:hover{background:var(--rose-50)}
 .note .txt{white-space:pre-wrap;margin:.2rem 0 .5rem}
@@ -221,7 +231,7 @@ var SCHED=[["2026-11-12", "ח\"א קיט.", "סי׳ פט", "הלכות תפלה 
  IYUN=[["רו, א", "סוגיה כח: טעויות בברכה"], ["רו, ה", "סוגיה לז: הפסק בברכות הנהנין"], ["רו, ו", "סוגיה מא: הוצאת אחרים ידי חובתם"], ["רז", "סוגיה נ: ברכת \"בורא נפשות\""], ["רח", "פקיעת שם לחם / שיעור ברכה אחרונה"], ["רט, ג", "מהות חיוב הברכות / יין ושמן"], ["רי, א-ב", "בציעת הפת / מעין שלוש"], ["ריא, א-ו", "דיני קדימה בברכות"], ["ריב, א", "סוגיה מה: עיקר וטפל נפרדים"], ["ריג, א", "סוגיה מא: הוצאת אחרים"], ["רטו, א", "סוגיה נז: עניית אמן"], ["ריז, ג", "סוגיה מג: ברכות הריח"], ["ריח, א-ז", "ברכות הראייה והנסים"], ["ריט", "סוגיה פט: ברכת הגומל"], ["רכ-רכב", "תענית חלום והודאה (גשמים)"], ["רכג", "ברכת שהחיינו וכלים חדשים"], ["רכד", "ברכות מעשה אנוש ובתי ישראל"], ["רכה", "ברכות הראייה (יסוד, שהחיינו)"], ["רכו-רל", "ברכות פרטיות ותופעות טבע"], ["פט, א", "סוגיה עב: זמן תפילת שחרית"], ["פט, ב", "סוגיה פב: אכילה ועשיית צרכי האדם לפני התפילה (7)"], ["פט, ג", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ד-ה", "סוגיה פ: אכילה ועשיית צרכי האדם לפני התפילה (5)"], ["פט, ו", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ח", "סוגיה צה: שהייה בין תפילה לתפילה"], ["צ, א-ב", "סוגיה קכא: תיקון מקום התפילה (4)"], ["צ, ד", "סוגיה קיט: תיקון מקום התפילה (2)"], ["צ, ה", "סוגיה קכ: תיקון מקום התפילה (3)"], ["צ, ו", "סוגיה קכג: תיקון מקום התפילה (6)"], ["צ, ז", "סוגיה קכה: תיקון מקום התפילה (8)"], ["צ, ט · צ, טז · צ, יח", "סוגיה קכט: חיוב אמירת קדיש"], ["צ, יט", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כ", "סוגיה קכו: תיקון הגוף"], ["צ, כא-כג", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["צ, כז", "סוגיה סג: דיני ערוה לקריאת שמע (4)"], ["צב, א-ב", "סוגיה נב: דיני ערוה לקריאת שמע (1)"], ["צב, ד", "סוגיה לג: נטילת ידיים לקריאת שמע"], ["צג, א · צג, ב · צג, ג", "סוגיה צט: הכנה לתפילה"], ["צג, ד", "סוגיה מא: חתן הרוצה להחמיר"], ["צד, א-ב", "סוגיה צב: נוכח המקדש"], ["צד, ד", "סוגיה צא: תפילה מעומד (1)"], ["צד, ט", "סוגיה צד: תפילת מוסף - בציבור או ביחיד?"], ["צה", "סוגיה קכז: הסדרת התפילה"], ["צז, א-ד", "סוגיה קב: השווית הקול"], ["צח, א", "סוגיה ק: כוונה בתפילה"], ["צח, ג", "סוגיה פט: תפילה קצרה"], ["צח, ד", "סוגיה קכז: הסדרת התפילה"], ["צט, א · צט, ג", "סוגיה קג: תפילת שיכור"], ["ק", "סוגיה קכח: תפילה בציבור"], ["קא, א", "סוגיה ק: כוונה בתפילה"], ["קא, ב", "סוגיה קב: השווית הקול"], ["קא, ד", "סוגיה כו: קריאת שמע ותפילה בלעז"], ["קב, א-ד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["קג", "סוגיה קב: השווית הקול"], ["קד, א", "סוגיה קו: הפסקה בתפילה"], ["קד, ב", "סוגיה קז: הבדלה בתפילה"], ["קד, ג", "סוגיה קו: הפסקה בתפילה"], ["קד, ד · קד, ה · קד, ו", "סוגיה קז: הבדלה בתפילה"], ["קה", "סוגיה צה: שהייה בין תפילה לתפילה"], ["קו, א", "סוגיה מו: הרהור כדיבור"], ["קח, ו · קח, יא", "סוגיה עב: זמן תפילת שחרית"], ["קח, יב", "סוגיה קז: הבדלה בתפילה"], ["קט, א", "סוגיה קל: קדיש"], ["קי, א", "סוגיה פד: נוסח תפילת עמידה"], ["קי, ג", "סוגיה פט: תפילה קצרה"], ["קי, ו-ז", "סוגיה צ: תפילת הדרך"], ["קי, ח", "סוגיה פג: תפילה בכניסה לבית המדרש"], ["קיא, א", "סוגיה ח: סוף זמן קריאת שמע של ערבית (1)"], ["קיב, א", "סוגיה קיב: \"לעולם יסדר אדם שבחו...\" (2)"], ["קיב, ב", "סוגיה טו: שינוי נוסח הברכה (2)"], ["קיג, א · קיג, ד-ה", "סוגיה קיז: נפילת אפיים"], ["קיג, ט", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קיד, ג-ו", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיד, ו", "סוגיה צט: הכנה לתפילה"], ["קיד, ז", "סוגיה קז: הבדלה בתפילה"], ["קיז, ג-ד · קיז, ה", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיח", "סוגיה קטו: טעות בנוסח התפילה"], ["קיט, א", "סוגיה קיד: תוספות בתפילה"], ["קיט, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קכב", "סוגיה פח: \"העושה תפילתו קבע...\""], ["קכב, א", "סוגיה צג: בתי ישראל בישובם"], ["קכג, א-ג", "סוגיה קיז: נפילת אפיים"], ["קכד, א · קכד, י", "סוגיה צח: השלמת תוספת בין ברכה לברכה"], ["קכו, א · קכו, ב", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קכו, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קל", "סוגיה פד: נוסח תפילת עמידה"], ["קלא, א-ב · קלא, ד · קלא, ו-ח", "סוגיה קיח: תיקון מקום התפילה (1)"], ["קלב, א", "סוגיה קח: הוספת שמות תואר"], ["קלב, ב", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קנ, א", "סוגיה מח: היקף חיוב קריאת שמע מהתורה"], ["קנב, א", "סוגיה לא: הפסקה בקריאת שמע להנחת תפילין"], ["קנג, א", "סוגיה כב: נוסח הברכה שלאחר קריאת שמע"], ["קנג, ב", "סוגיה יג: עמידה והטיה בקריאת שמע"], ["רב, א", "סוגיה ד: ברכה על דבר מזיק"], ["רב, א (המשך)", "המשך הלכות ברכת המזון"], ["רב, ב", "סוגיה יב: ברכה על פלפל"], ["רב, ג", "סוגיה יא: ברכה על פרי בוסר"], ["רב, ד", "סוגיה ה+ו: עיקר וטפל בתערובת"], ["רב, ה", "סוגיה ט: הגדרת פרי עץ"], ["רב, ו", "סוגיה י: גרעינים וקליפות"], ["רב, ז", "סוגיה כ: שתיתא"], ["רב, י", "סוגיה כד: שיעור ברכה אחרונה"], ["רב, יח", "סוגיה יג: ברכה על חמשת מיני דגן"], ["רג, ב-ג", "סוגיה כז: הגדרת עץ לעניין ברכה"], ["רד, ח-יא", "סוגיה כא/כט/נא: ברכה על איסור/שהכל"], ["רה, א", "סוגיה כד: שיעור ברכה אחרונה"]];
 var SHAS=[["ברכות", 64, "זרעים"], ["שבת", 157, "מועד"], ["עירובין", 105, "מועד"], ["פסחים", 121, "מועד"], ["יומא", 88, "מועד"], ["סוכה", 56, "מועד"], ["ביצה", 40, "מועד"], ["ראש השנה", 35, "מועד"], ["תענית", 31, "מועד"], ["מגילה", 32, "מועד"], ["מועד קטן", 29, "מועד"], ["חגיגה", 27, "מועד"], ["יבמות", 122, "נשים"], ["כתובות", 112, "נשים"], ["נדרים", 91, "נשים"], ["נזיר", 66, "נשים"], ["סוטה", 49, "נשים"], ["גיטין", 90, "נשים"], ["קידושין", 82, "נשים"], ["בבא קמא", 119, "נזיקין"], ["בבא מציעא", 119, "נזיקין"], ["בבא בתרא", 176, "נזיקין"], ["סנהדרין", 113, "נזיקין"], ["מכות", 24, "נזיקין"], ["שבועות", 49, "נזיקין"], ["עבודה זרה", 76, "נזיקין"], ["הוריות", 14, "נזיקין"], ["זבחים", 120, "קדשים"], ["מנחות", 110, "קדשים"], ["חולין", 142, "קדשים"], ["בכורות", 61, "קדשים"], ["ערכין", 34, "קדשים"], ["תמורה", 34, "קדשים"], ["כריתות", 28, "קדשים"], ["מעילה", 22, "קדשים"], ["תמיד", 9, "קדשים"], ["נדה", 73, "טהרות"]];
 var db=null, tab="wizard", fresh=false;
-var W={date:null,idx:0,ans:{},notes:{},why:{}};
+var W={date:null,idx:0,ans:{},notes:{},why:{},xn:{},pu:{},prot:null};
 var S={range:"all"}, St={sum:"week"}, J={onlyStar:false,q:"",cat:"",from:"",to:""};
 
 /* ---------- helpers ---------- */
@@ -236,7 +246,59 @@ function heDate(s){return parse(s).toLocaleDateString("he-IL",{weekday:"long",da
 function counted(d){var w=parse(d).getDay();return w!==5&&w!==6}
 function ensure(){if(!db.study)db.study={h:0,i:0,log:{}};if(!db.study.log)db.study.log={};if(!db.reasons)db.reasons={};
  if(!db.gem)db.gem={cur:"בבא מציעא",prog:{"בבא מציעא":50}};if(!db.gem.prog)db.gem.prog={};
- if(!db.hq)db.hq=[];if(!db.topics)db.topics=["שבת","כשרות","תפילה","ברכות"]}
+ if(!db.hq)db.hq=[];if(!db.topics)db.topics=["שבת","כשרות","תפילה","ברכות"];if(!db.tasks)db.tasks=[];if(!db.sport)db.sport={};migrate()}
+function cl(x){return JSON.parse(JSON.stringify(x))}
+function canon(q){return q.cat+"|"+String(q.text).trim().replace(/\s+/g," ")}
+function sunday(d){return addDays(d,-parse(d).getDay())}
+function dayDiff(a,b){return Math.round((parse(b)-parse(a))/864e5)}
+function acnt(d,q){return counted(d)||!!(q&&q.days&&q.days.indexOf(parse(d).getDay())>=0)}
+function addQ(id,cat,text,extra){
+ if(db.questions.some(function(q){return q.id===id||(q.cat===cat&&q.text===text)}))return;
+ var q={id:id,cat:cat,text:text,archived:false};for(var k in extra)q[k]=extra[k];
+ db.questions.push(q);
+ if(db.cats.indexOf(cat)<0){var i=db.cats.indexOf("בריאות וגוף");db.cats.splice(i<0?db.cats.length:i+1,0,cat)}
+}
+function migrate(){
+ var sp=db.sport,ch=false;
+ if(!sp.mig1){
+  var old=db.questions.filter(function(q){return q.text.indexOf("האם עשית ספורט היום")===0})[0];if(old)old.archived=true;
+  addQ("sp_run","ספורט","האם ביצעת את הריצה היום?",{days:[1,3,6]});
+  addQ("sp_fit","ספורט","האם ביצעת את אימון הכושר היומי?",{days:[0,2,4]});
+  addQ("sp_str","ספורט","האם ביצעת מתיחות היום?",{days:[0,1,2,3,4,6]});
+  addQ("sp_pu","ספורט","האם ביצעת מתח היום?",{days:[0,1,2,3,4,5,6],kind:"pu"});
+  addQ("z_gilad","תרגול רגיעה","האם ביקרת היום אצל גלעד?",{days:[2],xn:"הערות מביקורים אצל גלעד",xph:"מה הייתה ההתקדמות שלי היום אצל גלעד?"});
+  addQ("z_dream","תרגול רגיעה","האם היה לך חלום הלילה?",{nostat:true,xn:"חלומות לזיכרון",xph:"מה חלמתי?"});
+  sp.mig1=1;ch=true;
+ }
+ if(!sp.start){sp.start=sunday(today());ch=true}
+ if(!sp.protStart){sp.protStart=addDays(today(),7);ch=true}
+ if(!sp.protGoal){sp.protGoal=160;ch=true}
+ if(!sp.adj)sp.adj={};
+ if(!sp.dd1){
+  idbSnapKey("pre-dedupe",JSON.stringify(db));
+  var n=dedupeDb(db);sp.dd1=1;ch=true;if(n)setTimeout(function(){toast("אוחדו "+n+" שאלות כפולות")},600);
+ }
+ if(ch)persist();
+}
+function dedupeDb(d){
+ var keep={},map={},rm=0,out=[],det=/^(sp_|z_|q\d+$)/;
+ d.questions.forEach(function(q){
+  var c=canon(q),k=keep[c];
+  if(!k){keep[c]=q;out.push(q);return}
+  var pre=(k.archived&&!q.archived)||(!det.test(k.id)&&det.test(q.id));
+  var win=pre?q:k,lose=pre?k:q;
+  if(lose.goal&&!win.goal)win.goal=lose.goal;
+  if(pre){out[out.indexOf(k)]=q;keep[c]=q}
+  map[lose.id]=win.id;rm++;
+ });
+ if(!rm)return 0;
+ d.questions=out;
+ function rk(o){if(!o)return;Object.keys(o).forEach(function(k){if(map[k]){if(o[map[k]]===undefined)o[map[k]]=o[k];delete o[k]}})}
+ Object.keys(d.logs).forEach(function(dt){var l=d.logs[dt];rk(l.answers);rk(l.why);rk(l.xn)});
+ if(d.reasons)Object.keys(d.reasons).forEach(function(k){if(map[k]){var a=d.reasons[map[k]]||(d.reasons[map[k]]=[]);d.reasons[k].forEach(function(x){if(!a.some(function(y){return y.id===x.id}))a.push(x)});delete d.reasons[k]}});
+ if(d.study){if(map[d.study.hq])d.study.hq=map[d.study.hq];if(map[d.study.gq])d.study.gq=map[d.study.gq]}
+ return rm;
+}
 function heb(n){var o=["","א","ב","ג","ד","ה","ו","ז","ח","ט"],t=["","י","כ","ל","מ","נ","ס","ע","פ","צ"],h=["","ק","ר","ש","ת"];return (h[Math.floor(n/100)]+t[Math.floor(n%100/10)]+o[n%10]).replace("יה","טו").replace("יו","טז")}
 function masechta(n){return SHAS.filter(function(x){return x[0]===n})[0]||SHAS[0]}
 function gqId(){
@@ -257,7 +319,7 @@ function toast(m){var b=$("toastBox");b.innerHTML='<div class="toast">'+esc(m)+'
 /* ---------- storage ---------- */
 function seed(){
  var qs=[];
- SEED.cats.forEach(function(c){SEED.qs[c].forEach(function(t){qs.push({id:uid(),cat:c,text:t,archived:false})})});
+ SEED.cats.forEach(function(c){SEED.qs[c].forEach(function(t){qs.push({id:"q"+(qs.length+1),cat:c,text:t,archived:false})})});
  return {version:1,cats:SEED.cats.slice(),questions:qs,logs:{},lastExport:null};
 }
 function persist(keep){
@@ -294,7 +356,7 @@ function idbPut(json){idb(function(d){if(!d)return;try{
 function idbSnapKey(key,json){idb(function(d){if(!d)return;try{d.transaction("b","readwrite").objectStore("b").put({json:json,at:Date.now()},key)}catch(e){}})}
 function idbList(cb){idb(function(d){if(!d)return cb([]);try{
  var s=d.transaction("b").objectStore("b"),k=s.getAllKeys();
- k.onsuccess=function(){var g=s.getAll();g.onsuccess=function(){var o=[];k.result.forEach(function(key,i){if(/^d\d{4}/.test(key)||key==="pre-sync")o.push({key:key,v:g.result[i]})});o.sort(function(a,b){return a.key<b.key?1:-1});cb(o)};g.onerror=function(){cb([])}};
+ k.onsuccess=function(){var g=s.getAll();g.onsuccess=function(){var o=[];k.result.forEach(function(key,i){if(/^d\d{4}/.test(key)||key==="pre-sync"||key==="pre-dedupe")o.push({key:key,v:g.result[i]})});o.sort(function(a,b){return a.key<b.key?1:-1});cb(o)};g.onerror=function(){cb([])}};
  k.onerror=function(){cb([])};
 }catch(e){cb([])}})}
 
@@ -360,15 +422,38 @@ function mergeHq(a,b){
   if(!e||(x.at||0)>(e.at||0)||(!e.a&&x.a)||((x.at||0)===(e.at||0)&&(x.ts||0)>(e.ts||0)))m[x.id]=x});
  return Object.keys(m).map(function(k){return m[k]});
 }
+function mergeLog(y,x){
+ var nw=(x.savedAt||0)>(y.savedAt||0)?x:y,od=nw===x?y:x,r=cl(od);
+ ["answers","notes","why","xn"].forEach(function(k){if(nw[k]){r[k]=r[k]||{};Object.keys(nw[k]).forEach(function(q){r[k][q]=nw[k][q]})}});
+ var s1=od.noteSignificance||{},s2=nw.noteSignificance||{},sg={};
+ Object.keys(s1).concat(Object.keys(s2)).forEach(function(c){sg[c]=Math.max(s1[c]||0,s2[c]||0)});
+ r.noteSignificance=sg;
+ if(nw.pu)r.pu=cl(nw.pu);if(nw.prot!=null)r.prot=nw.prot;
+ r.savedAt=Math.max(x.savedAt||0,y.savedAt||0);
+ return r;
+}
+function remapLog(l,map){
+ var r=cl(l);["answers","why","xn"].forEach(function(k){if(!r[k])return;var o={};Object.keys(r[k]).forEach(function(q){o[map[q]||q]=r[k][q]});r[k]=o});
+ return r;
+}
 function mergeDb(a,b){
- var w=(a.updatedAt||0)>=(b.updatedAt||0)?a:b,o=w===a?b:a,r=JSON.parse(JSON.stringify(w));
+ var w=(a.updatedAt||0)>=(b.updatedAt||0)?a:b,o=w===a?b:a,r=cl(w);
+ if(!r.sport)r.sport={};if(!r.sport.adj)r.sport.adj={};
+ var byId={},byC={},map={};
+ r.questions.forEach(function(q){byId[q.id]=q;byC[canon(q)]=q});
+ o.questions.forEach(function(q){var h=byId[q.id]||byC[canon(q)];if(h){map[q.id]=h.id}else{var c=cl(q);r.questions.push(c);byId[c.id]=c;byC[canon(c)]=c;map[q.id]=c.id}});
  o.cats.forEach(function(c){if(r.cats.indexOf(c)<0)r.cats.push(c)});
- var ids={};r.questions.forEach(function(q){ids[q.id]=1});
- o.questions.forEach(function(q){if(!ids[q.id])r.questions.push(JSON.parse(JSON.stringify(q)))});
- Object.keys(o.logs).forEach(function(d){var x=o.logs[d],y=r.logs[d];if(!y||(x.savedAt||0)>(y.savedAt||0))r.logs[d]=JSON.parse(JSON.stringify(x))});
+ Object.keys(o.logs).forEach(function(d){var x=remapLog(o.logs[d],map),y=r.logs[d];r.logs[d]=y?mergeLog(y,x):x});
+ var orr={};Object.keys(o.reasons||{}).forEach(function(q){orr[map[q]||q]=o.reasons[q]});
+ r.reasons=mergeReasons(w.reasons,orr);
  r.gem=mergeGem(w.gem,o.gem);r.hq=mergeHq(a.hq,b.hq);
  r.topics=(w.topics||[]).concat((o.topics||[]).filter(function(t){return (w.topics||[]).indexOf(t)<0}));
- r.study=mergeStudy(a.study,b.study);r.reasons=mergeReasons(a.reasons,b.reasons);
+ r.study=mergeStudy(w.study,o.study);
+ var tk={};(a.tasks||[]).concat(b.tasks||[]).forEach(function(t){var e=tk[t.id];if(!e||(e.done===null&&t.done!==null))tk[t.id]=t});
+ r.tasks=Object.keys(tk).map(function(k){return tk[k]});
+ var os=o.sport||{};Object.keys(os).forEach(function(k){if(r.sport[k]===undefined)r.sport[k]=os[k]});
+ Object.keys(os.adj||{}).forEach(function(k){if(r.sport.adj[k]===undefined)r.sport.adj[k]=os.adj[k]});
+ dedupeDb(r);
  r.lastExport=a.lastExport||null;r.updatedAt=Date.now();
  return r;
 }
@@ -463,55 +548,157 @@ function render(still){
 }
 
 /* ---------- wizard ---------- */
-function activeCats(){
- return db.cats.filter(function(c){return db.questions.some(function(q){return q.cat===c&&!q.archived})});
+var DRAFT_KEY=KEY+"_draft";
+var PLAN={
+ run:{n:"ריצת שני/רביעי",q:"sp_run",d:[1,3],f:"{t}",s:[[1,null,"3 ק״מ ב-14:45",1],[4,null,"פיצול עצימות",1],[8,null,"מבחן 3 ק״מ: יעד 14:25",1],[12,null,"מבחן 3 ק״מ: יעד 14:10",1],[16,null,"יעד: מתחת ל-14:00",1]]},
+ runSat:{n:"ריצת מוצ״ש",q:"sp_run",d:[6],f:"{n} ק״מ {t}",s:[[1,7,"בקצב 6:20 לק״מ"],[3,8,""],[6,9,""],[9,10,""],[14,10,"בקצב 6:10 לק״מ"],[16,10,"בקצב 6:00 לק״מ"]]},
+ push:{n:"שכיבות סמיכה",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n} {t}",s:[[1,3,"(טכניקה מושלמת)"],[2,4,""],[4,6,""],[8,8,"(חזה נוגע ברצפה)"],[12,10,""],[16,15,"(אפשר להגביה רגליים)"]]},
+ sit:{n:"כפיפות בטן",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n}",s:[[1,25,""],[2,30,""],[6,35,""],[11,40,""],[14,45,""]]},
+ plank:{n:"פלאנק",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n} שניות",s:[[1,30,""],[9,50,""],[14,60,""]]},
+ squat:{n:"סקוואטים",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n} {t}",s:[[1,15,"(משקל גוף)"],[2,20,""],[8,null,"+ תיק משקל"],[16,25,"+ משקל לפי יכולת"]]},
+ lunge:{n:"מכרעים",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n} לכל רגל {t}",s:[[4,10,""],[8,null,"+ תיק משקל"],[12,15,"עם משקל"]]},
+ row:{n:"חתירה בגומייה",q:"sp_fit",d:[0,2,4],f:"3 סטים של {n} {t}",s:[[1,10,""],[2,12,""],[8,null,"בגומייה קשה יותר"]]},
+ pull:{n:"מתח",q:"sp_pu",d:[0,1,2,3,4,5,6],f:"{n} שניות תלייה {t}",s:[[1,20,"+ 2 חלקיות"],[3,30,"(אפשר גומייה לעליות)"],[6,45,"+ ירידות אקסנטריות"],[11,60,"+ 5 עליות בגומייה"],[12,null,"1-2 עליות מלאות!",1],[16,null,"3 סטים של 3-5 עליות",1]]}
+};
+var WNOTE={2:"בשכיבות סמיכה מתמקדים בטכניקה איטית ומלאה. סקוואטים יבנו כוח בסיסי. הוספנו חתירה כדי לשמור על יציבה נכונה.",3:"הארכת ריצת הנפח הראשונה. במתח: חיזוק כוח האחיזה (אפשר לשלב גומייה לעליות).",4:"קריטי לריצה: הוספת לאנג׳ים! עבודה על כל רגל בנפרד משפרת יציבות ומונעת פציעות ברכיים בריצה.",6:"מהותי: במתח עוברים ל״ירידות אקסנטריות״ (קפיצה מעל המוט וירידה מאוד איטית למטה).",8:"יעד 3 ק״מ: אזור ה-14:25. ברגליים נוסיף התנגדות עם תיק גב. בשכיבות סמיכה: הקפדה על חזה נוגע ברצפה.",9:"יעד מרחק: הגעה ל-10 ק״מ! לא להתמקד במהירות, רק לסיים את המרחק בהרגשה טובה.",11:"הבטן מתחזקת משמעותית. במתח עובדים על שילוב של סיבולת תלייה עם עבודה אקטיבית.",12:"מהותי: ניסיון ראשון לבצע מתח נקי. בשני: יעד 14:10 דקות. הרגליים עובדות חזק עם משקל.",14:"אחרי שהתייצבנו על המרחק בריצה, מתחילים לקזז 10 שניות מהקצב הממוצע.",16:"חודש השיא. אם שכיבות הסמיכה קלות, אפשר להגביה רגליים. הוספת משקל בסקוואטים לפי יכולת."};
+function stepDate(w){return addDays(db.sport.start,(w-1)*7)}
+function numAt(k,w,raw){var n=null;PLAN[k].s.forEach(function(x){if(x[0]<=w&&x[1]!=null)n=x[1]});return n==null?null:n+(raw?0:(db.sport.adj[k]||0))}
+function tgt(k,x){var it=PLAN[k];if(x[3])return x[2];var n=numAt(k,x[0]);return it.f.replace("{n}",n==null?"":n).replace("{t}",x[2]||"").replace(/\s+/g," ").trim()}
+function curStepOf(k,date){var st=null;PLAN[k].s.forEach(function(x){if(stepDate(x[0])<=date)st=x});return st}
+function itemsFor(qid,wd){return qid==="sp_run"?[wd===6?"runSat":"run"]:qid==="sp_fit"?["push","sit","plank","squat","lunge","row"]:qid==="sp_pu"?["pull"]:[]}
+function qDays(qid){var q=db.questions.filter(function(x){return x.id===qid})[0];return q&&q.days?q.days:[0,1,2,3,4,5,6]}
+function remindersFor(date,qid){
+ var out=[];
+ Object.keys(PLAN).forEach(function(k){
+  var it=PLAN[k];if(it.q!==qid)return;
+  it.s.forEach(function(x){
+   if(x[0]<=1)return;
+   var qd=qDays(qid),first=stepDate(x[0]),g=0;
+   while(!(it.d.indexOf(parse(first).getDay())>=0&&qd.indexOf(parse(first).getDay())>=0)&&g++<14)first=addDays(first,1);
+   var prev=addDays(first,-1);g=0;
+   while(qd.indexOf(parse(prev).getDay())<0&&g++<14)prev=addDays(prev,-1);
+   if(date>=prev&&date<first)out.push({key:k,txt:tgt(k,x),first:first});
+  });
+ });
+ return out;
 }
+function sportHint(q){
+ if(q.id!=="sp_run"&&q.id!=="sp_fit"&&q.id!=="sp_pu")return "";
+ var d=W.date,h="",cur=itemsFor(q.id,wday()).map(function(k){var x=curStepOf(k,d);return x?"<b>"+esc(PLAN[k].n)+":</b> "+esc(tgt(k,x)):""}).filter(Boolean);
+ if(cur.length)h+='<div class="muted" style="font-size:.82rem;margin-bottom:.4rem">היעד: '+cur.join(" · ")+"</div>";
+ var by={};remindersFor(d,q.id).forEach(function(r){(by[r.first]=by[r.first]||[]).push(r)});
+ Object.keys(by).forEach(function(f){
+  var when=f===addDays(d,1)?"מחר":"ב"+"יום "+DN[parse(f).getDay()]+" "+sdate(f);
+  h+='<div class="rmd">תזכורת: '+when+" יש להעלות: "+by[f].map(function(r){return "<b>"+esc(PLAN[r.key].n)+"</b> ל-"+esc(r.txt)}).join(" · ")+"</div>";
+ });
+ return h;
+}
+function nextWorkoutNote(){
+ var done=W.ans.sp_run===true||W.ans.sp_fit===true;
+ for(var i=done?1:0;i<8;i++){
+  var dd=addDays(W.date,i),wd=parse(dd).getDay(),run=[1,3,6].indexOf(wd)>=0,fit=[0,2,4].indexOf(wd)>=0;
+  if(!run&&!fit)continue;
+  var lbl=i===0?"היום":i===1?"מחר":"יום "+DN[wd];
+  return run?"האימון הבא: ריצה ("+lbl+"). לפני: הרבה פחמימות פשוטות, מינימום חלבון, שומן וסיבים. אחרי: הרבה פחמימות + 20-25 גרם חלבון."
+   :"האימון הבא: אימון כוח ("+lbl+"). לפני: פחמימות בכמות בינונית, אפשר 10-15 גרם חלבון (לא חובה אם הארוחה הקודמת הספיקה). אחרי: 25-40 גרם חלבון לפחות + פחמימות בינוניות-גבוהות.";
+ }
+ return "";
+}
+function protOn(){return W.date>=db.sport.protStart}
+function protBox(){
+ if(!protOn())return "";
+ var g=db.sport.protGoal||160,v=W.prot==null?"":W.prot;
+ return '<div class="whybox" style="margin-top:1rem"><strong>כמה חלבון אכלת היום?</strong><div class="row"><input type="number" inputmode="numeric" min="0" id="prot" value="'+v+'" placeholder="גרם" style="width:110px"><span>מתוך <b>'+g+'</b> גרם</span><button class="btn ghost sm" id="protTbl">טבלת חלבון</button></div>'+
+  '<div class="bar sm"><i id="protBar" style="width:'+Math.min(100,Math.round((+v||0)/g*100))+'%"></i></div><div class="muted">'+esc(nextWorkoutNote())+"</div></div>";
+}
+function updProt(){var b=$("protBar");if(b)b.style.width=Math.min(100,Math.round((W.prot||0)/(db.sport.protGoal||160)*100))+"%";var e=$("prot");if(e&&document.activeElement!==e)e.value=W.prot==null?"":W.prot}
+function bindProt(){var e=$("prot");if(!e)return;e.oninput=function(){W.prot=this.value===""?null:Math.max(0,+this.value);updProt();saveDraft()};$("protTbl").onclick=openProtein}
+function wday(){return parse(W.date).getDay()}
+function qVisible(q){return !q.archived&&(!q.days||q.days.indexOf(wday())>=0)}
+function visQs(c){return db.questions.filter(function(q){return q.cat===c&&qVisible(q)})}
+function dueTasks(){return db.tasks.filter(function(t){return t.due<=W.date&&(t.done===null||t.doneOn===W.date)})}
+function pagesList(){var p=db.cats.filter(function(c){return visQs(c).length>0});if(dueTasks().length)p.push("#t");p.push("#p");return p}
+function saveDraft(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify({date:W.date,ts:Date.now(),ans:W.ans,notes:W.notes,why:W.why,xn:W.xn,pu:W.pu,prot:W.prot}))}catch(e){}}
 function loadDraft(){
  var l=db.logs[W.date];
- W.ans=l&&l.answers?JSON.parse(JSON.stringify(l.answers)):{};
- W.notes=l&&l.notes?JSON.parse(JSON.stringify(l.notes)):{};
- W.why=l&&l.why?JSON.parse(JSON.stringify(l.why)):{};
- W.idx=0;
+ W.ans=l&&l.answers?cl(l.answers):{};W.notes=l&&l.notes?cl(l.notes):{};W.why=l&&l.why?cl(l.why):{};
+ W.xn=l&&l.xn?cl(l.xn):{};W.pu=l&&l.pu?cl(l.pu):{};W.prot=l&&l.prot!=null?l.prot:null;W.idx=0;
+ try{var d=JSON.parse(localStorage.getItem(DRAFT_KEY));if(d&&d.date===W.date&&d.ts>((l&&l.savedAt)||0)){W.ans=d.ans||{};W.notes=d.notes||{};W.why=d.why||{};W.xn=d.xn||{};W.pu=d.pu||{};W.prot=d.prot==null?null:d.prot}}catch(e){}
+}
+function qHtml(q,hid,gid,showStudy){
+ var a=W.ans[q.id];
+ return '<div class="q"><p>'+esc(q.text)+"</p>"+sportHint(q)+'<div class="ans"><button class="yes'+(a===true?" on":"")+'" data-a="1" data-q="'+q.id+'">כן</button><button class="no'+(a===false?" on":"")+'" data-a="0" data-q="'+q.id+'">לא</button></div>'+
+  '<div id="why-'+q.id+'"></div>'+(q.kind==="pu"?'<div id="pu-'+q.id+'"></div>':"")+(q.xn?'<div id="xn-'+q.id+'"></div>':"")+((q.id===hid&&showStudy)?'<div id="study"></div>':"")+((q.id===gid&&showStudy)?'<div id="gem"></div>':"")+"</div>";
+}
+function drawXn(qid){
+ var el=$("xn-"+qid);if(!el)return;
+ var q=db.questions.filter(function(x){return x.id===qid})[0];
+ if(W.ans[qid]!==true){el.innerHTML="";return}
+ el.innerHTML='<textarea id="xt-'+qid+'" placeholder="'+esc(q.xph||"כתוב כאן...")+'" style="min-height:170px;margin-top:.6rem">'+esc(W.xn[qid]||"")+'</textarea><div class="muted">נשמר ביומן ההערות: '+esc(q.xn)+"</div>";
+ $("xt-"+qid).oninput=function(){W.xn[qid]=this.value;saveDraft()};
+}
+function drawPu(qid){
+ var el=$("pu-"+qid);if(!el)return;
+ if(W.ans[qid]!==true){el.innerHTML="";return}
+ var u=W.pu||(W.pu={});
+ function v(x){return x==null?"":x}
+ el.innerHTML='<div class="puline"><label>כמה פעמים<input type="number" inputmode="numeric" min="0" id="pu-n" value="'+v(u.n)+'"></label><label>כמה עליות<input type="number" inputmode="numeric" min="0" id="pu-r" value="'+v(u.r)+'"></label><label>כמה שניות נשארת<input type="number" inputmode="numeric" min="0" id="pu-s" value="'+v(u.s)+'"></label></div>';
+ [["pu-n","n"],["pu-r","r"],["pu-s","s"]].forEach(function(x){$(x[0]).oninput=function(){if(this.value==="")delete u[x[1]];else u[x[1]]=Math.max(0,+this.value);saveDraft()}});
+}
+function tasksTodayHtml(){
+ return "<h2>משימות חד־פעמיות להיום</h2><div class=\"muted\">משימות שתכננת. הן לא נכנסות לסטטיסטיקה.</div>"+dueTasks().map(function(t){
+  return '<div class="q"><p>'+esc(t.t)+(t.due<W.date?' <span class="muted">(מתאריך '+sdate(t.due)+")</span>":"")+'</p><div class="ans"><button class="yes'+(t.done===true?" on":"")+'" data-tk="1" data-id="'+t.id+'">בוצע</button><button class="no'+(t.done===false?" on":"")+'" data-tk="0" data-id="'+t.id+'">לא בוצע</button></div></div>'}).join("");
+}
+function tasksPlanHtml(){
+ var tm=addDays(W.date,1);
+ return "<h2>רוצה לעדכן משימות חד־פעמיות למחר?</h2><div class=\"muted\">כתוב משימה, והיא תופיע מחר כשאלה אחרונה בשאלון. לא נכנסת לסטטיסטיקה.</div>"+
+  '<div class="row" style="margin:.6rem 0"><input type="text" id="tk-t" placeholder="משימה חדשה..." style="flex:1;min-width:150px"><input type="date" id="tk-d" value="'+tm+'" min="'+tm+'" style="width:auto" aria-label="תאריך יעד"><button class="btn sm" id="tk-add">הוספה</button></div><div id="tk-list"></div>';
+}
+function drawTk(){
+ var el=$("tk-list");if(!el)return;
+ var up=db.tasks.filter(function(t){return t.due>W.date&&t.done===null}).sort(function(a,b){return a.due<b.due?-1:1});
+ el.innerHTML=up.length?'<div class="muted" style="margin-bottom:.3rem">משימות עתידיות</div>'+up.map(function(t){return '<div class="qitem"><span>'+esc(t.t)+' <span class="muted">· '+sdate(t.due)+'</span></span><button class="btn ghost sm" data-td="'+t.id+'" aria-label="מחיקת משימה">✕</button></div>'}).join(""):'<div class="muted">אין משימות עתידיות.</div>';
+ el.querySelectorAll("[data-td]").forEach(function(b){b.onclick=function(){db.tasks=db.tasks.filter(function(t){return t.id!==b.dataset.td});persist();drawTk()}});
+}
+function bindTasks(pg){
+ if(pg==="#t")document.querySelectorAll("[data-tk]").forEach(function(b){b.onclick=function(){
+  var t=db.tasks.filter(function(x){return x.id===b.dataset.id})[0],v=b.dataset.tk==="1";
+  if(t.done===v){t.done=null;delete t.doneOn}else{t.done=v;t.doneOn=W.date}
+  persist();var pr=b.parentNode;pr.querySelector(".yes").classList.toggle("on",t.done===true);pr.querySelector(".no").classList.toggle("on",t.done===false)}});
+ else{drawTk();$("tk-add").onclick=function(){
+  var t=$("tk-t").value.trim(),d=$("tk-d").value||addDays(W.date,1);if(!t){toast("כתוב את המשימה");return}
+  db.tasks.push({id:uid(),t:t,due:d,done:null});persist();$("tk-t").value="";toast("המשימה נוספה");drawTk()}}
 }
 function rWizard(p){
- var cats=activeCats();
- if(!cats.length){p.innerHTML='<div class="card"><h2>אין שאלות פעילות</h2><p class="muted">הוסף שאלות בלשונית "ניהול שאלות".</p></div>';return}
- if(W.idx>=cats.length)W.idx=cats.length-1;
- var cat=cats[W.idx], last=W.idx===cats.length-1;
- var qs=db.questions.filter(function(q){return q.cat===cat&&!q.archived});
- var pct=Math.round((W.idx+1)/cats.length*100);
- var isToday=W.date===today();
- var gid=gqId(),hid=hqId(),showStudy=isToday&&counted(W.date);
- p.innerHTML=
- remBanner()+'<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label>'+
- '<input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
- '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?'':' (מילוי רטרואקטיבי)')+(counted(W.date)?'':' · יום שישי/שבת: לא נכלל בסטטיסטיקה')+(db.logs[W.date]?' · כבר נשמר, שמירה מחדש תעדכן אותו':'')+'</div></div>'+
- '<div class="card"><div class="row between" style="margin-bottom:.5rem"><span class="muted">קטגוריה '+(W.idx+1)+' מתוך '+cats.length+'</span><span class="muted">'+pct+'%</span></div>'+
- '<div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
- '<div class="card" key="'+W.idx+'"><h2>'+esc(cat)+'</h2>'+
- qs.map(function(q){var a=W.ans[q.id];return '<div class="q"><p>'+esc(q.text)+'</p><div class="ans">'+
-  '<button class="yes'+(a===true?' on':'')+'" data-a="1" data-q="'+q.id+'">כן</button>'+
-  '<button class="no'+(a===false?' on':'')+'" data-a="0" data-q="'+q.id+'">לא</button></div><div id="why-'+q.id+'"></div>'+((q.id===hid&&showStudy)?'<div id="study"></div>':'')+((q.id===gid&&showStudy)?'<div id="gem"></div>':'')+'</div>'}).join("")+
- (cat==="למידה"?hqBox():'')+'<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label>'+
- '<textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[cat]||"")+'</textarea></div>'+
- '<div class="nav-row"><button class="btn ghost" id="prev"'+(W.idx===0?' disabled':'')+'>הקודם</button>'+
- '<button class="btn'+(last?' green':'')+'" id="next">'+(last?'שמירה':'הבא')+'</button></div></div>';
+ var pages=pagesList();
+ if(W.idx>=pages.length)W.idx=pages.length-1;
+ var pg=pages[W.idx],isCat=pg.charAt(0)!=="#",last=W.idx===pages.length-1,pct=Math.round((W.idx+1)/pages.length*100);
+ var isToday=W.date===today(),gid=gqId(),hid=hqId(),showStudy=isToday&&counted(W.date);
+ var body;
+ if(pg==="#t")body=tasksTodayHtml();else if(pg==="#p")body=tasksPlanHtml();
+ else body="<h2>"+esc(pg)+"</h2>"+visQs(pg).map(function(q){return qHtml(q,hid,gid,showStudy)}).join("")+(pg==="למידה"?hqBox():"")+(pg==="ספורט"?protBox():"")+
+  '<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label><textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[pg]||"")+"</textarea></div>";
+ p.innerHTML=remBanner()+'<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label><input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
+  '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?"":" (מילוי רטרואקטיבי)")+(counted(W.date)?"":" · יום שישי/שבת: לא נכלל בסטטיסטיקה (חוץ משאלות שמתוזמנות לימים האלה)")+(db.logs[W.date]?" · כבר נשמר, שמירה מחדש תעדכן אותו":"")+"</div></div>"+
+  '<div class="card"><div class="row between" style="margin-bottom:.5rem"><span class="muted">עמוד '+(W.idx+1)+" מתוך "+pages.length+'</span><span class="muted">'+pct+'%</span></div><div class="bar"><i style="width:'+pct+'%"></i></div></div>'+
+  '<div class="card" key="'+W.idx+'">'+body+'<div class="nav-row"><button class="btn ghost" id="prev"'+(W.idx===0?" disabled":"")+'>הקודם</button><button class="btn'+(last?" green":"")+'" id="next">'+(last?"שמירה":"הבא")+"</button></div></div>";
  $("wdate").onchange=function(){if(this.value&&this.value<=today()){W.date=this.value;loadDraft();render()}};
- p.querySelectorAll(".ans button").forEach(function(b){b.onclick=function(){
+ p.querySelectorAll(".ans button[data-q]").forEach(function(b){b.onclick=function(){
   var id=b.dataset.q,val=b.dataset.a==="1";
   if(W.ans[id]===val)delete W.ans[id];else W.ans[id]=val;
   var pair=b.parentNode;
   pair.querySelector(".yes").classList.toggle("on",W.ans[id]===true);
   pair.querySelector(".no").classList.toggle("on",W.ans[id]===false);
   if(W.ans[id]!==false)delete W.why[id];
-  drawWhy(id);if(id===hid)drawStudy();if(id===gid)drawGem();
+  drawWhy(id);drawXn(id);drawPu(id);if(id===hid)drawStudy();if(id===gid)drawGem();saveDraft();
  }});
- drawStudy();drawGem();bindHq();qs.forEach(function(q){drawWhy(q.id)});
- $("prev").onclick=function(){keepNote(cat);W.idx--;render();window.scrollTo(0,0)};
- $("next").onclick=function(){
-  keepNote(cat);
-  if(!last){W.idx++;render();window.scrollTo(0,0)}else saveLog();
- };
+ if(isCat){
+  visQs(pg).forEach(function(q){drawWhy(q.id);drawXn(q.id);drawPu(q.id)});
+  drawStudy();drawGem();bindHq();bindProt();
+  var wn=$("wnote");if(wn)wn.oninput=function(){var v=this.value.trim();if(v)W.notes[pg]=v;else delete W.notes[pg];saveDraft()};
+ }else bindTasks(pg);
+ $("prev").onclick=function(){if(isCat)keepNote(pg);W.idx--;render();window.scrollTo(0,0)};
+ $("next").onclick=function(){if(isCat)keepNote(pg);if(!last){W.idx++;render();window.scrollTo(0,0)}else saveLog()};
 }
 function bump(q,id,d){if(!id)return;var r=((db.reasons||{})[q]||[]).filter(function(x){return x.id===id})[0];if(r)r.n=Math.max(0,r.n+d)}
 function drawWhy(qid){
@@ -606,6 +793,128 @@ function ringHtml(){
  return '<div style="text-align:center;margin:.6rem 0"><svg viewBox="0 0 120 120" style="width:140px;height:140px" role="img" aria-label="אחוז השאלות שנענו"><circle cx="60" cy="60" r="52" class="rbg"/><circle id="rfg" cx="60" cy="60" r="52" class="rfg" stroke-dasharray="'+C.toFixed(2)+'" stroke-dashoffset="'+(C*(1-s.p/100)).toFixed(2)+'" transform="rotate(-90 60 60)"/><text id="rtx" x="60" y="68" text-anchor="middle" class="rtx">'+s.p+'%</text></svg><div class="muted" id="rcap">'+s.a+' מתוך '+s.n+' שאלות נענו</div></div>';
 }
 function updRing(){var s=hqPct(),C=2*Math.PI*52;$("rfg").setAttribute("stroke-dashoffset",(C*(1-s.p/100)).toFixed(2));$("rtx").textContent=s.p+"%";$("rcap").textContent=s.a+" מתוך "+s.n+" שאלות נענו"}
+function ringSvg(p,sz,label,color){
+ var C=2*Math.PI*40,off=C*(1-Math.max(0,Math.min(100,p))/100);
+ return '<svg viewBox="0 0 100 100" style="width:'+sz+'px;height:'+sz+'px" role="img" aria-label="'+esc(label||"")+'"><circle cx="50" cy="50" r="40" class="rbg"/><circle cx="50" cy="50" r="40" class="rfg" style="stroke:'+(color||"var(--emerald-500)")+'" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" class="rtx" style="font-size:22px">'+Math.round(p)+"%</text></svg>";
+}
+function barsSvg(series,labels,o){
+ o=o||{};var VW=320,H=o.h||130,pl=24,pb=18,pt=8,n=labels.length,cols=o.colors||["var(--emerald-500)","var(--indigo-500)"];
+ var tot=labels.map(function(_,i){return series.reduce(function(a,b){return a+(b[i]||0)},0)});
+ var max=Math.max(o.max||0,Math.max.apply(null,tot),1),bw=(VW-pl)/n,g="",bars="",lb="",ev=Math.ceil(n/8);
+ [0,.5,1].forEach(function(f){var y=pt+(1-f)*(H-pt-pb);g+='<line class="gl" x1="'+pl+'" x2="'+VW+'" y1="'+y+'" y2="'+y+'"/><text class="tx" x="0" y="'+(y+3)+'">'+Math.round(max*f)+"</text>"});
+ labels.forEach(function(l,i){var y0=H-pb;series.forEach(function(a,si){var v=a[i]||0,h=v/max*(H-pt-pb);if(h>0){y0-=h;bars+='<rect x="'+(pl+i*bw+bw*.15).toFixed(1)+'" y="'+y0.toFixed(1)+'" width="'+(bw*.7).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="3" style="fill:'+cols[si%cols.length]+'"><title>'+esc(l)+": "+v+"</title></rect>"}});
+  if(i%ev===0)lb+='<text class="tx" x="'+(pl+i*bw+bw/2).toFixed(1)+'" y="'+(H-4)+'" text-anchor="middle">'+esc(l)+"</text>"});
+ if(o.goal){var gy=pt+(1-o.goal/max)*(H-pt-pb);bars+='<line x1="'+pl+'" x2="'+VW+'" y1="'+gy+'" y2="'+gy+'" style="stroke:var(--amber-500);stroke-dasharray:4 3;stroke-width:1.5"/>'}
+ return '<svg viewBox="0 0 '+VW+" "+H+'" style="width:100%;height:auto;direction:ltr" role="img" aria-label="'+esc(o.label||"גרף")+'">'+g+bars+lb+"</svg>";
+}
+function lineSvg(vals,labels,o){
+ o=o||{};var VW=320,H=o.h||120,pl=26,pr=8,pt=10,pb=16,n=vals.length,nums=vals.filter(function(v){return v!=null});
+ if(nums.length<2)return '<p class="muted">צריך לפחות שני תיעודים כדי להציג גרף.</p>';
+ var max=Math.max(Math.max.apply(null,nums),1);
+ function X(i){return pl+i*(VW-pl-pr)/(n-1)}function Y(v){return pt+(1-v/max)*(H-pt-pb)}
+ var g="",d="",pen=false,dots="";
+ [0,.5,1].forEach(function(f){g+='<line class="gl" x1="'+pl+'" x2="'+(VW-pr)+'" y1="'+Y(max*f)+'" y2="'+Y(max*f)+'"/><text class="tx" x="0" y="'+(Y(max*f)+3)+'">'+Math.round(max*f)+"</text>"});
+ vals.forEach(function(v,i){if(v==null){pen=false;return}d+=(pen?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)+" ";pen=true;dots+='<circle class="td" style="fill:'+(o.color||"var(--indigo-600)")+'" cx="'+X(i).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="3"><title>'+esc(labels[i]||"")+": "+v+"</title></circle>"});
+ return '<svg viewBox="0 0 '+VW+" "+H+'" style="width:100%;height:auto;direction:ltr" role="img" aria-label="'+esc(o.label||"גרף")+'">'+g+'<path class="tl" style="stroke:'+(o.color||"var(--indigo-500)")+'" d="'+d+'"/>'+dots+'<text class="tx" x="'+pl+'" y="'+(H-3)+'">'+esc(labels[0]||"")+'</text><text class="tx" x="'+(VW-pr)+'" y="'+(H-3)+'" text-anchor="end">'+esc(labels[n-1]||"")+"</text></svg>";
+}
+var SP={r:12},SB=null;
+function sportData(){
+ var rows=[];
+ Object.keys(db.logs).sort().forEach(function(d){var l=db.logs[d],a=l.answers||{};
+  var r={d:d,run:a.sp_run,fit:a.sp_fit,str:a.sp_str,pu:a.sp_pu,puD:l.pu||null,prot:l.prot};
+  if(r.run!==undefined||r.fit!==undefined||r.str!==undefined||r.pu!==undefined||r.prot!=null)rows.push(r)});
+ return rows;
+}
+function openSport(){sheet("סטטיסטיקת ספורט",'<div id="spbody"></div>');drawSport()}
+function drawSport(){
+ var B=$("spbody");if(!B)return;
+ var t=today(),weeks=SP.r,fromW=addDays(sunday(t),-(weeks-1)*7),all=sportData(),rows=all.filter(function(r){return r.d>=fromW&&r.d<=t}),by={};
+ rows.forEach(function(r){by[r.d]=r});
+ var T={run:[0,0],fit:[0,0],str:[0,0],pu:[0,0]};
+ rows.forEach(function(r){Object.keys(T).forEach(function(k){if(r[k]===true){T[k][0]++;T[k][1]++}else if(r[k]===false)T[k][1]++})});
+ function pc2(k){return T[k][1]?Math.round(T[k][0]/T[k][1]*100):0}
+ var wl=[],wRun=[],wFit=[],wReps=[],wSec=[],wDone=[],pul=[],puR=[],puS=[],reps=0,sec=0,bestR=0,bestS=0;
+ for(var i=0;i<weeks;i++){var ws=addDays(fromW,i*7),run=0,fit=0,rp=0,sc=0;
+  for(var k=0;k<7;k++){var r=by[addDays(ws,k)];if(!r)continue;if(r.run===true)run++;if(r.fit===true)fit++;if(r.pu===true&&r.puD){rp+=+r.puD.r||0;sc+=+r.puD.s||0}}
+  wl.push(sdate(ws));wRun.push(run);wFit.push(fit);wReps.push(rp);wSec.push(sc);wDone.push(run+fit)}
+ rows.forEach(function(r){if(r.pu===true&&r.puD){reps+=+r.puD.r||0;sec+=+r.puD.s||0;bestR=Math.max(bestR,+r.puD.r||0);bestS=Math.max(bestS,+r.puD.s||0);pul.push(sdate(r.d));puR.push(r.puD.r==null?null:+r.puD.r);puS.push(r.puD.s==null?null:+r.puD.s)}});
+ var streakW=0;for(var q=weeks-1;q>=0;q--){if(wRun[q]>=3&&wFit[q]>=3)streakW++;else if(q===weeks-1)continue;else break}
+ var wdY=[0,0,0,0,0,0,0],wdT=[0,0,0,0,0,0,0];
+ rows.forEach(function(r){var wd=parse(r.d).getDay(),v=[1,3,6].indexOf(wd)>=0?r.run:[0,2,4].indexOf(wd)>=0?r.fit:undefined;if(v===true){wdY[wd]++;wdT[wd]++}else if(v===false)wdT[wd]++});
+ var wdP=wdY.map(function(y,i){return wdT[i]?Math.round(y/wdT[i]*100):0});
+ var heat="";for(var a=0;a<weeks*7;a++){var dd=addDays(fromW,a);if(dd>t){heat+='<i class="hc" style="visibility:hidden"></i>';continue}
+  var r2=by[dd],wd2=parse(dd).getDay(),v2=r2?([1,3,6].indexOf(wd2)>=0?r2.run:[0,2,4].indexOf(wd2)>=0?r2.fit:undefined):undefined;
+  heat+='<i class="hc '+(v2===true?"h4":v2===false?"h1":"")+'" title="'+dd+'"></i>'}
+ var pr=all.filter(function(r){return r.prot!=null&&r.d>=addDays(t,-13)}),goal=db.sport.protGoal||160;
+ var pAvg=pr.length?Math.round(pr.reduce(function(a,b){return a+b.prot},0)/pr.length):0,pHit=pr.filter(function(r){return r.prot>=goal}).length;
+ function cnt(f,to){return all.filter(function(r){return r.d>=f&&r.d<=to}).reduce(function(a,r){return a+(r.run===true?1:0)+(r.fit===true?1:0)},0)}
+ var c1=cnt(addDays(t,-27),t),c0=cnt(addDays(t,-55),addDays(t,-28)),dl=c1-c0;
+ var planP=Math.max(0,Math.min(100,(dayDiff(db.sport.start,t)+1)/112*100)),curW=Math.floor(dayDiff(db.sport.start,t)/7)+1;
+ function card(h,b){return '<div class="card"><h2>'+h+"</h2>"+b+"</div>"}
+ var h='<div class="row" style="margin:.4rem 0"><button class="btn sm" id="spPlan">יעדי התקדמות</button><button class="btn ghost sm" id="spDocP">תוכנית הכושר (מקור)</button><button class="btn ghost sm" id="spDocN">מדריך תזונה</button></div>'+
+  '<div class="seg" style="margin-bottom:.8rem">'+[4,12,16].map(function(w){return '<button data-spr="'+w+'" class="'+(SP.r===w?"on":"")+'">'+w+" שבועות</button>"}).join("")+"</div>";
+ h+=card("סיכום",'<div class="tiles"><div class="tile"><b>'+(T.run[0]+T.fit[0])+'</b>אימונים</div><div class="tile"><b>'+T.run[0]+'</b>ריצות</div><div class="tile"><b>'+T.fit[0]+'</b>אימוני כושר</div><div class="tile"><b>'+T.str[0]+'</b>מתיחות</div><div class="tile"><b>'+T.pu[0]+'</b>ימי מתח</div><div class="tile"><b>'+streakW+'</b>שבועות מלאים ברצף</div><div class="tile"><b>'+reps+'</b>עליות במתח</div><div class="tile"><b>'+sec+'</b>שניות תלייה</div></div>');
+ h+=card("אחוז ביצוע",'<div class="rings"><div>'+ringSvg(pc2("run"),90,"ריצה")+"<div>ריצה</div></div><div>"+ringSvg(pc2("fit"),90,"אימון כושר","var(--indigo-500)")+"<div>אימון כושר</div></div><div>"+ringSvg(pc2("str"),90,"מתיחות","var(--amber-500)")+"<div>מתיחות</div></div><div>"+ringSvg(pc2("pu"),90,"מתח","var(--rose-500)")+"<div>מתח</div></div></div>");
+ h+=card("אימונים בכל שבוע (ריצה + כושר)",barsSvg([wRun,wFit],wl,{max:6,goal:6,label:"אימונים לשבוע"})+'<div class="muted">ירוק: ריצות · סגול: אימוני כושר · קו כתום: 6 אימונים בשבוע</div>');
+ h+=card("מפת אימונים",'<div class="heatwrap"><div class="heat">'+heat+'</div></div><div class="muted">ירוק: בוצע · אדום: לא בוצע · אפור: לא נענה</div>');
+ h+=card("באילו ימים אתה מצליח",barsSvg([wdP],["א","ב","ג","ד","ה","ו","ש"],{max:100,label:"אחוז ביצוע לפי יום"})+'<div class="muted">אחוז אימונים שבוצעו בכל יום בשבוע</div>');
+ h+=card("מתח: עליות בכל אימון",lineSvg(puR,pul,{color:"var(--rose-500)",label:"עליות"})+'<div class="muted">שיא: '+bestR+" עליות</div>");
+ h+=card("מתח: שניות תלייה",lineSvg(puS,pul,{color:"var(--indigo-500)",label:"שניות"})+'<div class="muted">שיא: '+bestS+" שניות</div>");
+ h+=card("מתח: סך עליות לשבוע",barsSvg([wReps],wl,{colors:["var(--rose-500)"],label:"עליות לשבוע"}));
+ h+=card("חלבון (14 ימים אחרונים)",pr.length?barsSvg([pr.map(function(r){return r.prot})],pr.map(function(r){return sdate(r.d)}),{goal:goal,max:goal,colors:["var(--emerald-500)"],label:"חלבון"})+'<div class="muted">ממוצע '+pAvg+" גרם · עמדת ביעד ("+goal+") ב-"+pHit+" מתוך "+pr.length+" ימים</div>":'<p class="muted">מעקב החלבון מתחיל ב-'+sdate(db.sport.protStart)+".</p>");
+ h+=card("השוואה ל-4 השבועות הקודמים",'<div class="row between"><span>4 שבועות אחרונים: <b>'+c1+'</b> אימונים</span><span>לפניהם: <b>'+c0+'</b></span><span class="pill">'+(dl>0?"+":"")+dl+"</span></div>");
+ h+=card("התקדמות בתוכנית",'<div class="row" style="gap:1rem">'+ringSvg(planP,96,"התקדמות בתוכנית","var(--indigo-500)")+'<div>'+(curW<1?"התוכנית עוד לא התחילה":curW>16?"התוכנית הסתיימה":"שבוע "+curW+" מתוך 16")+'<div class="muted">התחלה: '+sdate(db.sport.start)+"</div></div></div>");
+ B.innerHTML=h;
+ $("spPlan").onclick=function(){SB=openSport;openPlan()};$("spDocP").onclick=function(){SB=openSport;openPlanDoc()};$("spDocN").onclick=function(){SB=openSport;openProtein()};
+ B.querySelectorAll("[data-spr]").forEach(function(b){b.onclick=function(){SP.r=+b.dataset.spr;drawSport()}});
+}
+function openPlan(){
+ var t=today(),curW=Math.floor(dayDiff(db.sport.start,t)/7)+1,ops="";
+ for(var w=1;w<=16;w++)ops+='<option value="'+w+'"'+(w===Math.max(1,Math.min(16,curW))?" selected":"")+">שבוע "+w+"</option>";
+ var items=Object.keys(PLAN).map(function(k){
+  var it=PLAN[k],cs=curStepOf(k,t),nx=null;it.s.forEach(function(x){if(!nx&&stepDate(x[0])>t)nx=x});
+  var num=it.s.some(function(x){return x[1]!=null});
+  return '<div class="hqi"><div class="row between"><b>'+esc(it.n)+'</b>'+(num?'<button class="btn ghost sm" data-adj="'+k+'">אני כרגע ב...</button>':"")+"</div><div>עכשיו: "+(cs?esc(tgt(k,cs)):"עוד לא התחיל")+'</div><div class="muted">'+(nx?"הבא: "+esc(tgt(k,nx))+" ב-"+sdate(stepDate(nx[0]))+" (שבוע "+nx[0]+")":"אין עוד שינויים")+"</div></div>";
+ }).join("");
+ var ws={};Object.keys(PLAN).forEach(function(k){PLAN[k].s.forEach(function(x){if(x[0]>1)(ws[x[0]]=ws[x[0]]||[]).push(PLAN[k].n+": "+tgt(k,x))})});
+ var tl=Object.keys(ws).map(Number).sort(function(a,b){return a-b}).map(function(w){var d=stepDate(w);
+  return '<div class="hqi" style="opacity:'+(d<=t?".55":"1")+'"><div class="row between"><b>שבוע '+w+'</b><span class="muted">'+heDate(d)+"</span></div><div>"+ws[w].map(esc).join(" · ")+'</div><div class="muted">'+esc(WNOTE[w]||"")+"</div></div>"}).join("");
+ sheet("יעדי התקדמות",'<div class="card"><div class="muted">איפה אני היום בתוכנית? שינוי כאן מזיז את כל התאריכים (בדף וגם בשאלון).</div><div class="row" style="margin-top:.5rem"><select id="plW" style="width:auto">'+ops+'</select><button class="btn sm" id="plSet">עדכון</button><span class="muted">התחלה: '+sdate(db.sport.start)+"</span></div></div>"+
+  '<div class="card"><h2>היעדים עכשיו</h2><div class="muted">״אני כרגע ב...״ קובע כמות חדשה, וכל העליות העתידיות יתווספו אליה באותם הפרשים.</div>'+items+'</div><div class="card"><h2>לוח שינויים</h2>'+tl+"</div>");
+ $("plSet").onclick=function(){var w=+$("plW").value;db.sport.start=addDays(sunday(today()),-(w-1)*7);if(persist()){toast("התוכנית עודכנה: אתה בשבוע "+w);openPlan()}};
+ $("overlay").querySelectorAll("[data-adj]").forEach(function(b){b.onclick=function(){
+  var k=b.dataset.adj,cs=curStepOf(k,today()),base=cs?numAt(k,cs[0],true):numAt(k,16,true);
+  var v=window.prompt("כמה אתה עושה היום ב"+PLAN[k].n+"? (מספר)",cs?numAt(k,cs[0]):"");
+  if(v===null)return;var n=parseFloat(v);if(!(n>=0)){toast("הזן מספר");return}
+  db.sport.adj[k]=n-(cs?base:0);if(persist()){toast("עודכן");openPlan()}}});
+}
+function openPlanDoc(){
+ var rows=Object.keys(WNOTE).map(Number).sort(function(a,b){return a-b}).map(function(w){var l=[];Object.keys(PLAN).forEach(function(k){PLAN[k].s.forEach(function(x){if(x[0]===w){var n=numAt(k,w,true),it=PLAN[k];l.push(it.n+": "+(x[3]?x[2]:it.f.replace("{n}",n==null?"":n).replace("{t}",x[2]||"").replace(/\s+/g," ").trim()))}})});
+  return "<tr><td>שבוע "+w+"</td><td>"+l.map(esc).join("<br>")+"</td><td>"+esc(WNOTE[w])+"</td></tr>"}).join("");
+ sheet("תוכנית כושר והתקדמות: 16 שבועות",'<div class="card"><h2>נקודת פתיחה (שבוע 1)</h2><div>ריצה (שני / רביעי / מוצ״ש): 3 ק״מ ב-14:45 (שני ורביעי), 7 ק״מ ב-6:20 (מוצ״ש)</div><div>כוח מרכזי: שכיבות סמיכה 3x3 (טכניקה מושלמת), כפיפות בטן 25x3</div><div>ליבה וגב: פלאנק 30x3 שניות, מתח: 20 שניות + 2 חלקיות, חתירה בגומייה 10x3</div><div>רגליים (קריטי לריצה): סקוואט 15x3 (משקל גוף)</div><div>חימום דינמי ומתיחות</div></div><div class="tw"><table class="tbl"><thead><tr><th>מתי</th><th>יעד מעודכן (לפי הערכים המקוריים)</th><th>דגשים וטכניקה</th></tr></thead><tbody>'+rows+"</tbody></table></div>");
+}
+var PROT1=[["חזה עוף מבושל (100 גרם)",30],["בקר רזה - סינטה / פילה (100 גרם)",26],["קופסת טונה במים (מסוננת, ~110 גרם)",26],["סלמון אפוי (100 גרם)",24],["פסטרמה איכותית (100 גרם / כ-7 פרוסות)",18],["בשר טחון רזה (100 גרם לאחר בישול)",24],["ביצה (גודל L)",7],["דג אמנון / מושט מבושל (100 גרם)",20],["שווארמה הודו נקי (100 גרם)",28],["חלבון ביצה בלבד (מביצה אחת L)",4]];
+var PROT2=[["אבקת חלבון (סקופ / מנה אחת)",25],["משקה חלבון מוכן (בקבוק / קרטון)",25],["יוגורט מועשר בחלבון (גביע קלאסי)",20],["קוטג׳ / גבינה לבנה 5% (גביע שלם)",25],["פרוסת גבינה צהובה 28%",7],["כוס חלב רגיל (200 מ״ל)",6],["טופו קשה (100 גרם)",16],["אדממה - פולי סויה (100 גרם)",11],["עדשים / חומוס מבושלים (100 גרם)",9],["שיבולת שועל (100 גרם / כוס לפני בישול)",13]];
+function addProt(n){W.prot=(W.prot||0)+n;updProt();saveDraft();toast("נוספו "+n+" גרם. סך הכול היום: "+W.prot)}
+function openProtein(){
+ var plus=!!$("prot");
+ function tb(a,h){return '<div class="tw"><table class="tbl"><thead><tr><th>'+h+"</th><th>חלבון (בערך)</th>"+(plus?"<th></th>":"")+"</tr></thead><tbody>"+a.map(function(x){return "<tr><td>"+esc(x[0])+"</td><td>"+x[1]+" גרם</td>"+(plus?'<td><button class="btn sm" data-pl="'+x[1]+'">+</button></td>':"")+"</tr>"}).join("")+"</tbody></table></div>"}
+ sheet("מדריך תזונה ורשימת חלבונים",'<div class="card"><h2>עקרונות סביב אימון</h2><div class="muted">יעד יומי: 160-170 גרם חלבון (למשקל 90 ק״ג)</div><div class="ins"><b>לפני ריצה:</b> הרבה פחמימות פשוטות. מינימום או אפס חלבון, מינימום שומן ומינימום סיבים.</div><div class="ins"><b>לפני אימון כוח:</b> כמות בינונית של פחמימות. אפשר 10-15 גרם חלבון. אין חובה לאכול מיד לפני האימון אם הארוחה הקודמת הייתה מספקת.</div><div class="ins"><b>אחרי אימון כוח:</b> 25-40 גרם חלבון לפחות, יחד עם פחמימות בינוניות-גבוהות.</div><div class="ins"><b>אחרי ריצה:</b> הרבה פחמימות (להחזרת הגליקוגן) + 20-25 גרם חלבון.</div></div><div class="card"><h2>בשר, עוף, דגים וביצים</h2>'+tb(PROT1,"מוצר")+'</div><div class="card"><h2>חלבי, תוספים וצומח</h2>'+tb(PROT2,"מוצר")+"</div>"+(plus?'<div class="muted">הכפתור + מוסיף את הכמות לחלבון של היום בשאלון.</div>':""));
+ $("overlay").querySelectorAll("[data-pl]").forEach(function(b){b.onclick=function(){addProt(+b.dataset.pl)}});
+}
+function xnList(qid){
+ var q=db.questions.filter(function(x){return x.id===qid})[0];
+ sheet(q.xn,'<div id="xnbody"></div>');
+ function draw(){
+  var ds=Object.keys(db.logs).filter(function(d){var x=db.logs[d].xn;return x&&x[qid]&&x[qid].trim()}).sort().reverse();
+  var B=$("xnbody");
+  B.innerHTML=ds.length?ds.map(function(d){return '<div class="hqi" data-d="'+d+'"><div class="row between"><span class="pill">'+esc(heDate(d))+'</span></div><textarea style="min-height:130px" aria-label="הערה">'+esc(db.logs[d].xn[qid])+'</textarea><div class="row"><button class="btn sm" data-sv="1">שמירה</button><button class="delnote" data-dl="1">מחיקה</button></div></div>'}).join(""):'<p class="muted">עדיין אין רשומות.</p>';
+  B.querySelectorAll(".hqi").forEach(function(el){var d=el.dataset.d,l=db.logs[d];
+   el.querySelector("[data-sv]").onclick=function(){l.xn[qid]=el.querySelector("textarea").value;l.savedAt=Date.now();if(persist())toast("נשמר")};
+   el.querySelector("[data-dl]").onclick=function(){if(!window.confirm("למחוק את הרשומה הזו?"))return;delete l.xn[qid];l.savedAt=Date.now();if(persist())draw()}});
+ }
+ draw();
+}
 function openHQ(){sheet("שאלות הלכתיות",'<div id="hqbody"></div>');drawHQ()}
 function drawHQ(){
  var B=$("hqbody");if(!B)return;
@@ -715,8 +1024,13 @@ function saveLog(){
  var why={};Object.keys(W.why).forEach(function(q){if(W.ans[q]===false&&W.why[q])why[q]=W.why[q]});
  var oldWhy=old.why||{},ks={};Object.keys(oldWhy).concat(Object.keys(why)).forEach(function(q){ks[q]=1});
  Object.keys(ks).forEach(function(q){var o=oldWhy[q],n=why[q];if(o===n)return;bump(q,o,-1);bump(q,n,1)});
- db.logs[W.date]={answers:W.ans,notes:notes,noteSignificance:sig,why:why,savedAt:Date.now()};
+ var xn={};Object.keys(W.xn).forEach(function(q){if(W.ans[q]===true&&W.xn[q]&&W.xn[q].trim())xn[q]=W.xn[q]});
+ var pu=(W.ans.sp_pu===true&&W.pu&&(W.pu.n!=null||W.pu.r!=null||W.pu.s!=null))?cl(W.pu):null;
+ var lg={answers:W.ans,notes:notes,noteSignificance:sig,why:why,xn:xn,savedAt:Date.now()};
+ if(pu)lg.pu=pu;if(W.prot!=null&&protOn())lg.prot=W.prot;
+ db.logs[W.date]=lg;
  if(!persist())return;
+ try{localStorage.removeItem(DRAFT_KEY)}catch(e){}
  var nw=goalsMet().filter(function(id){return before.indexOf(id)<0});
  var goalMsg=nw.length?'<div class="pill" style="margin-bottom:1.25rem">יעד שבועי הושג: '+nw.map(function(id){return esc(qtext(id))}).join(", ")+'</div>':"";
  $("overlay").innerHTML='<div class="overlay"><div class="tick">'+ICON.check+'</div><h1>נשמר בהצלחה</h1>'+
@@ -733,7 +1047,7 @@ function rJournal(p){
   db.cats.map(function(c){return '<option'+(J.cat===c?' selected':'')+'>'+esc(c)+'</option>'}).join("")+'</select>'+
   '<input type="date" id="jfrom" value="'+J.from+'" style="flex:1;min-width:130px" aria-label="מתאריך">'+
   '<input type="date" id="jto" value="'+J.to+'" style="flex:1;min-width:130px" aria-label="עד תאריך"></div>'+
-  '<div class="row between"><button class="btn sm ghost" id="jf"></button><button class="btn sm ghost" id="jclr">ניקוי סינון</button></div></div></div><div id="jlist"></div><div class="card"><button class="btn block" id="hqBtn"></button></div>';
+  '<div class="row between"><button class="btn sm ghost" id="jf"></button><button class="btn sm ghost" id="jclr">ניקוי סינון</button></div></div></div><div id="jlist"></div><div class="card"><button class="btn block" id="hqBtn"></button></div>'+db.questions.filter(function(q,i,a){return q.xn&&a.findIndex(function(z){return z.xn===q.xn})===i}).map(function(q){var n=Object.keys(db.logs).filter(function(d){var x=db.logs[d].xn;return x&&x[q.id]&&x[q.id].trim()}).length;return '<div class="card"><button class="btn block" data-xn="'+q.id+'">'+esc(q.xn)+' ('+n+')</button></div>'}).join("");
  $("jq").oninput=function(){J.q=this.value;drawJ()};
  $("jc").onchange=function(){J.cat=this.value;drawJ()};
  $("jfrom").onchange=function(){J.from=this.value;drawJ()};
@@ -743,6 +1057,7 @@ function rJournal(p){
  drawJ();
  $("hqBtn").textContent="שאלות הלכתיות ("+db.hq.length+(db.hq.length?", "+hqPct().p+"% נענו":"")+")";
  $("hqBtn").onclick=openHQ;
+ p.querySelectorAll("[data-xn]").forEach(function(b){b.onclick=function(){xnList(b.dataset.xn)}});
 }
 function drawJ(){
  var q=J.q.trim().toLowerCase();
@@ -790,19 +1105,19 @@ function streak(){
  var n=0;for(var k=0;k<4000;k++){if(counted(d)){if(db.logs[d])n++;else break}d=addDays(d,-1)}
  return n;
 }
-function qmap(){var m={};db.questions.forEach(function(q){m[q.id]=q});return m}
+function qmap(){var m={};db.questions.forEach(function(q){if(!q.nostat)m[q.id]=q});return m}
 function sdate(d){return parse(d).toLocaleDateString("he-IL",{day:"numeric",month:"numeric"})}
 function pc(o){return o&&o.t?Math.round(o.y/o.t*100):null}
 function dayStat(d,m){
- if(!counted(d))return null;var l=db.logs[d];if(!l||!l.answers)return null;var y=0,t=0;
- for(var id in l.answers){if(!m[id])continue;t++;if(l.answers[id]===true)y++}
+ var l=db.logs[d];if(!l||!l.answers)return null;var y=0,t=0;
+ for(var id in l.answers){if(!m[id]||!acnt(d,m[id]))continue;t++;if(l.answers[id]===true)y++}
  return t?{y:y,t:t}:null;
 }
 function aggr(from,to,m){
  var y=0,t=0,days=0,pq={};
  for(var d=from;d<=to;d=addDays(d,1)){
-  if(!counted(d))continue;var l=db.logs[d];if(!l)continue;days++;var a=l.answers||{};
-  for(var id in a){if(!m[id])continue;t++;var o=pq[id]||(pq[id]={y:0,t:0});o.t++;if(a[id]===true){y++;o.y++}}
+  var l=db.logs[d];if(!l)continue;if(counted(d))days++;var a=l.answers||{};
+  for(var id in a){if(!m[id]||!acnt(d,m[id]))continue;t++;var o=pq[id]||(pq[id]={y:0,t:0});o.t++;if(a[id]===true){y++;o.y++}}
  }
  return {y:y,t:t,days:days,pq:pq,p:t?Math.round(y/t*100):null};
 }
@@ -862,8 +1177,8 @@ function corr(m){
  ids.forEach(function(id){
   var yes=[],no=[];
   Object.keys(db.logs).forEach(function(d){
-   var a=counted(d)&&db.logs[d].answers;if(!a||(a[id]!==true&&a[id]!==false))return;
-   var y=0,t=0;for(var k in a){if(k===id||!m[k])continue;t++;if(a[k]===true)y++}
+   var a=db.logs[d].answers;if(!a||(a[id]!==true&&a[id]!==false)||!acnt(d,m[id]))return;
+   var y=0,t=0;for(var k in a){if(k===id||!m[k]||!acnt(d,m[k]))continue;t++;if(a[k]===true)y++}
    if(t<2)return;(a[id]===true?yes:no).push(y/t*100);
   });
   if(yes.length<3||no.length<3)return;
@@ -935,8 +1250,9 @@ function studyCard(){
 }
 var DL=["א","ב","ג","ד","ה","ו","ש"];
 function sheet(title,body){
+ var back=SB;
  $("overlay").innerHTML='<div class="sheet"><div class="sheethd"><strong>'+esc(title)+'</strong><button class="btn sm ghost" id="shX">סגירה</button></div>'+body+'</div>';
- $("shX").onclick=function(){$("overlay").innerHTML=""};
+ $("shX").onclick=function(){$("overlay").innerHTML="";SB=null;if(back)back()};
  var c=$("overlay").querySelector(".cur");if(c&&c.scrollIntoView)c.scrollIntoView({block:"center"});
 }
 function openSched(){
@@ -959,7 +1275,7 @@ function rStats(p){
  var all=A.p===null?0:A.p,st=streak(),days=A.days;
  var html='<div class="seg" style="margin-bottom:1rem">'+[["7","7 ימים"],["30","30 ימים"],["all","כל הזמן"]].map(function(r){
   return '<button data-r="'+r[0]+'" class="'+(S.range===r[0]?'on':'')+'">'+r[1]+'</button>'}).join("")+'</div>'+
- '<div class="card"><div class="muted">אחוז הצלחה כולל</div><div class="big">'+all+'%</div>'+
+ '<div class="card"><div class="row between"><div><div class="muted">אחוז הצלחה כולל</div><div class="big">'+all+'%</div></div>'+ringSvg(all,84,"אחוז הצלחה כולל",all>=70?"var(--emerald-500)":all>=40?"var(--amber-500)":"var(--rose-500)")+'</div>'+
  '<div class="bar '+cls(all)+'" style="margin:.7rem 0"><i style="width:'+all+'%"></i></div>'+
  '<div class="row between"><span class="muted">'+days+' ימים מתועדים בתקופה</span>'+
  '<span class="pill">'+ICON.flame+' רצף: '+st+' '+(st===1?'יום':'ימים')+'</span></div></div>';
@@ -979,9 +1295,9 @@ function rStats(p){
  html+='<div class="card"><h2>קשרים בין הרגלים</h2>'+(cr.length?cr.map(function(c){
   return '<div class="ins">בימים שבהם ענית כן על "'+esc(qtext(c.id))+'" עמדת ב-<b>'+c.ay+'%</b> משאר השאלות, לעומת <b>'+c.an+'%</b> בימים שענית לא.</div>';
  }).join("")+'<div class="muted" style="margin-top:.4rem">זה קשר סטטיסטי ולא הוכחה לסיבה ותוצאה.</div>':'<p class="muted">עדיין אין מספיק נתונים לקשרים ברורים (דרושים לפחות 3 ימים עם כן ו-3 עם לא לכל הרגל).</p>')+'</div>';
- var cats=db.cats.filter(function(c){return db.questions.some(function(q){return q.cat===c&&(!q.archived||tot[q.id])})});
+ var cats=db.cats.filter(function(c){return db.questions.some(function(q){return q.cat===c&&!q.nostat&&(!q.archived||tot[q.id])})});
  html+='<div class="card"><h2>לפי קטגוריות</h2>'+(cats.length?cats.map(function(c){
-  var qs=db.questions.filter(function(q){return q.cat===c&&(!q.archived||tot[q.id])});
+  var qs=db.questions.filter(function(q){return q.cat===c&&!q.nostat&&(!q.archived||tot[q.id])});
   var cy=0,ct=0;qs.forEach(function(q){cy+=yes[q.id]||0;ct+=tot[q.id]||0});
   var cp=ct?Math.round(cy/ct*100):null;
   return '<details class="cat-stat"><summary><div class="row between"><strong>'+esc(c)+'</strong><span><strong>'+(cp===null?'טרם נענה':cp+'%')+'</strong> <span class="muted">▾</span></span></div>'+
@@ -992,13 +1308,13 @@ function rStats(p){
      '<div class="bar sm '+(pp===null?'':cls(pp))+'" style="margin-top:.3rem"><i style="width:'+(pp||0)+'%"></i></div>'+topWhy(q.id)+'</div>';
    }).join("")+'</div></details>';
  }).join(""):'<p class="muted">אין נתונים עדיין.</p>')+'</div>'+
- '<div class="card"><h2>מסמכי לימוד</h2><div class="row"><button class="btn ghost" id="docS">לוח הלימוד</button><button class="btn ghost" id="docI">מראה מקומות בעיון</button></div></div>'+
+ '<div class="card"><h2>ספורט</h2><button class="btn block" id="spBtn">סטטיסטיקת ספורט ויעדים</button></div>'+'<div class="card"><h2>מסמכי לימוד</h2><div class="row"><button class="btn ghost" id="docS">לוח הלימוד</button><button class="btn ghost" id="docI">מראה מקומות בעיון</button></div></div>'+
  '<button class="btn ghost block" id="prt">הדפסה או שמירה כ-PDF</button>';
  p.innerHTML=html;
  p.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){S.range=b.dataset.r;render(true)}});
  p.querySelectorAll("[data-sm]").forEach(function(b){b.onclick=function(){St.sum=b.dataset.sm;render(true)}});
  $("prt").onclick=function(){$("printArea").innerHTML=printReport(m,A,all);window.print()};
- $("docS").onclick=openSched;$("docI").onclick=openIyun;
+ $("spBtn").onclick=openSport;$("docS").onclick=openSched;$("docI").onclick=openIyun;
  var hw=$("hw");if(hw)hw.scrollLeft=hw.scrollWidth;
 }
 
@@ -1016,13 +1332,15 @@ function rSettings(p){
   db.cats.map(function(c){
    var qs=db.questions.filter(function(q){return q.cat===c});
    return '<div style="margin-top:.8rem"><strong>'+esc(c)+'</strong>'+(qs.length?qs.map(function(q){
-    return '<div class="qitem'+(q.archived?' arch':'')+'"><span>'+esc(q.text)+'</span>'+
+    return '<div class="qitem'+(q.archived?' arch':'')+'"><span>'+esc(q.text)+(q.days?' <span class="muted">('+q.days.map(function(i){return "אבגדהוש".charAt(i)+"׳"}).join(",")+')</span>':'')+'</span>'+
      '<button class="btn ghost sm" data-e="'+q.id+'">עריכה</button>'+
-     '<button class="btn ghost sm" data-g="'+q.id+'">יעד'+(q.goal?' ('+q.goal+')':'')+'</button>'+'<button class="btn ghost sm" data-ar="'+q.id+'">'+(q.archived?'שחזור':'ארכוב')+'</button></div>';
+     '<button class="btn ghost sm" data-dy="'+q.id+'">ימים</button>'+'<button class="btn ghost sm" data-g="'+q.id+'">יעד'+(q.goal?' ('+q.goal+')':'')+'</button>'+'<button class="btn ghost sm" data-ar="'+q.id+'">'+(q.archived?'שחזור':'ארכוב')+'</button></div>';
    }).join(""):'<div class="muted">אין שאלות</div>')+'</div>';
   }).join("")+'</div>';
  html+='<div class="card"><h2>מיקום בלימוד</h2><p class="muted" style="margin-bottom:.6rem">לקביעה ידנית של הסדר או הסוגיה שבהם אתה נמצא כרגע.</p><div class="row"><button class="btn ghost" id="posH">מיקום בהלכה (סדר '+(db.study.h+1)+')</button><button class="btn ghost" id="posI">מיקום בעיון (סוגיה '+(db.study.i+1)+')</button></div></div>';
  var rc=remCfg();
+ html+='<div class="card"><h2>ספורט וחלבון</h2><div class="row"><button class="btn ghost" id="spPlanBtn">יעדי התקדמות</button><button class="btn ghost" id="protGoalBtn">יעד חלבון ('+(db.sport.protGoal||160)+')</button><button class="btn ghost" id="protNowBtn">הפעל מעקב חלבון מהיום</button></div><div class="muted" style="margin-top:.5rem">מעקב החלבון מתחיל ב-'+sdate(db.sport.protStart)+'.</div></div>';
+ html+='<div class="card"><h2>תחזוקה</h2><button class="btn ghost" id="ddBtn">איחוד שאלות כפולות</button></div>';
  html+='<div class="card"><h2>מסכת בגמרא</h2><p class="muted" style="margin-bottom:.6rem">המסכת הנוכחית: '+esc(db.gem.cur)+'</p><button class="btn" id="shasBtn">בחירת מסכת והתקדמות</button></div>';
  html+='<div class="card"><h2>נושאי שאלות הלכתיות</h2><div class="chips" style="margin-bottom:.6rem">'+db.topics.map(function(t,i){return '<span class="chip"><button disabled>'+esc(t)+'</button><button class="ed" data-tdel="'+i+'" aria-label="מחיקת נושא">✕</button></span>'}).join("")+'</div><div class="row"><input type="text" id="ntopic" placeholder="נושא חדש..." style="flex:1;min-width:140px"><button class="btn sm" id="ntadd">הוספה</button></div></div>';
  html+='<div class="card"><h2>תזכורת יומית</h2><p class="muted" style="margin-bottom:.6rem">בטלפון (אפליקציית ה-APK) התזכורת מגיעה כהתראה גם כשהאפליקציה סגורה. במחשב היא מופיעה כהודעה כשהאפליקציה פתוחה, וכשורה בראש השאלון.</p><div class="row"><label><input type="checkbox" id="remOn"'+(rc.on?' checked':'')+'> הפעלה</label><input type="time" id="remT" value="'+(rc.t||"22:00")+'" style="width:auto" aria-label="שעה"><label><input type="checkbox" id="remWk"'+(rc.wk?' checked':'')+'> גם בשישי ושבת</label></div><button class="btn block" id="remSave">שמירת התזכורת</button></div>';
@@ -1059,7 +1377,7 @@ function rSettings(p){
   var el=$("snaps");if(!el||!list.length)return;
   el.innerHTML='<div class="muted" style="margin-bottom:.4rem">גיבויים אוטומטיים בדפדפן (עד 7 ימים אחרונים)</div>'+list.map(function(o){
    var n="";try{n=Object.keys(JSON.parse(o.v.json).logs).length+" ימים מתועדים"}catch(e){}
-   return '<div class="qitem"><span>'+esc((o.key==='pre-sync'?'לפני הסנכרון האחרון':heDate(o.key.slice(1))))+' <span class="muted">· '+n+'</span></span><button class="btn ghost sm" data-sk="'+o.key+'">שחזור</button></div>';
+   return '<div class="qitem"><span>'+esc((o.key==='pre-sync'?'לפני הסנכרון האחרון':o.key==='pre-dedupe'?'לפני איחוד כפילויות':heDate(o.key.slice(1))))+' <span class="muted">· '+n+'</span></span><button class="btn ghost sm" data-sk="'+o.key+'">שחזור</button></div>';
   }).join("");
   el.querySelectorAll("[data-sk]").forEach(function(b){b.onclick=function(){
    var o=list.filter(function(x){return x.key===b.dataset.sk})[0];
@@ -1068,6 +1386,16 @@ function rSettings(p){
    catch(e){toast("הגיבוי פגום")}
   }});
  });
+ $("spPlanBtn").onclick=openPlan;
+ $("protGoalBtn").onclick=function(){var v=window.prompt("יעד חלבון יומי בגרמים",db.sport.protGoal||160);if(v===null)return;var n=parseInt(v,10);if(!(n>0)){toast("הזן מספר");return}db.sport.protGoal=n;if(persist())render(true)};
+ $("protNowBtn").onclick=function(){db.sport.protStart=today();if(persist()){toast("מעקב החלבון הופעל");render(true)}};
+ $("ddBtn").onclick=function(){idbSnapKey("pre-dedupe",JSON.stringify(db));var n=dedupeDb(db);if(persist())toast(n?"אוחדו "+n+" שאלות כפולות":"לא נמצאו שאלות כפולות");render(true)};
+ p.querySelectorAll("[data-dy]").forEach(function(b){b.onclick=function(){
+  var q=db.questions.filter(function(x){return x.id===b.dataset.dy})[0];
+  var v=window.prompt("באילו ימים השאלה תופיע? כתוב אותיות מופרדות בפסיק (למשל: ב,ד,ש). השאר ריק להצגה בכל יום.",q.days?q.days.map(function(i){return "אבגדהוש".charAt(i)}).join(","):"");
+  if(v===null)return;v=v.trim();
+  if(!v)delete q.days;else{var ds=[];v.split(/[,\s]+/).forEach(function(c){var i="אבגדהוש".indexOf(c.charAt(0));if(i>=0&&ds.indexOf(i)<0)ds.push(i)});if(!ds.length){toast("לא זוהו ימים");return}q.days=ds.sort()}
+  if(persist())render(true)}});
  $("shasBtn").onclick=openShas;
  p.querySelectorAll("[data-tdel]").forEach(function(b){b.onclick=function(){
   var i=+b.dataset.tdel;if(!window.confirm("למחוק את הנושא "+db.topics[i]+"? שאלות קיימות ישמרו את הנושא שלהן."))return;
