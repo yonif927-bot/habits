@@ -362,18 +362,15 @@ function dedupeDb(d){
 }
 function heb(n){var o=["","א","ב","ג","ד","ה","ו","ז","ח","ט"],t=["","י","כ","ל","מ","נ","ס","ע","פ","צ"],h=["","ק","ר","ש","ת"];return (h[Math.floor(n/100)]+t[Math.floor(n%100/10)]+o[n%10]).replace("יה","טו").replace("יו","טז")}
 function masechta(n){return SHAS.filter(function(x){return x[0]===n})[0]||SHAS[0]}
-function gqId(){
- ensure();var s=db.study;
- if(s.gq&&db.questions.some(function(q){return q.id===s.gq}))return s.gq;
- var q=db.questions.filter(function(x){return x.text.indexOf("התקדמת כשני דפים")>=0})[0]||db.questions.filter(function(x){return x.text.indexOf("בדף היום")>=0})[0]||db.questions.filter(function(x){return x.text.indexOf("דף יומי")>=0})[0];
- if(q){s.gq=q.id;return q.id}return null;
+function findQ(stored,pats){
+ ensure();
+ var vis=db.questions.filter(function(q){return qVisible(q)});
+ var c=vis.filter(function(q){return q.id===stored})[0];
+ for(var i=0;i<pats.length&&!c;i++)c=vis.filter(function(q){return q.text.indexOf(pats[i])>=0})[0];
+ return c?c.id:null;
 }
-function hqId(){
- ensure();var s=db.study;
- if(s.hq&&db.questions.some(function(q){return q.id===s.hq}))return s.hq;
- var q=db.questions.filter(function(x){return x.text.indexOf("התקדמת עם ההלכה")>=0})[0];
- if(q){s.hq=q.id;return q.id}return null;
-}
+function gqId(){var id=findQ(db.study.gq,["דף יומי","התקדמת כשני דפים","בדף היום","דפי גמרא","דפים"]);if(id)db.study.gq=id;return id}
+function hqId(){var id=findQ(db.study.hq,["התקדמת עם ההלכה","ההלכה","הלכה"]);if(id)db.study.hq=id;return id}
 function uid(){return "q"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function toast(m){var b=$("toastBox");b.innerHTML='<div class="toast">'+esc(m)+'</div>';setTimeout(function(){b.innerHTML=""},3500)}
 
@@ -461,7 +458,7 @@ function syncErr(e){
  if(e&&e.status===401)return "המפתח לא תקין או שפג תוקפו. הגדר חיבור מחדש.";
  if(e&&e.status===403)return "אין הרשאה או שהגעת למגבלת בקשות. נסה שוב מאוחר יותר.";
  if(e&&e.name==="OperationError")return "לא ניתן לפענח את נתוני הענן. הם הוצפנו עם סיסמה אחרת.";
- return "הסנכרון נכשל. בדוק שיש חיבור לאינטרנט ונסה שוב.";
+ return "הסנכרון נכשל"+(e&&e.status?" (קוד "+e.status+")":e&&e.name?" ("+e.name+")":"")+". בדוק שיש חיבור לאינטרנט ושהמפתח הודבק במלואו עם הרשאת gist.";
 }
 function mergeStudy(a,b){
  a=a||{};b=b||{};var r={h:Math.max(a.h||0,b.h||0),i:Math.max(a.i||0,b.i||0),log:{},hq:a.hq||b.hq,gq:a.gq||b.gq};
@@ -582,7 +579,7 @@ function doSync(){
 function setupSync(){
  var cfg=syncCfg();
  var v=window.prompt("הדבק כאן את מפתח הגישה של GitHub (מתחיל ב-ghp_). השאר ריק כדי להסיר את החיבור.","");
- if(v===null)return;v=v.trim();
+ if(v===null)return;v=v.replace(/[^\x21-\x7e]/g,"");
  if(!v){if(cfg.token&&window.confirm("להסיר את החיבור לענן מהמכשיר הזה?")){try{localStorage.removeItem(SYNC_KEY)}catch(e){}toast("החיבור הוסר");render(true)}return}
  busy("בודק את המפתח...");
  gh({token:v},"/gists?per_page=1").then(function(){setCfg({token:v});unbusy();toast("החיבור נשמר");render(true)}).catch(function(e){unbusy();toast(syncErr(e))});
@@ -801,7 +798,7 @@ function nextWorkoutNote(){
 }
 function protOn(){return !!db.sport.protOn}
 function fitOn(){return !!(db.sport.fit&&db.sport.fit.on)}
-function safe(f){try{f()}catch(e){try{console.error(e)}catch(x){}}}
+function safe(f){try{f()}catch(e){try{console.error(e)}catch(x){}toast("שגיאה במסך: "+(e&&e.message?e.message:e))}}
 function protBox(){
  if(!protOn())return "";
  var g=db.sport.protGoal||160,v=W.prot==null?"":W.prot;
@@ -874,7 +871,7 @@ function rWizard(p){
  var isToday=W.date===today(),gid=gqId(),hid=hqId(),showStudy=isToday;
  var body;
  if(pg==="#t")body=tasksTodayHtml();else if(pg==="#p")body=tasksPlanHtml();
- else body="<h2>"+esc(pg)+"</h2>"+catQs(pg,hid,gid,showStudy)+(pg==="למידה"?hqBox():"")+(pg==="ספורט"?protBox():"")+(pg==="ביטחון"?moneyBox():"")+
+ else body="<h2>"+esc(pg)+"</h2>"+catQs(pg,hid,gid,showStudy)+(pg==="למידה"&&showStudy&&!hid?'<div class="whybox" style="margin-top:1rem"><strong>התקדמות בהלכה ובעיון</strong><div id="study"></div></div>':"")+(pg==="למידה"&&showStudy&&!gid?'<div class="whybox" style="margin-top:1rem"><strong>דף יומי</strong><div id="gem"></div></div>':"")+(pg==="למידה"?hqBox():"")+(pg==="ספורט"?protBox():"")+(pg==="ביטחון"?moneyBox():"")+
   '<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label><textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[pg]||"")+"</textarea></div>";
  p.innerHTML=remBanner()+'<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label><input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
   '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?"":" (מילוי רטרואקטיבי)")+(counted(W.date)?"":" · יום שישי/שבת: לא נכלל בסטטיסטיקה (חוץ משאלות שמתוזמנות לימים האלה)")+(db.logs[W.date]?" · כבר נשמר, שמירה מחדש תעדכן אותו":"")+"</div></div>"+
@@ -938,7 +935,7 @@ function stepGem(dir){
 }
 function drawGem(){
  var el=$("gem");if(!el)return;
- if(W.ans[gqId()]!==true){el.innerHTML="";return}
+ var gq0=gqId();if(gq0&&W.ans[gq0]!==true){el.innerHTML="";return}
  var G=gemStats(),D=daysLeft(),l=db.study.log[today()]||{},h='<div class="srow"><div class="smain"><strong>דף יומי: '+esc(G.m[0])+'</strong><br>';
  if(G.rem>0)h+='דף '+heb(G.done+2)+' · עברת '+G.done+' דפים, נשארו '+G.rem+' מתוך '+G.P;
  else h+='סיימת את המסכת! <button class="btn sm" data-sh="1">בחירת מסכת חדשה</button>';
@@ -1243,7 +1240,7 @@ function stepStudy(k,dir){
 }
 function drawStudy(){
  var el=$("study");if(!el)return;
- if(W.ans[hqId()]!==true){el.innerHTML="";return}
+ var hq0=hqId();if(hq0&&W.ans[hq0]!==true){el.innerHTML="";return}
  var s=db.study,H=SCHED.length,N=IYUN.length,D=daysLeft(),l=s.log[today()]||{h:0,i:0},h='';
  h+='<div class="srow"><div class="smain"><strong>הלכה (משנה ברורה)</strong><br>';
  if(s.h<H){var r=SCHED[s.h];h+='סדר '+(s.h+1)+' מתוך '+H+' · '+esc(r[1])+' · '+esc(r[2])+' · '+esc(r[3])}else h+='סיימת את כל הלוח, כל הכבוד!';
