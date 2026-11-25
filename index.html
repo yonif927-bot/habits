@@ -179,6 +179,44 @@ details.cat-stat .qs{padding:.6rem .3rem 0}
 .overlay .tick{width:96px;height:96px;border-radius:50%;background:var(--emerald-500);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
 .overlay .tick svg{width:52px;height:52px;stroke-width:3}
 .toast{position:fixed;bottom:1.25rem;inset-inline:1rem;margin:auto;max-width:340px;background:var(--slate-900);color:#fff;padding:.7rem 1rem;border-radius:.75rem;text-align:center;z-index:30;animation:fade .25s ease both}
+
+.sheet>*{max-width:720px;margin-inline:auto}
+h3.sub{font-size:1rem;color:var(--indigo-600);margin:1.1rem 0 .2rem;padding-top:.7rem;border-top:2px solid var(--indigo-100)}
+.sglabel{font-size:.8rem;font-weight:700;color:var(--muted);padding:0 .5rem .35rem;margin-top:1.1rem}
+.sgroup{background:var(--card);border-radius:1rem;box-shadow:var(--shadow);overflow:hidden}
+.srowx{display:flex;align-items:center;gap:.85rem;width:100%;padding:.8rem 1rem;background:transparent;text-align:right;border-top:1px solid var(--line);border-radius:0}
+.srowx:first-child{border-top:0}
+.srowx:hover{background:var(--slate-100)}
+.sico{flex:none;width:2.3rem;height:2.3rem;border-radius:.65rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.15rem;line-height:1}
+.stxt{flex:1;min-width:0;overflow-wrap:anywhere}
+.stxt b{display:block;font-weight:600}
+.stxt small{display:block;color:var(--muted);font-size:.8rem;line-height:1.35}
+.chev{flex:none;color:var(--muted);font-size:1.5rem;line-height:1}
+.sw{flex:none;width:2.8rem;height:1.6rem;border-radius:99px;background:var(--slate-300);position:relative;transition:background .2s}
+.sw::after{content:"";position:absolute;top:.2rem;inset-inline-start:.2rem;width:1.2rem;height:1.2rem;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.sw.on{background:var(--emerald-500)}
+.sw.on::after{transform:translateX(-1.2rem)}
+.sgroup .card{box-shadow:none;border-radius:0;margin:0}
+.qmcat{border-top:1px solid var(--line);padding:.2rem 0}
+.qmcat summary{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.6rem 0;cursor:pointer;list-style:none}
+.qmcat summary::-webkit-details-marker{display:none}
+.qmi{padding:.65rem .7rem;margin:.4rem 0;background:var(--slate-100);border-radius:.75rem}
+.qmi .t{font-weight:600;overflow-wrap:anywhere}
+.qmi.arch .t{text-decoration:line-through;color:var(--muted)}
+.qmi .acts{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.lvs{display:grid;grid-template-columns:repeat(6,1fr);gap:.4rem}
+.lv{padding:.55rem 0;border-radius:.7rem;border:2px solid var(--c);background:transparent;color:var(--text);font-weight:800}
+.lv.on{background:var(--c);color:#fff}
+.scd{min-height:2.6rem;font-size:.92rem;overflow-wrap:anywhere}
+.lockbox{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center}
+.lgrow{display:flex;gap:.7rem;align-items:center;padding:.55rem 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.lgrow textarea{flex:1}
+.lgn{flex:none;width:2rem;height:2rem;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.dtg{display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));gap:.4rem}
+.dtr{display:flex;align-items:center;gap:.5rem;padding:.55rem .6rem;border-radius:.75rem;background:var(--card);border:1.5px solid var(--line);text-align:right;overflow-wrap:anywhere}
+.dtr.on{background:var(--emerald-50);border-color:var(--emerald-500)}
+.dtc{flex:none;width:1.4rem;height:1.4rem;border-radius:.4rem;border:2px solid var(--slate-300);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+.dtr.on .dtc{background:var(--emerald-500);border-color:var(--emerald-500)}
 </style>
 </head>
 <body>
@@ -242,7 +280,7 @@ var SCHED=[["2026-11-12", "ח\"א קיט.", "סי׳ פט", "הלכות תפלה 
  IYUN=[["רו, א", "סוגיה כח: טעויות בברכה"], ["רו, ה", "סוגיה לז: הפסק בברכות הנהנין"], ["רו, ו", "סוגיה מא: הוצאת אחרים ידי חובתם"], ["רז", "סוגיה נ: ברכת \"בורא נפשות\""], ["רח", "פקיעת שם לחם / שיעור ברכה אחרונה"], ["רט, ג", "מהות חיוב הברכות / יין ושמן"], ["רי, א-ב", "בציעת הפת / מעין שלוש"], ["ריא, א-ו", "דיני קדימה בברכות"], ["ריב, א", "סוגיה מה: עיקר וטפל נפרדים"], ["ריג, א", "סוגיה מא: הוצאת אחרים"], ["רטו, א", "סוגיה נז: עניית אמן"], ["ריז, ג", "סוגיה מג: ברכות הריח"], ["ריח, א-ז", "ברכות הראייה והנסים"], ["ריט", "סוגיה פט: ברכת הגומל"], ["רכ-רכב", "תענית חלום והודאה (גשמים)"], ["רכג", "ברכת שהחיינו וכלים חדשים"], ["רכד", "ברכות מעשה אנוש ובתי ישראל"], ["רכה", "ברכות הראייה (יסוד, שהחיינו)"], ["רכו-רל", "ברכות פרטיות ותופעות טבע"], ["פט, א", "סוגיה עב: זמן תפילת שחרית"], ["פט, ב", "סוגיה פב: אכילה ועשיית צרכי האדם לפני התפילה (7)"], ["פט, ג", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ד-ה", "סוגיה פ: אכילה ועשיית צרכי האדם לפני התפילה (5)"], ["פט, ו", "סוגיה פא: אכילה ועשיית צרכי האדם לפני התפילה (6)"], ["פט, ח", "סוגיה צה: שהייה בין תפילה לתפילה"], ["צ, א-ב", "סוגיה קכא: תיקון מקום התפילה (4)"], ["צ, ד", "סוגיה קיט: תיקון מקום התפילה (2)"], ["צ, ה", "סוגיה קכ: תיקון מקום התפילה (3)"], ["צ, ו", "סוגיה קכג: תיקון מקום התפילה (6)"], ["צ, ז", "סוגיה קכה: תיקון מקום התפילה (8)"], ["צ, ט · צ, טז · צ, יח", "סוגיה קכט: חיוב אמירת קדיש"], ["צ, יט", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כ", "סוגיה קכו: תיקון הגוף"], ["צ, כא-כג", "סוגיה קכב: תיקון מקום התפילה (5)"], ["צ, כד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["צ, כז", "סוגיה סג: דיני ערוה לקריאת שמע (4)"], ["צב, א-ב", "סוגיה נב: דיני ערוה לקריאת שמע (1)"], ["צב, ד", "סוגיה לג: נטילת ידיים לקריאת שמע"], ["צג, א · צג, ב · צג, ג", "סוגיה צט: הכנה לתפילה"], ["צג, ד", "סוגיה מא: חתן הרוצה להחמיר"], ["צד, א-ב", "סוגיה צב: נוכח המקדש"], ["צד, ד", "סוגיה צא: תפילה מעומד (1)"], ["צד, ט", "סוגיה צד: תפילת מוסף - בציבור או ביחיד?"], ["צה", "סוגיה קכז: הסדרת התפילה"], ["צז, א-ד", "סוגיה קב: השווית הקול"], ["צח, א", "סוגיה ק: כוונה בתפילה"], ["צח, ג", "סוגיה פט: תפילה קצרה"], ["צח, ד", "סוגיה קכז: הסדרת התפילה"], ["צט, א · צט, ג", "סוגיה קג: תפילת שיכור"], ["ק", "סוגיה קכח: תפילה בציבור"], ["קא, א", "סוגיה ק: כוונה בתפילה"], ["קא, ב", "סוגיה קב: השווית הקול"], ["קא, ד", "סוגיה כו: קריאת שמע ותפילה בלעז"], ["קב, א-ד", "סוגיה קד: ישיבה בתוך ארבע אמות"], ["קג", "סוגיה קב: השווית הקול"], ["קד, א", "סוגיה קו: הפסקה בתפילה"], ["קד, ב", "סוגיה קז: הבדלה בתפילה"], ["קד, ג", "סוגיה קו: הפסקה בתפילה"], ["קד, ד · קד, ה · קד, ו", "סוגיה קז: הבדלה בתפילה"], ["קה", "סוגיה צה: שהייה בין תפילה לתפילה"], ["קו, א", "סוגיה מו: הרהור כדיבור"], ["קח, ו · קח, יא", "סוגיה עב: זמן תפילת שחרית"], ["קח, יב", "סוגיה קז: הבדלה בתפילה"], ["קט, א", "סוגיה קל: קדיש"], ["קי, א", "סוגיה פד: נוסח תפילת עמידה"], ["קי, ג", "סוגיה פט: תפילה קצרה"], ["קי, ו-ז", "סוגיה צ: תפילת הדרך"], ["קי, ח", "סוגיה פג: תפילה בכניסה לבית המדרש"], ["קיא, א", "סוגיה ח: סוף זמן קריאת שמע של ערבית (1)"], ["קיב, א", "סוגיה קיב: \"לעולם יסדר אדם שבחו...\" (2)"], ["קיב, ב", "סוגיה טו: שינוי נוסח הברכה (2)"], ["קיג, א · קיג, ד-ה", "סוגיה קיז: נפילת אפיים"], ["קיג, ט", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קיד, ג-ו", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיד, ו", "סוגיה צט: הכנה לתפילה"], ["קיד, ז", "סוגיה קז: הבדלה בתפילה"], ["קיז, ג-ד · קיז, ה", "סוגיה פו: \"עקר רגליו חוזר לראש\""], ["קיח", "סוגיה קטו: טעות בנוסח התפילה"], ["קיט, א", "סוגיה קיד: תוספות בתפילה"], ["קיט, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קכב", "סוגיה פח: \"העושה תפילתו קבע...\""], ["קכב, א", "סוגיה צג: בתי ישראל בישובם"], ["קכג, א-ג", "סוגיה קיז: נפילת אפיים"], ["קכד, א · קכד, י", "סוגיה צח: השלמת תוספת בין ברכה לברכה"], ["קכו, א · קכו, ב", "סוגיה קט: ש\"ץ שטעה בתפילתו"], ["קכו, ג", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קל", "סוגיה פד: נוסח תפילת עמידה"], ["קלא, א-ב · קלא, ד · קלא, ו-ח", "סוגיה קיח: תיקון מקום התפילה (1)"], ["קלב, א", "סוגיה קח: הוספת שמות תואר"], ["קלב, ב", "סוגיה קיא: \"לעולם יסדר אדם שבחו...\" (1)"], ["קנ, א", "סוגיה מח: היקף חיוב קריאת שמע מהתורה"], ["קנב, א", "סוגיה לא: הפסקה בקריאת שמע להנחת תפילין"], ["קנג, א", "סוגיה כב: נוסח הברכה שלאחר קריאת שמע"], ["קנג, ב", "סוגיה יג: עמידה והטיה בקריאת שמע"], ["רב, א", "סוגיה ד: ברכה על דבר מזיק"], ["רב, א (המשך)", "המשך הלכות ברכת המזון"], ["רב, ב", "סוגיה יב: ברכה על פלפל"], ["רב, ג", "סוגיה יא: ברכה על פרי בוסר"], ["רב, ד", "סוגיה ה+ו: עיקר וטפל בתערובת"], ["רב, ה", "סוגיה ט: הגדרת פרי עץ"], ["רב, ו", "סוגיה י: גרעינים וקליפות"], ["רב, ז", "סוגיה כ: שתיתא"], ["רב, י", "סוגיה כד: שיעור ברכה אחרונה"], ["רב, יח", "סוגיה יג: ברכה על חמשת מיני דגן"], ["רג, ב-ג", "סוגיה כז: הגדרת עץ לעניין ברכה"], ["רד, ח-יא", "סוגיה כא/כט/נא: ברכה על איסור/שהכל"], ["רה, א", "סוגיה כד: שיעור ברכה אחרונה"]];
 var SHAS=[["ברכות", 64, "זרעים"], ["שבת", 157, "מועד"], ["עירובין", 105, "מועד"], ["פסחים", 121, "מועד"], ["יומא", 88, "מועד"], ["סוכה", 56, "מועד"], ["ביצה", 40, "מועד"], ["ראש השנה", 35, "מועד"], ["תענית", 31, "מועד"], ["מגילה", 32, "מועד"], ["מועד קטן", 29, "מועד"], ["חגיגה", 27, "מועד"], ["יבמות", 122, "נשים"], ["כתובות", 112, "נשים"], ["נדרים", 91, "נשים"], ["נזיר", 66, "נשים"], ["סוטה", 49, "נשים"], ["גיטין", 90, "נשים"], ["קידושין", 82, "נשים"], ["בבא קמא", 119, "נזיקין"], ["בבא מציעא", 119, "נזיקין"], ["בבא בתרא", 176, "נזיקין"], ["סנהדרין", 113, "נזיקין"], ["מכות", 24, "נזיקין"], ["שבועות", 49, "נזיקין"], ["עבודה זרה", 76, "נזיקין"], ["הוריות", 14, "נזיקין"], ["זבחים", 120, "קדשים"], ["מנחות", 110, "קדשים"], ["חולין", 142, "קדשים"], ["בכורות", 61, "קדשים"], ["ערכין", 34, "קדשים"], ["תמורה", 34, "קדשים"], ["כריתות", 28, "קדשים"], ["מעילה", 22, "קדשים"], ["תמיד", 9, "קדשים"], ["נדה", 73, "טהרות"]];
 var db=null, tab="wizard", fresh=false;
-var W={date:null,auto:true,idx:0,ans:{},notes:{},why:{},xn:{},pu:{},prot:null};
+var W={date:null,auto:true,idx:0,ans:{},notes:{},why:{},xn:{},pu:{},sc:{},prot:null};
 var S={range:"all"}, St={sum:"week"}, J={onlyStar:false,q:"",cat:"",from:"",to:""};
 
 /* ---------- helpers ---------- */
@@ -257,7 +295,7 @@ function heDate(s){return parse(s).toLocaleDateString("he-IL",{weekday:"long",da
 function counted(d){var w=parse(d).getDay();return w!==5&&w!==6}
 function ensure(){if(!db.study)db.study={h:0,i:0,log:{}};if(!db.study.log)db.study.log={};if(!db.reasons)db.reasons={};
  if(!db.gem)db.gem={cur:"בבא מציעא",prog:{"בבא מציעא":50}};if(!db.gem.prog)db.gem.prog={};
- if(!db.hq)db.hq=[];if(!db.topics)db.topics=["שבת","כשרות","תפילה","ברכות"];if(!db.tasks)db.tasks=[];if(!db.money)db.money=[];if(!db.sport)db.sport={};migrate()}
+ if(!db.hq)db.hq=[];if(!db.topics)db.topics=["שבת","כשרות","תפילה","ברכות"];if(!db.tasks)db.tasks=[];if(!db.money)db.money=[];if(!db.sport)db.sport={};if(!db.dt)db.dt={};if(!db.anx)db.anx={};if(!db.anx.desc)db.anx.desc={};migrate()}
 function cl(x){return JSON.parse(JSON.stringify(x))}
 function canon(q){return q.cat+"|"+String(q.text).trim().replace(/\s+/g," ")}
 function sunday(d){return addDays(d,-parse(d).getDay())}
@@ -288,6 +326,11 @@ function migrate(){
   if(gq0){if(!db.study.gq)db.study.gq=gq0.id;gq0.text="האם למדת היום דף יומי?"}
   sp.mig2=1;ch=true;
  }
+ if(!sp.mig3){
+  addQ("z_anx","תרגול רגיעה","מה הייתה רמת החרדה שלך היום (0-10)?",{kind:"scale",nostat:true});
+  addQ("z_defer","תרגול רגיעה","האם תרגלת היום דחיית מחשבות ללילה?",{});
+  sp.mig3=1;ch=true;
+ }
  if(!sp.start){sp.start=sunday(today());ch=true}
  if(!sp.protStart){sp.protStart=addDays(today(),7);ch=true}
  if(!sp.protGoal){sp.protGoal=160;ch=true}
@@ -312,7 +355,7 @@ function dedupeDb(d){
  if(!rm)return 0;
  d.questions=out;
  function rk(o){if(!o)return;Object.keys(o).forEach(function(k){if(map[k]){if(o[map[k]]===undefined)o[map[k]]=o[k];delete o[k]}})}
- Object.keys(d.logs).forEach(function(dt){var l=d.logs[dt];rk(l.answers);rk(l.why);rk(l.xn)});
+ Object.keys(d.logs).forEach(function(dt){var l=d.logs[dt];rk(l.answers);rk(l.why);rk(l.xn);rk(l.sc)});
  if(d.reasons)Object.keys(d.reasons).forEach(function(k){if(map[k]){var a=d.reasons[map[k]]||(d.reasons[map[k]]=[]);d.reasons[k].forEach(function(x){if(!a.some(function(y){return y.id===x.id}))a.push(x)});delete d.reasons[k]}});
  if(d.study){if(map[d.study.hq])d.study.hq=map[d.study.hq];if(map[d.study.gq])d.study.gq=map[d.study.gq]}
  return rm;
@@ -442,7 +485,7 @@ function mergeHq(a,b){
 }
 function mergeLog(y,x){
  var nw=(x.savedAt||0)>(y.savedAt||0)?x:y,od=nw===x?y:x,r=cl(od);
- ["answers","notes","why","xn"].forEach(function(k){if(nw[k]){r[k]=r[k]||{};Object.keys(nw[k]).forEach(function(q){r[k][q]=nw[k][q]})}});
+ ["answers","notes","why","xn","sc"].forEach(function(k){if(nw[k]){r[k]=r[k]||{};Object.keys(nw[k]).forEach(function(q){r[k][q]=nw[k][q]})}});
  var s1=od.noteSignificance||{},s2=nw.noteSignificance||{},sg={};
  Object.keys(s1).concat(Object.keys(s2)).forEach(function(c){sg[c]=Math.max(s1[c]||0,s2[c]||0)});
  r.noteSignificance=sg;
@@ -451,7 +494,7 @@ function mergeLog(y,x){
  return r;
 }
 function remapLog(l,map){
- var r=cl(l);["answers","why","xn"].forEach(function(k){if(!r[k])return;var o={};Object.keys(r[k]).forEach(function(q){o[map[q]||q]=r[k][q]});r[k]=o});
+ var r=cl(l);["answers","why","xn","sc"].forEach(function(k){if(!r[k])return;var o={};Object.keys(r[k]).forEach(function(q){o[map[q]||q]=r[k][q]});r[k]=o});
  return r;
 }
 function mergeDb(a,b){
@@ -467,6 +510,8 @@ function mergeDb(a,b){
  r.gem=mergeGem(w.gem,o.gem);r.hq=mergeHq(a.hq,b.hq);
  r.topics=(w.topics||[]).concat((o.topics||[]).filter(function(t){return (w.topics||[]).indexOf(t)<0}));
  r.study=mergeStudy(w.study,o.study);
+ var dtm={};[w.dt||{},o.dt||{}].forEach(function(x){Object.keys(x).forEach(function(k){if(x[k])dtm[k]=true})});r.dt=dtm;
+ r.anx=cl(w.anx||{});if(!r.anx.desc)r.anx.desc={};var oad=(o.anx&&o.anx.desc)||{};Object.keys(oad).forEach(function(k){if(r.anx.desc[k]===undefined)r.anx.desc[k]=oad[k]});
  var tk={};(a.tasks||[]).concat(b.tasks||[]).forEach(function(t){var e=tk[t.id];if(!e||(e.done===null&&t.done!==null))tk[t.id]=t});
  r.tasks=Object.keys(tk).map(function(k){return tk[k]});
  var mk={};(a.money||[]).concat(b.money||[]).forEach(function(m){mk[m.id]=m});r.money=Object.keys(mk).map(function(k){return mk[k]});
@@ -526,7 +571,7 @@ function doSync(){
     return decryptPayload(txt).catch(function(e){
      if(e&&e.name==="OperationError"){
       var alt=window.prompt("הנתונים בענן הוצפנו בסיסמה אחרת. הכנס את הסיסמה שאיתה הם הוצפנו (אם שינית סיסמה במכשיר אחר, זו הסיסמה החדשה שלך שם):");
-      if(!alt)throw e;SESSION_PW=alt;return decryptPayload(txt);
+      if(!alt)throw e;SESSION_PW=alt;return decryptPayload(txt).then(function(x){savePw(alt);return x});
      }
      throw e;
     }).then(function(cdb){return {g:g,cdb:cdb,meta:JSON.parse(txt)}});
@@ -559,9 +604,9 @@ function setPwRec(pw){
  return pbkdf(pw,salt,200000).then(function(b){localStorage.setItem(PWREC_KEY,JSON.stringify({salt:b64(salt),it:200000,hash:b64(b)}))});
 }
 function needPw(cb){
- if(SESSION_PW){cb();return}
+ if(!SESSION_PW)SESSION_PW=storedPw();if(SESSION_PW){cb();return}
  var v=window.prompt("הכנס את סיסמת האפליקציה כדי להמשיך");if(v===null)return;
- verifyPw(v).then(function(ok){if(ok){SESSION_PW=v;cb()}else toast("הסיסמה שגויה")});
+ verifyPw(v).then(function(ok){if(ok){SESSION_PW=v;savePw(v);cb()}else toast("הסיסמה שגויה")});
 }
 function enterApp(){
  unlocked=true;
@@ -570,7 +615,7 @@ function enterApp(){
  if(!appStarted){appStarted=true;startRem();if(fresh)idbList(function(l){if(l.length)toast("נמצא גיבוי אוטומטי קודם. אפשר לשחזר אותו בלשונית ניהול שאלות")})}
 }
 function relock(){
- unlocked=false;SESSION_PW="";
+ unlocked=false;SESSION_PW="";ANX_OK=false;
  $("overlay").innerHTML="";$("app").classList.add("hidden");$("lock").classList.remove("hidden");
  $("pw").value="";$("pwErr").textContent="";try{$("pw").focus()}catch(e){}
 }
@@ -580,7 +625,7 @@ function boot(){
   var v=$("pw").value;
   if(!(window.crypto&&crypto.subtle)){$("pwErr").textContent="הדפדפן לא תומך בבדיקת סיסמה. פתח בדפדפן עדכני.";return}
   verifyPw(v).then(function(ok){
-   if(ok){SESSION_PW=v;enterApp()}
+   if(ok){SESSION_PW=v;savePw(v);enterApp()}
    else{$("pwErr").textContent="הסיסמה שגויה, נסה שוב";$("pw").select()}
   });
  }
@@ -626,7 +671,7 @@ function openPwChange(){
   verifyPw(cur).then(function(ok){
    if(!ok){unbusy();toast("הסיסמה הנוכחית שגויה");return}
    return setPwRec(n1).then(function(){return rewrapCloud(cur,n1)}).then(function(r){
-    SESSION_PW=n1;unbusy();
+    SESSION_PW=n1;savePw(n1);unbusy();
     toast(r==="ok"?"הסיסמה שונתה והענן עודכן":r==="nocfg"||r==="nogist"?"הסיסמה שונתה":"הסיסמה שונתה. הענן יתעדכן בסנכרון הבא (תתבקש להכניס את הסיסמה הישנה)");
    });
   }).catch(function(){unbusy();toast("שינוי הסיסמה נכשל")});
@@ -634,7 +679,7 @@ function openPwChange(){
 }
 
 /* ---------- tabs ---------- */
-var TABS=[["wizard","שאלון יומי"],["journal","יומן הערות"],["stats","סטטיסטיקה"],["settings","ניהול שאלות"]];
+var TABS=[["wizard","שאלון יומי"],["journal","יומן הערות"],["stats","סטטיסטיקה"],["settings","הגדרות"]];
 function renderTabs(){
  $("tabs").innerHTML=TABS.map(function(t){return '<button class="tab'+(t[0]===tab?' on':'')+'" data-tab="'+t[0]+'">'+t[1]+'</button>'}).join("");
 }
@@ -770,12 +815,12 @@ function qVisible(q){return !q.archived&&(!q.days||q.days.indexOf(wday())>=0)&&!
 function visQs(c){return db.questions.filter(function(q){return q.cat===c&&qVisible(q)})}
 function dueTasks(){return db.tasks.filter(function(t){return t.due<=W.date&&(t.done===null||t.doneOn===W.date)})}
 function pagesList(){var p=db.cats.filter(function(c){return visQs(c).length>0});if(dueTasks().length)p.push("#t");p.push("#p");return p}
-function saveDraft(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify({date:W.date,ts:Date.now(),ans:W.ans,notes:W.notes,why:W.why,xn:W.xn,pu:W.pu,prot:W.prot}))}catch(e){}}
+function saveDraft(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify({date:W.date,ts:Date.now(),ans:W.ans,notes:W.notes,why:W.why,xn:W.xn,pu:W.pu,sc:W.sc,prot:W.prot}))}catch(e){}}
 function loadDraft(){
  var l=db.logs[W.date];
  W.ans=l&&l.answers?cl(l.answers):{};W.notes=l&&l.notes?cl(l.notes):{};W.why=l&&l.why?cl(l.why):{};
- W.xn=l&&l.xn?cl(l.xn):{};W.pu=l&&l.pu?cl(l.pu):{};W.prot=l&&l.prot!=null?l.prot:null;W.idx=0;
- try{var d=JSON.parse(localStorage.getItem(DRAFT_KEY));if(d&&d.date===W.date&&d.ts>((l&&l.savedAt)||0)){W.ans=d.ans||{};W.notes=d.notes||{};W.why=d.why||{};W.xn=d.xn||{};W.pu=d.pu||{};W.prot=d.prot==null?null:d.prot}}catch(e){}
+ W.xn=l&&l.xn?cl(l.xn):{};W.pu=l&&l.pu?cl(l.pu):{};W.prot=l&&l.prot!=null?l.prot:null;W.sc=l&&l.sc?cl(l.sc):{};W.idx=0;
+ try{var d=JSON.parse(localStorage.getItem(DRAFT_KEY));if(d&&d.date===W.date&&d.ts>((l&&l.savedAt)||0)){W.ans=d.ans||{};W.notes=d.notes||{};W.why=d.why||{};W.xn=d.xn||{};W.pu=d.pu||{};W.sc=d.sc||{};W.prot=d.prot==null?null:d.prot}}catch(e){}
 }
 function qHtml(q,hid,gid,showStudy){
  var a=W.ans[q.id];
@@ -829,7 +874,7 @@ function rWizard(p){
  var isToday=W.date===today(),gid=gqId(),hid=hqId(),showStudy=isToday;
  var body;
  if(pg==="#t")body=tasksTodayHtml();else if(pg==="#p")body=tasksPlanHtml();
- else body="<h2>"+esc(pg)+"</h2>"+visQs(pg).map(function(q){return qHtml(q,hid,gid,showStudy)}).join("")+(pg==="למידה"?hqBox():"")+(pg==="ספורט"?protBox():"")+(pg==="ביטחון"?moneyBox():"")+
+ else body="<h2>"+esc(pg)+"</h2>"+catQs(pg,hid,gid,showStudy)+(pg==="למידה"?hqBox():"")+(pg==="ספורט"?protBox():"")+(pg==="ביטחון"?moneyBox():"")+
   '<div style="margin-top:1rem"><label for="wnote" class="muted">הערות על הקטגוריה (לא חובה)</label><textarea id="wnote" placeholder="מה היה היום?">'+esc(W.notes[pg]||"")+"</textarea></div>";
  p.innerHTML=remBanner()+'<div class="card"><div class="row between"><label for="wdate" class="muted">תאריך מילוי</label><input type="date" id="wdate" value="'+W.date+'" max="'+today()+'" style="width:auto"></div>'+
   '<div class="muted" style="margin-top:.4rem">'+esc(heDate(W.date))+(isToday?"":" (מילוי רטרואקטיבי)")+(counted(W.date)?"":" · יום שישי/שבת: לא נכלל בסטטיסטיקה (חוץ משאלות שמתוזמנות לימים האלה)")+(db.logs[W.date]?" · כבר נשמר, שמירה מחדש תעדכן אותו":"")+"</div></div>"+
@@ -848,7 +893,7 @@ function rWizard(p){
  if(isCat){
   safe(drawStudy);safe(drawGem);
   visQs(pg).forEach(function(q){safe(function(){drawWhy(q.id)});safe(function(){drawXn(q.id)});safe(function(){drawPu(q.id)})});
-  safe(bindHq);safe(bindProt);safe(bindMoney);
+  safe(bindHq);safe(bindProt);safe(bindMoney);safe(bindMeasure);
   var wn=$("wnote");if(wn)wn.oninput=function(){var v=this.value.trim();if(v)W.notes[pg]=v;else delete W.notes[pg];saveDraft()};
  }else bindTasks(pg);
  $("prev").onclick=function(){if(isCat)keepNote(pg);W.idx--;render();window.scrollTo(0,0)};
@@ -914,7 +959,7 @@ function openShas(){
  }).join("")});
  sheet("בחירת מסכת",h);
  $("overlay").querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){
-  g.cur=b.dataset.pick;if(persist()){$("overlay").innerHTML="";toast("המסכת הנוכחית: "+g.cur);render(true)}}});
+  g.cur=b.dataset.pick;if(persist()){$("overlay").innerHTML="";toast("המסכת הנוכחית: "+g.cur);render(true);var bk=SB;SB=null;if(bk)bk()}}});
  $("overlay").querySelectorAll("[data-set]").forEach(function(b){b.onclick=function(){
   var m=masechta(b.dataset.set),P=m[1]-1,v=window.prompt("באיזה דף אתה עומד במסכת "+m[0]+"? (מספר, 2 הוא ההתחלה, או המילה סיום אם סיימת את המסכת)",(g.prog[m[0]]||0)+2);
   if(v===null)return;v=v.trim();
@@ -1004,7 +1049,7 @@ function barsSvg(series,labels,o){
 function lineSvg(vals,labels,o){
  o=o||{};var VW=320,H=o.h||120,pl=26,pr=8,pt=10,pb=16,n=vals.length,nums=vals.filter(function(v){return v!=null});
  if(nums.length<2)return '<p class="muted">צריך לפחות שני תיעודים כדי להציג גרף.</p>';
- var max=Math.max(Math.max.apply(null,nums),1);
+ var max=Math.max(o.max||0,Math.max.apply(null,nums),1);
  function X(i){return pl+i*(VW-pl-pr)/(n-1)}function Y(v){return pt+(1-v/max)*(H-pt-pb)}
  var g="",d="",pen=false,dots="";
  [0,.5,1].forEach(function(f){g+='<line class="gl" x1="'+pl+'" x2="'+(VW-pr)+'" y1="'+Y(max*f)+'" y2="'+Y(max*f)+'"/><text class="tx" x="0" y="'+(Y(max*f)+3)+'">'+Math.round(max*f)+"</text>"});
@@ -1230,6 +1275,8 @@ function saveLog(){
  var pu=(W.ans.sp_pu===true&&W.pu&&(W.pu.n!=null||W.pu.r!=null||W.pu.s!=null))?cl(W.pu):null;
  var lg={answers:W.ans,notes:notes,noteSignificance:sig,why:why,xn:xn,savedAt:Date.now()};
  if(pu)lg.pu=pu;if(W.prot!=null&&protOn())lg.prot=W.prot;
+ var scv={};Object.keys(W.sc||{}).forEach(function(q){var v=W.sc[q];if(typeof v==="number"&&v>=0&&v<=10)scv[q]=v});
+ if(Object.keys(scv).length)lg.sc=scv;
  db.logs[W.date]=lg;
  if(!persist())return;
  try{localStorage.removeItem(DRAFT_KEY)}catch(e){}
@@ -1487,7 +1534,7 @@ function rStats(p){
   return '<div class="qrow"><div class="row"><span>'+esc(q.text)+'</span><span>'+(ok?'<span class="pill">'+ICON.check+' הושג, כל הכבוד!</span>':c+' מתוך '+q.goal)+'</span></div>'+
    '<div class="bar sm '+(ok?'good':'')+'" style="margin-top:.3rem"><i style="width:'+Math.min(100,Math.round(c/q.goal*100))+'%"></i></div></div>';
  }).join("")+'</div>';
- html+=studyCard();
+ 
  var ins=insights(m);
  html+='<div class="card"><h2>תובנות</h2>'+(ins.length?ins.map(function(x){return '<div class="ins">'+esc(x)+'</div>'}).join(""):'<p class="muted">צריך עוד כמה ימים של נתונים כדי לזהות דפוסים.</p>')+'</div>';
  html+='<div class="card"><h2>סיכום תקופה</h2>'+summary(m)+'</div>';
@@ -1510,122 +1557,22 @@ function rStats(p){
      '<div class="bar sm '+(pp===null?'':cls(pp))+'" style="margin-top:.3rem"><i style="width:'+(pp||0)+'%"></i></div>'+topWhy(q.id)+'</div>';
    }).join("")+'</div></details>';
  }).join(""):'<p class="muted">אין נתונים עדיין.</p>')+'</div>'+
- '<div class="card"><h2>ספורט</h2><button class="btn block" id="spBtn">סטטיסטיקת ספורט ויעדים</button></div>'+'<div class="card"><h2>כסף</h2><button class="btn block" id="moneyBtn">סטטיסטיקת כסף</button></div>'+'<div class="card"><h2>מסמכי לימוד</h2><div class="row"><button class="btn ghost" id="docS">לוח הלימוד</button><button class="btn ghost" id="docI">מראה מקומות בעיון</button></div></div>'+
+ '<div class="card"><h2>ספורט</h2><button class="btn block" id="spBtn">סטטיסטיקת ספורט ויעדים</button></div>'+'<div class="card"><h2>כסף</h2><button class="btn block" id="moneyBtn">סטטיסטיקת כסף</button></div>'+'<div class="card"><h2>רגיעה</h2><button class="btn block" id="calmBtn">🔒 סטטיסטיקת רגיעה</button></div>'+
  '<button class="btn ghost block" id="prt">הדפסה או שמירה כ-PDF</button>';
  p.innerHTML=html;
  p.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){S.range=b.dataset.r;render(true)}});
  p.querySelectorAll("[data-sm]").forEach(function(b){b.onclick=function(){St.sum=b.dataset.sm;render(true)}});
  $("prt").onclick=function(){$("printArea").innerHTML=printReport(m,A,all);window.print()};
- $("spBtn").onclick=openSport;$("moneyBtn").onclick=openMoney;$("docS").onclick=openSched;$("docI").onclick=openIyun;
+ $("spBtn").onclick=openSport;$("moneyBtn").onclick=openMoney;$("calmBtn").onclick=openCalm;
  var hw=$("hw");if(hw)hw.scrollLeft=hw.scrollWidth;
 }
 
 /* ---------- settings ---------- */
-function rSettings(p){
- var logsN=Object.keys(db.logs).length;
- var stale=logsN>0&&(!db.lastExport||Date.now()-db.lastExport>14*864e5);
- var html='';
- if(stale)html+='<div class="alert">'+(db.lastExport?'עברו יותר משבועיים מהגיבוי האחרון.':'עוד לא ייצאת גיבוי.')+' הנתונים נשמרים רק בדפדפן הזה, מומלץ לייצא קובץ גיבוי.</div>';
- html+='<div class="card"><h2>הוספת שאלה</h2><div style="display:grid;gap:.6rem">'+
-  '<select id="ncat" aria-label="קטגוריה">'+db.cats.map(function(c){return '<option>'+esc(c)+'</option>'}).join("")+'</select>'+
-  '<input type="text" id="ntxt" placeholder="נוסח שאלת כן/לא, למשל: האם ...?">'+
-  '<button class="btn" id="nadd">הוספת שאלה</button></div></div>';
- html+='<div class="card"><h2>השאלות שלי</h2><p class="muted" style="margin-bottom:.4rem">שאלה בארכיון לא מופיעה בשאלון, אבל התשובות הקודמות שלה נשמרות בסטטיסטיקה.</p>'+
-  db.cats.map(function(c){
-   var qs=db.questions.filter(function(q){return q.cat===c});
-   return '<div style="margin-top:.8rem"><strong>'+esc(c)+'</strong>'+(qs.length?qs.map(function(q){
-    return '<div class="qitem'+(q.archived?' arch':'')+'"><span>'+esc(q.text)+(q.days?' <span class="muted">('+q.days.map(function(i){return "אבגדהוש".charAt(i)+"׳"}).join(",")+')</span>':'')+'</span>'+
-     '<button class="btn ghost sm" data-e="'+q.id+'">עריכה</button>'+
-     '<button class="btn ghost sm" data-dy="'+q.id+'">ימים</button>'+'<button class="btn ghost sm" data-g="'+q.id+'">יעד'+(q.goal?' ('+q.goal+')':'')+'</button>'+'<button class="btn ghost sm" data-ar="'+q.id+'">'+(q.archived?'שחזור':'ארכוב')+'</button></div>';
-   }).join(""):'<div class="muted">אין שאלות</div>')+'</div>';
-  }).join("")+'</div>';
- html+='<div class="card"><h2>מיקום בלימוד</h2><p class="muted" style="margin-bottom:.6rem">לקביעה ידנית של הסדר או הסוגיה שבהם אתה נמצא כרגע.</p><div class="row"><button class="btn ghost" id="posH">מיקום בהלכה (סדר '+(db.study.h+1)+')</button><button class="btn ghost" id="posI">מיקום בעיון (סוגיה '+(db.study.i+1)+')</button></div></div>';
- var rc=remCfg();
- html+='<div class="card"><h2>ספורט וחלבון</h2><p class="muted" style="margin-bottom:.6rem">מתגים להפעלה ולכיבוי בכל זמן.</p><div class="row"><button class="btn'+(fitOn()?' green':' ghost')+'" id="fitTog">אימון כושר ומתיחות: '+(fitOn()?'פועל':'כבוי')+'</button><button class="btn'+(protOn()?' green':' ghost')+'" id="protTog">מעקב חלבון: '+(protOn()?'פועל':'כבוי')+'</button></div><div class="row" style="margin-top:.6rem"><button class="btn ghost" id="spPlanBtn">יעדי התקדמות</button><button class="btn ghost" id="protGoalBtn">יעד חלבון ('+(db.sport.protGoal||160)+')</button></div></div>';
- html+='<div class="card"><h2>תחזוקה</h2><button class="btn ghost" id="ddBtn">איחוד שאלות כפולות</button></div>';
- html+='<div class="card"><h2>מסכת בגמרא</h2><p class="muted" style="margin-bottom:.6rem">המסכת הנוכחית: '+esc(db.gem.cur)+'</p><button class="btn" id="shasBtn">בחירת מסכת והתקדמות</button></div>';
- html+='<div class="card"><h2>נושאי שאלות הלכתיות</h2><div class="chips" style="margin-bottom:.6rem">'+db.topics.map(function(t,i){return '<span class="chip"><button disabled>'+esc(t)+'</button><button class="ed" data-tdel="'+i+'" aria-label="מחיקת נושא">✕</button></span>'}).join("")+'</div><div class="row"><input type="text" id="ntopic" placeholder="נושא חדש..." style="flex:1;min-width:140px"><button class="btn sm" id="ntadd">הוספה</button></div></div>';
- html+='<div class="card"><h2>תזכורת יומית</h2><p class="muted" style="margin-bottom:.6rem">בטלפון (אפליקציית ה-APK) התזכורת מגיעה כהתראה גם כשהאפליקציה סגורה. במחשב היא מופיעה כהודעה כשהאפליקציה פתוחה, וכשורה בראש השאלון.</p><div class="row"><label><input type="checkbox" id="remOn"'+(rc.on?' checked':'')+'> הפעלה</label><input type="time" id="remT" value="'+(rc.t||"22:00")+'" style="width:auto" aria-label="שעה"><label><input type="checkbox" id="remWk"'+(rc.wk?' checked':'')+'> גם בשישי ושבת</label></div><button class="btn block" id="remSave">שמירת התזכורת</button></div>';
-html+='<div class="card"><h2>אבטחה</h2><button class="btn ghost" id="pwBtn2">שינוי סיסמה</button><div class="muted" style="margin-top:.5rem">הנעילה נדרשת רק אחרי דקה מחוץ לאפליקציה.</div></div>';
- var sc=syncCfg();
- html+='<div class="card"><h2>סנכרון בין מכשירים</h2><p class="muted" style="margin-bottom:.8rem">שולח ומקבל נתונים מוצפנים דרך חשבון GitHub שלך. דורש אינטרנט רק ברגע הלחיצה. לפני כל החלפה תתבקש לבחור איזה נתונים לשמור.</p>'+
-  '<div class="row"><button class="btn" id="sync">סנכרון</button><button class="btn ghost" id="syncCfg">'+(sc.token?'שינוי חיבור':'הגדרת חיבור')+'</button></div>'+
-  '<div class="muted" style="margin-top:.6rem">'+(sc.token?'מחובר'+(sc.last?' · סנכרון אחרון: '+esc(new Date(sc.last).toLocaleString("he-IL")):' · עוד לא סונכרן'):'החיבור עוד לא הוגדר במכשיר הזה')+'</div></div>';
- html+='<div class="card"><h2>גיבוי ושחזור</h2><p class="muted" style="margin-bottom:.8rem">'+
-  (db.lastExport?'גיבוי אחרון: '+esc(new Date(db.lastExport).toLocaleDateString("he-IL")):'עוד לא בוצע גיבוי')+'</p>'+
-  '<div class="row"><button class="btn" id="exp">'+ICON.down+' ייצוא נתונים</button><button class="btn ghost" id="imp">'+ICON.up+' ייבוא נתונים</button></div><div id="snaps" style="margin-top:1rem"></div></div>';
- p.innerHTML=html;
- $("nadd").onclick=function(){
-  var t=$("ntxt").value.trim();if(!t){toast("כתוב את נוסח השאלה");return}
-  db.questions.push({id:uid(),cat:$("ncat").value,text:t,archived:false});
-  if(persist()){toast("השאלה נוספה");render(true)}
- };
- p.querySelectorAll("[data-e]").forEach(function(b){b.onclick=function(){
-  var q=db.questions.filter(function(x){return x.id===b.dataset.e})[0];
-  var t=window.prompt("עריכת השאלה",q.text);
-  if(t&&t.trim()){q.text=t.trim();if(persist())render(true)}
- }});
- p.querySelectorAll("[data-ar]").forEach(function(b){b.onclick=function(){
-  var q=db.questions.filter(function(x){return x.id===b.dataset.ar})[0];
-  q.archived=!q.archived;if(persist())render(true);
- }});
- p.querySelectorAll("[data-g]").forEach(function(b){b.onclick=function(){
-  var q=db.questions.filter(function(x){return x.id===b.dataset.g})[0];
-  var v=window.prompt("יעד שבועי: כמה ימי לימוד בשבוע (1-5, ראשון עד חמישי)? השאר ריק כדי להסיר.",q.goal||"");
-  if(v===null)return;v=v.trim();
-  if(v===""){delete q.goal}else{var n=parseInt(v,10);if(!(n>=1&&n<=5)){toast("הזן מספר בין 1 ל-5");return}q.goal=n}
-  if(persist())render(true);
- }});
- idbList(function(list){
-  var el=$("snaps");if(!el||!list.length)return;
-  el.innerHTML='<div class="muted" style="margin-bottom:.4rem">גיבויים אוטומטיים בדפדפן (עד 7 ימים אחרונים)</div>'+list.map(function(o){
-   var n="";try{n=Object.keys(JSON.parse(o.v.json).logs).length+" ימים מתועדים"}catch(e){}
-   return '<div class="qitem"><span>'+esc((o.key==='pre-sync'?'לפני הסנכרון האחרון':o.key==='pre-dedupe'?'לפני איחוד כפילויות':heDate(o.key.slice(1))))+' <span class="muted">· '+n+'</span></span><button class="btn ghost sm" data-sk="'+o.key+'">שחזור</button></div>';
-  }).join("");
-  el.querySelectorAll("[data-sk]").forEach(function(b){b.onclick=function(){
-   var o=list.filter(function(x){return x.key===b.dataset.sk})[0];
-   if(!o||!window.confirm("לשחזר את הגיבוי הזה? הנתונים הנוכחיים יוחלפו."))return;
-   try{var d=JSON.parse(o.v.json);if(!valid(d))throw 0;db=d;if(persist()){W.date=today();loadDraft();toast("הגיבוי שוחזר");render()}}
-   catch(e){toast("הגיבוי פגום")}
-  }});
- });
- $("spPlanBtn").onclick=openPlan;
- $("protGoalBtn").onclick=function(){var v=window.prompt("יעד חלבון יומי בגרמים",db.sport.protGoal||160);if(v===null)return;var n=parseInt(v,10);if(!(n>0)){toast("הזן מספר");return}db.sport.protGoal=n;if(persist())render(true)};
- $("protTog").onclick=function(){db.sport.protOn=!db.sport.protOn;if(persist()){toast(db.sport.protOn?"מעקב החלבון הופעל":"מעקב החלבון כובה");render(true)}};
- $("fitTog").onclick=function(){
-  var f=db.sport.fit||(db.sport.fit={on:false,start:null,pauses:[]});if(!f.pauses)f.pauses=[];
-  if(f.on){f.on=false;f.pauses.push([today(),null])}
-  else{f.on=true;var l=f.pauses[f.pauses.length-1];if(l&&!l[1])l[1]=today();if(!f.start)f.start=today()<db.sport.start?db.sport.start:today()}
-  if(persist()){toast(f.on?"אימון הכושר והמתיחות הופעלו":"אימון הכושר והמתיחות כובו");render(true)}
- };
- $("pwBtn2").onclick=openPwChange;
- $("ddBtn").onclick=function(){idbSnapKey("pre-dedupe",JSON.stringify(db));var n=dedupeDb(db);if(persist())toast(n?"אוחדו "+n+" שאלות כפולות":"לא נמצאו שאלות כפולות");render(true)};
- p.querySelectorAll("[data-dy]").forEach(function(b){b.onclick=function(){
-  var q=db.questions.filter(function(x){return x.id===b.dataset.dy})[0];
-  var v=window.prompt("באילו ימים השאלה תופיע? כתוב אותיות מופרדות בפסיק (למשל: ב,ד,ש). השאר ריק להצגה בכל יום.",q.days?q.days.map(function(i){return "אבגדהוש".charAt(i)}).join(","):"");
-  if(v===null)return;v=v.trim();
-  if(!v)delete q.days;else{var ds=[];v.split(/[,\s]+/).forEach(function(c){var i="אבגדהוש".indexOf(c.charAt(0));if(i>=0&&ds.indexOf(i)<0)ds.push(i)});if(!ds.length){toast("לא זוהו ימים");return}q.days=ds.sort()}
-  if(persist())render(true)}});
- $("shasBtn").onclick=openShas;
- p.querySelectorAll("[data-tdel]").forEach(function(b){b.onclick=function(){
-  var i=+b.dataset.tdel;if(!window.confirm("למחוק את הנושא "+db.topics[i]+"? שאלות קיימות ישמרו את הנושא שלהן."))return;
-  db.topics.splice(i,1);if(persist())render(true)}});
- $("ntadd").onclick=function(){var v=$("ntopic").value.trim();if(!v)return;if(db.topics.indexOf(v)>=0){toast("הנושא כבר קיים");return}db.topics.push(v);if(persist())render(true)};
- $("remSave").onclick=function(){
-  var c={on:$("remOn").checked,t:$("remT").value||"22:00",wk:$("remWk").checked,last:remCfg().last};
-  try{localStorage.setItem(REM_KEY,JSON.stringify(c))}catch(e){}
-  applyReminder(c).then(function(r){toast(r==="off"?"התזכורת כבויה":r==="denied"?"לא ניתנה הרשאה להתראות. אפשר לאשר בהגדרות המכשיר":r==="nosupport"?"הדפדפן לא תומך בהתראות":"התזכורת נשמרה לשעה "+c.t)}).catch(function(){toast("לא ניתן להגדיר התראות במכשיר הזה")});
- };
- $("posH").onclick=function(){setPos("h",SCHED.length)};$("posI").onclick=function(){setPos("i",IYUN.length)};
- $("sync").onclick=doSync;$("syncCfg").onclick=setupSync;
- $("exp").onclick=exportData;
- $("imp").onclick=function(){$("file").value="";$("file").click()};
-}
 function setPos(k,N){
  var v=window.prompt("באיזה מספר (1-"+N+") אתה נמצא עכשיו? זה הסדר שעדיין לא למדת.",db.study[k]+1);
  if(v===null)return;var n=parseInt(v,10);
  if(!(n>=1&&n<=N)){toast("הזן מספר בין 1 ל-"+N);return}
- db.study[k]=n-1;if(persist())render(true);
+ db.study[k]=n-1;if(persist()){render(true);openProgress()}
 }
 function exportData(){
  try{
@@ -1651,6 +1598,328 @@ $("file").onchange=function(){
  r.onerror=function(){toast("קריאת הקובץ נכשלה")};
  r.readAsText(f);
 };
+
+/* ---------- v6: settings page, calm platform, divrei torah ---------- */
+var CALM="תרגול רגיעה",ANX_OK=false,SPW_KEY=KEY+"_spw";
+var ANXH="e4e03dea1e5aa178e03a20ec36a3cba0380e8c3ff26a2a08a3fb3eef8e349c3e";
+var ANXD=["יום מצוין ללא חרדות ולחץ בכלל","יום עם ממש מעט לחץ, לא מורגש כל כך","יום עם קצת דפיקות עם הרגל מידי פעם","יום עם הרבה דפיקות ברגל, אבל שום דבר מעבר","יום עם קצת סחרחורות וקושי עמידה מסוים","יום יחסית אינטנסיבי, עם סחרחורת מורגשת מאוד במהלך היום, אך ללא קושי או עצירה בתפקוד","סחרחורת ולחץ שכבר מעורבים במהלך היום ויכולים להשבית חלקים מסוימים מהיום","יום שברובו היה קשה מאוד, עם לחץ, בחילות ותחושת פאניקה","יום עם התקף חרדה קל ואיבוד שליטה מסוים","יום קשה במיוחד: חרדה אינטנסיבית ביותר, לקיחת תרופה, חוסר תפקוד רציני ביותר","ה׳ ישמרנו"];
+var PARSH=[
+["חומש בראשית",["בראשית","נח","לך לך","וירא","חיי שרה","תולדות","ויצא","וישלח","וישב","מקץ","ויגש","ויחי"]],
+["חומש שמות",["שמות","וארא","בא","בשלח","יתרו","משפטים","תרומה","תצוה","כי תשא","ויקהל","פקודי"]],
+["חומש ויקרא",["ויקרא","צו","שמיני","תזריע","מצורע","אחרי מות","קדושים","אמור","בהר","בחוקותי"]],
+["חומש במדבר",["במדבר","נשא","בהעלותך","שלח","קרח","חקת","בלק","פנחס","מטות","מסעי"]],
+["חומש דברים",["דברים","ואתחנן","עקב","ראה","שופטים","כי תצא","כי תבוא","נצבים","וילך","האזינו","וזאת הברכה"]],
+["חגים ומועדים",["ראש השנה","יום כיפור","סוכות","שמיני עצרת ושמחת תורה","חנוכה","עשרה בטבת","ט״ו בשבט","פורים","פסח","ל״ג בעומר","שבועות","י״ז בתמוז","תשעה באב","ט״ו באב"]]
+];
+
+/* --- protected area (calm) --- */
+function savePw(p){try{localStorage.setItem(SPW_KEY,p)}catch(e){}}
+function storedPw(){try{return localStorage.getItem(SPW_KEY)||""}catch(e){return ""}}
+function askAnx(cb){
+ if(ANX_OK){cb();return}
+ if(!(window.crypto&&crypto.subtle)){toast("הדפדפן לא תומך בבדיקת סיסמה");return}
+ dlg('<h2>אזור מוגן</h2><p class="muted" style="margin:.5rem 0">הכנס את סיסמת האזור המוגן כדי להמשיך.</p><input type="password" id="ax-p" placeholder="סיסמה" autocomplete="off"><div class="err-msg" id="ax-e"></div><button class="btn block" id="ax-go">כניסה</button><button class="btn ghost block" id="ax-no">ביטול</button>');
+ function go(){sha($("ax-p").value).then(function(h){if(h===ANXH){ANX_OK=true;$("overlay").innerHTML="";cb()}else{$("ax-e").textContent="הסיסמה שגויה, נסה שוב";$("ax-p").select()}})}
+ $("ax-go").onclick=go;$("ax-no").onclick=function(){$("overlay").innerHTML=""};
+ $("ax-p").onkeydown=function(e){if(e.key==="Enter")go()};
+ try{$("ax-p").focus()}catch(e){}
+}
+function lvColor(i){return "hsl("+Math.round(140-i*14)+",62%,42%)"}
+function anxDesc(i){return (db.anx&&db.anx.desc&&db.anx.desc[i])||ANXD[i]}
+function scDesc(id){var v=W.sc[id];if(id==="z_anx")return v==null?"בחר רמה (0-10)":v+" · "+anxDesc(v);return v==null?"בחר ערך (0-10)":"ערך: "+v}
+function measureBox(ms){
+ if(!ANX_OK)return '<div class="whybox lockbox"><div>🔒 המדידה מוגנת בסיסמה</div><button class="btn" id="anxOpen">פתיחה</button></div>';
+ return ms.map(function(q){
+  var isA=q.id==="z_anx",v=W.sc[q.id],chips="";
+  for(var i=0;i<=10;i++)chips+='<button class="lv'+(v===i?" on":"")+'" data-sc="'+q.id+'" data-v="'+i+'" style="--c:'+lvColor(i)+'">'+i+"</button>";
+  return '<div class="q"><div class="row between"><p style="margin:0">'+esc(q.text)+"</p>"+(isA?'<button class="btn ghost sm" id="anxLeg">מקרא הרמות</button>':"")+'</div><div class="lvs" style="margin-top:.6rem">'+chips+'</div><div class="whybox scd" id="scd-'+q.id+'">'+esc(scDesc(q.id))+"</div></div>";
+ }).join("");
+}
+function openLegend(){
+ var h='<div class="muted" style="margin:.5rem 0">כך מוגדרת כל רמה. את התיאורים אפשר לערוך בסטטיסטיקת הרגיעה.</div>';
+ for(var i=0;i<=10;i++)h+='<div class="lgrow"><span class="lgn" style="background:'+lvColor(i)+'">'+i+"</span><span>"+esc(anxDesc(i))+"</span></div>";
+ sheet("מקרא רמות החרדה",h);
+}
+function bindMeasure(){
+ var o=$("anxOpen");if(o)o.onclick=function(){askAnx(function(){render(true)})};
+ var lg=$("anxLeg");if(lg)lg.onclick=openLegend;
+ document.querySelectorAll("[data-sc]").forEach(function(b){b.onclick=function(){
+  var id=b.dataset.sc,v=+b.dataset.v;
+  if(W.sc[id]===v)delete W.sc[id];else W.sc[id]=v;
+  b.parentNode.querySelectorAll(".lv").forEach(function(x){x.classList.toggle("on",W.sc[id]===+x.dataset.v)});
+  var d=$("scd-"+id);if(d)d.textContent=scDesc(id);
+  saveDraft();
+ }});
+}
+function catQs(pg,hid,gid,ss){
+ var qs=visQs(pg);
+ function yn(a){return a.map(function(q){return qHtml(q,hid,gid,ss)}).join("")}
+ if(pg!==CALM)return yn(qs);
+ var ms=qs.filter(function(q){return q.kind==="scale"}),
+  tl=qs.filter(function(q){return q.kind!=="scale"&&!q.nostat}),
+  ot=qs.filter(function(q){return q.kind!=="scale"&&q.nostat}),h="";
+ if(ms.length)h+='<h3 class="sub">מדידה</h3>'+measureBox(ms);
+ if(tl.length)h+='<h3 class="sub">כלים</h3>'+yn(tl);
+ if(ot.length)h+='<h3 class="sub">תיעוד נוסף</h3>'+yn(ot);
+ return h;
+}
+
+/* --- calm statistics --- */
+var CS={m:"",mode:"same",r:"30"};
+function calmMeasures(){return db.questions.filter(function(q){return q.cat===CALM&&q.kind==="scale"&&!q.archived})}
+function calmTools(){return db.questions.filter(function(q){return q.cat===CALM&&q.kind!=="scale"&&!q.nostat&&!q.archived})}
+function scAt(d,mid){var l=db.logs[d],v=l&&l.sc?l.sc[mid]:undefined;return typeof v==="number"?v:null}
+function mean(a){return a.length?a.reduce(function(s,v){return s+v},0)/a.length:null}
+function f1(x){return x==null?"-":String(Math.round(x*10)/10)}
+function toolStats(qid,mid,mode,from){
+ var yes=[],no=[],t=today();
+ Object.keys(db.logs).forEach(function(d){
+  if(d<from||d>t)return;
+  var a=db.logs[d].answers&&db.logs[d].answers[qid];if(a!==true&&a!==false)return;
+  var v=scAt(mode==="next"?addDays(d,1):d,mid);if(v===null)return;
+  (a===true?yes:no).push(v);
+ });
+ return {ny:yes.length,nn:no.length,ay:mean(yes),an:mean(no)};
+}
+function toolRow(x){
+ var b;
+ if(!x.ok)b='<div class="muted">עדיין אין מספיק נתונים: כן '+x.ny+', לא '+x.nn+' (דרושים לפחות 3 מכל סוג)</div>';
+ else{
+  var d=x.d,pill=d>=0.5?'<span class="pill">↓ '+f1(d)+' נק׳ פחות</span>':d<=-0.5?'<span class="pill" style="background:var(--rose-50);color:var(--rose-600)">↑ '+f1(-d)+' נק׳ יותר</span>':'<span class="pill" style="background:var(--slate-100);color:var(--muted)">אין הבדל ברור</span>';
+  b='<div style="margin:.3rem 0">'+pill+'</div>'+
+   '<div class="qrow"><div class="row"><span>ימים שבהם בוצע ('+x.ny+')</span><span>'+f1(x.ay)+'</span></div><div class="bar sm"><i style="width:'+Math.round(x.ay*10)+'%"></i></div></div>'+
+   '<div class="qrow"><div class="row"><span>ימים שבהם לא בוצע ('+x.nn+')</span><span>'+f1(x.an)+'</span></div><div class="bar sm"><i style="width:'+Math.round(x.an*10)+'%"></i></div></div>';
+ }
+ return '<div class="hqi"><b>'+esc(x.q.text)+"</b>"+b+"</div>";
+}
+function openCalm(){askAnx(function(){sheet("סטטיסטיקת רגיעה",'<div id="cmbody"></div>');drawCalm()})}
+function drawCalm(){
+ var B=$("cmbody");if(!B)return;
+ var ms=calmMeasures();
+ if(!ms.length){B.innerHTML='<p class="muted">אין שאלת מדידה פעילה. אפשר להוסיף בניהול שאלות.</p>';return}
+ if(!ms.some(function(q){return q.id===CS.m}))CS.m=ms[0].id;
+ var mid=CS.m,t=today(),all=CS.r==="all",from=all?"0000-00-00":addDays(t,-(+CS.r-1));
+ var ds=Object.keys(db.logs).sort().filter(function(d){return d>=from&&d<=t&&scAt(d,mid)!==null});
+ var vals=ds.map(function(d){return scAt(d,mid)}),n=vals.length;
+ function card(h,b){return '<div class="card"><h2>'+h+"</h2>"+b+"</div>"}
+ var h='';
+ if(ms.length>1)h+='<div class="seg" style="margin:.4rem 0">'+ms.map(function(q){return '<button data-cm="'+q.id+'" class="'+(q.id===mid?"on":"")+'">'+esc(q.text)+"</button>"}).join("")+"</div>";
+ h+='<div class="seg" style="margin:.4rem 0">'+[["30","30 ימים"],["90","90 ימים"],["all","כל הזמן"]].map(function(r){return '<button data-cr="'+r[0]+'" class="'+(CS.r===r[0]?"on":"")+'">'+r[1]+"</button>"}).join("")+"</div>";
+ if(mid==="z_anx")h+='<div class="row" style="margin:.4rem 0"><button class="btn ghost sm" id="cmEdit">עריכת תיאורי הרמות</button></div>';
+ if(!n){B.innerHTML=h+card("סיכום",'<p class="muted">עדיין אין דירוגים בתקופה הזו. הדירוג נשמר בשאלון הרגיעה היומי.</p>');bindCm(B);return}
+ var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals),calm=vals.filter(function(v){return v<=2}).length,hard=vals.filter(function(v){return v>=7}).length;
+ h+=card("סיכום",'<div class="tiles"><div class="tile"><b>'+n+'</b>ימים מדורגים</div><div class="tile"><b>'+f1(mean(vals))+'</b>ממוצע</div><div class="tile"><b>'+mn+'</b>הכי נמוך</div><div class="tile"><b>'+mx+'</b>הכי גבוה</div><div class="tile"><b>'+Math.round(calm/n*100)+'%</b>ימים רגועים (0-2)</div><div class="tile"><b>'+Math.round(hard/n*100)+'%</b>ימים קשים (7+)</div></div>');
+ var span=all?Math.min(180,Math.max(14,dayDiff(ds[0],t)+1)):+CS.r,lv=[],ll=[];
+ for(var i=span-1;i>=0;i--){var d=addDays(t,-i);lv.push(scAt(d,mid));ll.push(sdate(d))}
+ h+=card("מגמה יומית",lineSvg(lv,ll,{max:10,color:"var(--amber-500)",label:"רמה יומית"})+'<div class="muted">0 = יום רגוע, 10 = הכי קשה. נמוך יותר טוב יותר.</div>');
+ var wk=[],wl=[];
+ for(var w=11;w>=0;w--){var ws=addDays(sunday(t),-w*7),s=0,c=0;for(var k=0;k<7;k++){var v=scAt(addDays(ws,k),mid);if(v!==null){s+=v;c++}}wk.push(c?Math.round(s/c*10)/10:0);wl.push(sdate(ws))}
+ h+=card("ממוצע שבועי (12 שבועות)",barsSvg([wk],wl,{max:10,colors:["var(--amber-500)"],label:"ממוצע שבועי"}));
+ var cn=[0,0,0,0,0,0,0,0,0,0,0];vals.forEach(function(v){cn[v]++});
+ h+=card("התפלגות הרמות",barsSvg([cn],["0","1","2","3","4","5","6","7","8","9","10"],{colors:["var(--indigo-500)"],label:"התפלגות"})+'<div class="muted">כמה ימים היו בכל רמה</div>');
+ var tools=calmTools(),res=tools.map(function(q){var s=toolStats(q.id,mid,CS.mode,from);s.q=q;s.ok=s.ny>=3&&s.nn>=3;s.d=s.ok?s.an-s.ay:null;return s});
+ var okl=res.filter(function(x){return x.ok}).sort(function(a,b){return b.d-a.d}),wait=res.filter(function(x){return !x.ok});
+ h+='<h3 class="sub">כלים</h3><div class="seg" style="margin:.4rem 0">'+[["same","באותו יום"],["next","למחרת"]].map(function(r){return '<button data-cmode="'+r[0]+'" class="'+(CS.mode===r[0]?"on":"")+'">'+r[1]+"</button>"}).join("")+'</div><div class="muted" style="margin-bottom:.6rem">'+(CS.mode==="next"?"משווה את רמת הלחץ של היום שאחרי השימוש בכלי.":"משווה את רמת הלחץ באותו יום שבו השתמשת בכלי.")+" זה קשר סטטיסטי ולא הוכחה. ביום קשה אולי מתרגלים פחות, ולכן כדאי להסתכל גם על ״למחרת״.</div>";
+ if(okl.length&&okl[0].d>=0.5)h+='<div class="card"><b>הכלי שנקשר להכי הרבה הקלה:</b> '+esc(okl[0].q.text)+" (ממוצע "+f1(okl[0].ay)+" כשבוצע, לעומת "+f1(okl[0].an)+" כשלא)</div>";
+ if(!tools.length)h+='<p class="muted">אין כלים פעילים. אפשר להוסיף בניהול שאלות (קטגוריית תרגול רגיעה, סוג: כלי).</p>';
+ else h+='<div class="card">'+okl.concat(wait).map(toolRow).join("")+"</div>";
+ if(tools.length){
+  var grp=[[],[],[],[]];
+  Object.keys(db.logs).forEach(function(d){
+   if(d<from||d>t)return;var a=db.logs[d].answers||{},c=0,any=false;
+   tools.forEach(function(q){if(a[q.id]===true){c++;any=true}else if(a[q.id]===false)any=true});
+   if(!any)return;
+   var v=scAt(CS.mode==="next"?addDays(d,1):d,mid);if(v===null)return;
+   grp[Math.min(c,3)].push(v);
+  });
+  h+=card("לפי מספר הכלים ביום",'<div class="tiles">'+["0","1","2","3+"].map(function(l,i){return '<div class="tile"><b>'+f1(mean(grp[i]))+"</b>"+l+" כלים<br>"+grp[i].length+" ימים</div>"}).join("")+'</div><div class="muted">ממוצע הרמה כשבוצעו כך וכך כלים באותו יום</div>');
+ }
+ B.innerHTML=h;bindCm(B);
+}
+function bindCm(B){
+ B.querySelectorAll("[data-cm]").forEach(function(b){b.onclick=function(){CS.m=b.dataset.cm;drawCalm()}});
+ B.querySelectorAll("[data-cr]").forEach(function(b){b.onclick=function(){CS.r=b.dataset.cr;drawCalm()}});
+ B.querySelectorAll("[data-cmode]").forEach(function(b){b.onclick=function(){CS.mode=b.dataset.cmode;drawCalm()}});
+ var e=$("cmEdit");if(e)e.onclick=function(){SB=openCalm;openAnxEdit()};
+}
+function openAnxEdit(){
+ var h='<div class="muted" style="margin:.5rem 0">אפשר לדייק את התיאור של כל רמה. התיאורים מופיעים במקרא הרמות בשאלון.</div>';
+ for(var i=0;i<=10;i++)h+='<div class="lgrow" style="align-items:flex-start"><span class="lgn" style="background:'+lvColor(i)+'">'+i+'</span><textarea data-ad="'+i+'" style="min-height:70px" aria-label="רמה '+i+'">'+esc(anxDesc(i))+"</textarea></div>";
+ h+='<div class="row" style="margin-top:.8rem"><button class="btn" id="adSave">שמירה</button><button class="btn ghost" id="adReset">איפוס לברירת מחדל</button></div>';
+ sheet("עריכת תיאורי הרמות",h);
+ $("adSave").onclick=function(){
+  db.anx=db.anx||{};db.anx.desc={};
+  $("overlay").querySelectorAll("[data-ad]").forEach(function(t){var i=+t.dataset.ad,v=t.value.trim();if(v&&v!==ANXD[i])db.anx.desc[i]=v});
+  if(persist()){toast("התיאורים נשמרו");SB=null;openCalm()}
+ };
+ $("adReset").onclick=function(){if(!window.confirm("לאפס את כל התיאורים לברירת המחדל?"))return;db.anx.desc={};if(persist()){toast("התיאורים אופסו");SB=null;openCalm()}};
+}
+
+/* --- divrei torah --- */
+function dtTotal(){return PARSH.reduce(function(s,g){return s+g[1].length},0)}
+function dtDone(){var n=0;PARSH.forEach(function(g){g[1].forEach(function(x){if(db.dt&&db.dt[x])n++})});return n}
+function openDT(){sheet("דברי תורה",'<div id="dtbody"></div>');drawDT()}
+function drawDT(){
+ var B=$("dtbody");if(!B)return;
+ var T=dtTotal(),D=dtDone();
+ var h='<div class="card" style="text-align:center">'+ringSvg(T?D/T*100:0,130,"אחוז דברי תורה שנכתבו","var(--indigo-500)")+'<div style="margin-top:.4rem"><b>'+D+"</b> מתוך <b>"+T+'</b> פרשות וחגים</div><div class="muted">סימנתי את מה שכבר כתבתי עליו דבר תורה</div></div>';
+ PARSH.forEach(function(g){
+  var c=g[1].filter(function(x){return db.dt[x]}).length;
+  h+='<div class="row between" style="margin:.9rem 0 .4rem"><strong>'+esc(g[0])+'</strong><span class="muted">'+c+"/"+g[1].length+'</span></div><div class="dtg">'+g[1].map(function(x){return '<button class="dtr'+(db.dt[x]?" on":"")+'" data-dt="'+esc(x)+'"><span class="dtc">'+(db.dt[x]?"✓":"")+"</span><span>"+esc(x)+"</span></button>"}).join("")+"</div>";
+ });
+ B.innerHTML=h;
+ B.querySelectorAll("[data-dt]").forEach(function(b){b.onclick=function(){var k=b.dataset.dt;if(db.dt[k])delete db.dt[k];else db.dt[k]=true;if(persist())drawDT()}});
+}
+
+/* --- progress management --- */
+function openProgress(){
+ var s=db.study;
+ sheet("ניהול התקדמויות",studyCard()+'<div class="sglabel">עדכון מיקום</div>'+sgroup("",[
+  srow("📖","var(--indigo-500)","מיקום בהלכה","סדר "+(s.h+1)+" מתוך "+SCHED.length,"pH"),
+  srow("🔎","#7c3aed","מיקום בעיון","סוגיה "+(s.i+1)+" מתוך "+IYUN.length,"pI"),
+  srow("📚","var(--emerald-600)","מסכת בגמרא",db.gem.cur,"pG")])+
+  '<div class="sglabel">מסמכים</div>'+sgroup("",[
+  srow("🗓️","#f59e0b","לוח הלימוד","101 סדרים, עם המיקום שלך","pS"),
+  srow("📑","#06b6d4","מראה מקומות בעיון","הסוגיות לפי הסדר","pY")]));
+ $("pH").onclick=function(){setPos("h",SCHED.length)};
+ $("pI").onclick=function(){setPos("i",IYUN.length)};
+ $("pG").onclick=function(){SB=openProgress;openShas()};
+ $("pS").onclick=function(){SB=openProgress;openSched()};
+ $("pY").onclick=function(){SB=openProgress;openIyun()};
+}
+
+/* --- settings page --- */
+function srow(ico,bg,t,sub,id,extra){return '<button class="srowx" id="'+id+'"><span class="sico" style="background:'+bg+'">'+ico+'</span><span class="stxt"><b>'+t+"</b>"+(sub?"<small>"+sub+"</small>":"")+"</span>"+(extra||'<span class="chev">‹</span>')+"</button>"}
+function sgroup(label,rows){return (label?'<div class="sglabel">'+label+"</div>":"")+'<div class="sgroup">'+rows.join("")+"</div>"}
+function swHtml(on){return '<span class="sw'+(on?" on":"")+'"></span>'}
+function rSettings(p){
+ var logsN=Object.keys(db.logs).length,stale=logsN>0&&(!db.lastExport||Date.now()-db.lastExport>14*864e5);
+ var sc=syncCfg(),rc=remCfg(),html='';
+ if(stale)html+='<div class="alert">'+(db.lastExport?"עברו יותר משבועיים מהגיבוי האחרון.":"עוד לא ייצאת גיבוי.")+" הנתונים נשמרים רק בדפדפן הזה. מומלץ לסנכרן או לייצא קובץ גיבוי.</div>";
+ html+=sgroup("ניהול",[
+  srow("📝","var(--indigo-500)","ניהול שאלות","הוספה, עריכה, ימים ויעדים","gQ"),
+  srow("📈","var(--emerald-600)","ניהול התקדמויות","לימוד, מיקום, מסכת ומסמכים","gP"),
+  srow("📜","#7c3aed","דברי תורה","פרשות וחגים: "+dtDone()+" מתוך "+dtTotal(),"gD")]);
+ html+=sgroup("ספורט ותזונה",[
+  srow("🏃","#f97316","אימון כושר ומתיחות",fitOn()?"פועל":"כבוי","gFit",swHtml(fitOn())),
+  srow("🍗","#ef4444","מעקב חלבון",protOn()?"פועל":"כבוי","gProt",swHtml(protOn())),
+  srow("🎯","#0ea5e9","יעדי התקדמות","המיקום בתוכנית הכושר","gPlan"),
+  srow("⚖️","#64748b","יעד חלבון יומי",(db.sport.protGoal||160)+" גרם","gGoal")]);
+ html+=sgroup("תזכורות ותוכן",[
+  srow("🔔","#f59e0b","תזכורת יומית",rc.on?"פעילה, בשעה "+esc(rc.t||"22:00"):"כבויה","gRem"),
+  srow("🏷️","#06b6d4","נושאי שאלות הלכתיות",db.topics.length+" נושאים","gTop")]);
+ html+=sgroup("סנכרון וגיבוי",[
+  srow("☁️","#3b82f6","סנכרון עכשיו",sc.token?(sc.last?"סנכרון אחרון: "+esc(new Date(sc.last).toLocaleString("he-IL")):"עוד לא סונכרן"):"החיבור עוד לא הוגדר","gSync"),
+  srow("🔗","#64748b",sc.token?"שינוי חיבור לענן":"הגדרת חיבור לענן",sc.token?"מחובר":"נדרש מפתח גישה של GitHub","gCfg"),
+  srow("💾","#10b981","גיבוי ושחזור",db.lastExport?"גיבוי אחרון: "+esc(new Date(db.lastExport).toLocaleDateString("he-IL")):"עוד לא בוצע גיבוי","gBk")]);
+ html+=sgroup("אבטחה ותחזוקה",[
+  srow("🔒","#475569","שינוי סיסמה","הנעילה חוזרת אחרי דקה מחוץ לאפליקציה","gPw"),
+  srow("🧹","#a855f7","איחוד שאלות כפולות","","gDd")]);
+ p.innerHTML=html;
+ $("gQ").onclick=openQM;
+ $("gP").onclick=function(){SB=null;openProgress()};
+ $("gD").onclick=openDT;
+ $("gFit").onclick=function(){
+  var f=db.sport.fit||(db.sport.fit={on:false,start:null,pauses:[]});if(!f.pauses)f.pauses=[];
+  if(f.on){f.on=false;f.pauses.push([today(),null])}
+  else{f.on=true;var l=f.pauses[f.pauses.length-1];if(l&&!l[1])l[1]=today();if(!f.start)f.start=today()<db.sport.start?db.sport.start:today()}
+  if(persist()){toast(f.on?"אימון הכושר והמתיחות הופעלו":"אימון הכושר והמתיחות כובו");render(true)}
+ };
+ $("gProt").onclick=function(){db.sport.protOn=!db.sport.protOn;if(persist()){toast(db.sport.protOn?"מעקב החלבון הופעל":"מעקב החלבון כובה");render(true)}};
+ $("gPlan").onclick=function(){SB=null;openPlan()};
+ $("gGoal").onclick=function(){var v=window.prompt("יעד חלבון יומי בגרמים",db.sport.protGoal||160);if(v===null)return;var n=parseInt(v,10);if(!(n>0)){toast("הזן מספר");return}db.sport.protGoal=n;if(persist())render(true)};
+ $("gRem").onclick=openRem;
+ $("gTop").onclick=openTopics;
+ $("gSync").onclick=doSync;
+ $("gCfg").onclick=setupSync;
+ $("gBk").onclick=openBackup;
+ $("gPw").onclick=openPwChange;
+ $("gDd").onclick=function(){idbSnapKey("pre-dedupe",JSON.stringify(db));var n=dedupeDb(db);if(persist())toast(n?"אוחדו "+n+" שאלות כפולות":"לא נמצאו שאלות כפולות")};
+}
+
+/* --- question management --- */
+var QMO={};
+function openQM(){sheet("ניהול שאלות",'<div id="qmbody"></div>');drawQM()}
+function drawQM(){
+ var B=$("qmbody");if(!B)return;
+ var h='<div class="card"><h2>הוספת שאלה</h2><div style="display:grid;gap:.6rem"><select id="ncat" aria-label="קטגוריה">'+db.cats.map(function(c){return "<option>"+esc(c)+"</option>"}).join("")+'</select>'+
+  '<select id="ntype" class="hidden" aria-label="סוג"><option value="tool">כלי (כן או לא)</option><option value="scale">שאלת מדידה (דירוג 0-10)</option></select>'+
+  '<input type="text" id="ntxt" placeholder="נוסח השאלה, למשל: האם ...?"><div class="muted hidden" id="nhint">בקטגוריית הרגיעה, כלי נכנס לרשימת הכלים, ושאלת מדידה נכנסת לחלק המדידה. שניהם יופיעו בסטטיסטיקת הרגיעה.</div><button class="btn" id="nadd">הוספת שאלה</button></div></div>';
+ h+='<div class="card"><h2>השאלות שלי</h2><p class="muted" style="margin-bottom:.4rem">שאלה בארכיון לא מופיעה בשאלון, אבל התשובות הקודמות שלה נשמרות בסטטיסטיקה.</p>'+
+  db.cats.map(function(c){
+   var qs=db.questions.filter(function(q){return q.cat===c});
+   return '<details class="qmcat" data-c="'+esc(c)+'"'+(QMO[c]?" open":"")+'><summary><strong>'+esc(c)+'</strong><span class="muted">'+qs.length+' ▾</span></summary>'+(qs.length?qs.map(function(q){
+    var meta=[];if(q.days)meta.push("ימים: "+q.days.map(function(i){return "אבגדהוש".charAt(i)+"׳"}).join(","));
+    if(q.goal)meta.push("יעד שבועי: "+q.goal);if(q.kind==="scale")meta.push("שאלת מדידה");else if(c===CALM&&!q.nostat)meta.push("כלי");if(q.archived)meta.push("בארכיון");
+    return '<div class="qmi'+(q.archived?" arch":"")+'"><div class="t">'+esc(q.text)+"</div>"+(meta.length?'<div class="muted">'+meta.join(" · ")+"</div>":"")+
+     '<div class="acts"><button class="btn ghost sm" data-e="'+q.id+'">עריכה</button><button class="btn ghost sm" data-dy="'+q.id+'">ימים</button><button class="btn ghost sm" data-g="'+q.id+'">יעד</button><button class="btn ghost sm" data-ar="'+q.id+'">'+(q.archived?"שחזור":"ארכוב")+"</button></div></div>";
+   }).join(""):'<div class="muted" style="padding:.5rem 0">אין שאלות</div>')+"</details>";
+  }).join("")+"</div>";
+ B.innerHTML=h;
+ function tgl(){var c=$("ncat").value===CALM;$("ntype").classList.toggle("hidden",!c);$("nhint").classList.toggle("hidden",!c)}
+ $("ncat").onchange=tgl;tgl();
+ B.querySelectorAll("details.qmcat").forEach(function(d){d.addEventListener("toggle",function(){QMO[d.dataset.c]=d.open})});
+ $("nadd").onclick=function(){
+  var t=$("ntxt").value.trim();if(!t){toast("כתוב את נוסח השאלה");return}
+  var cat=$("ncat").value,q={id:uid(),cat:cat,text:t,archived:false};
+  if(cat===CALM&&$("ntype").value==="scale"){q.kind="scale";q.nostat=true}
+  db.questions.push(q);QMO[cat]=true;
+  if(persist()){toast("השאלה נוספה");drawQM()}
+ };
+ function qb(id){return db.questions.filter(function(x){return x.id===id})[0]}
+ B.querySelectorAll("[data-e]").forEach(function(b){b.onclick=function(){
+  var q=qb(b.dataset.e),t=window.prompt("עריכת השאלה",q.text);
+  if(t&&t.trim()){q.text=t.trim();if(persist())drawQM()}}});
+ B.querySelectorAll("[data-ar]").forEach(function(b){b.onclick=function(){var q=qb(b.dataset.ar);q.archived=!q.archived;if(persist())drawQM()}});
+ B.querySelectorAll("[data-g]").forEach(function(b){b.onclick=function(){
+  var q=qb(b.dataset.g);
+  var v=window.prompt("יעד שבועי: כמה ימי לימוד בשבוע (1-5, ראשון עד חמישי)? השאר ריק כדי להסיר.",q.goal||"");
+  if(v===null)return;v=v.trim();
+  if(v===""){delete q.goal}else{var n=parseInt(v,10);if(!(n>=1&&n<=5)){toast("הזן מספר בין 1 ל-5");return}q.goal=n}
+  if(persist())drawQM()}});
+ B.querySelectorAll("[data-dy]").forEach(function(b){b.onclick=function(){
+  var q=qb(b.dataset.dy);
+  var v=window.prompt("באילו ימים השאלה תופיע? כתוב אותיות מופרדות בפסיק (למשל: ב,ד,ש). השאר ריק להצגה בכל יום.",q.days?q.days.map(function(i){return "אבגדהוש".charAt(i)}).join(","):"");
+  if(v===null)return;v=v.trim();
+  if(!v)delete q.days;else{var ds=[];v.split(/[,\s]+/).forEach(function(c){var i="אבגדהוש".indexOf(c.charAt(0));if(i>=0&&ds.indexOf(i)<0)ds.push(i)});if(!ds.length){toast("לא זוהו ימים");return}q.days=ds.sort()}
+  if(persist())drawQM()}});
+}
+
+/* --- reminder / topics / backup sheets --- */
+function openRem(){
+ var rc=remCfg();
+ sheet("תזכורת יומית",'<div class="card"><p class="muted" style="margin-bottom:.6rem">בטלפון (אפליקציית ה-APK) התזכורת מגיעה כהתראה גם כשהאפליקציה סגורה. במחשב היא מופיעה כהודעה כשהאפליקציה פתוחה, וכשורה בראש השאלון.</p><div class="row"><label><input type="checkbox" id="remOn"'+(rc.on?" checked":"")+'> הפעלה</label><input type="time" id="remT" value="'+(rc.t||"22:00")+'" style="width:auto" aria-label="שעה"><label><input type="checkbox" id="remWk"'+(rc.wk?" checked":"")+'> גם בשישי ושבת</label></div><button class="btn block" id="remSave">שמירת התזכורת</button></div>');
+ $("remSave").onclick=function(){
+  var c={on:$("remOn").checked,t:$("remT").value||"22:00",wk:$("remWk").checked,last:remCfg().last};
+  try{localStorage.setItem(REM_KEY,JSON.stringify(c))}catch(e){}
+  applyReminder(c).then(function(r){toast(r==="off"?"התזכורת כבויה":r==="denied"?"לא ניתנה הרשאה להתראות. אפשר לאשר בהגדרות המכשיר":r==="nosupport"?"הדפדפן לא תומך בהתראות":"התזכורת נשמרה לשעה "+c.t);render(true)}).catch(function(){toast("לא ניתן להגדיר התראות במכשיר הזה")});
+ };
+}
+function openTopics(){
+ sheet("נושאי שאלות הלכתיות",'<div class="card"><div class="chips" style="margin-bottom:.6rem">'+db.topics.map(function(t,i){return '<span class="chip"><button disabled>'+esc(t)+'</button><button class="ed" data-tdel="'+i+'" aria-label="מחיקת נושא">✕</button></span>'}).join("")+'</div><div class="row"><input type="text" id="ntopic" placeholder="נושא חדש..." style="flex:1;min-width:140px"><button class="btn sm" id="ntadd">הוספה</button></div></div>');
+ $("overlay").querySelectorAll("[data-tdel]").forEach(function(b){b.onclick=function(){
+  var i=+b.dataset.tdel;if(!window.confirm("למחוק את הנושא "+db.topics[i]+"? שאלות קיימות ישמרו את הנושא שלהן."))return;
+  db.topics.splice(i,1);if(persist()){render(true);openTopics()}}});
+ $("ntadd").onclick=function(){var v=$("ntopic").value.trim();if(!v)return;if(db.topics.indexOf(v)>=0){toast("הנושא כבר קיים");return}db.topics.push(v);if(persist()){render(true);openTopics()}};
+}
+function openBackup(){
+ sheet("גיבוי ושחזור",'<div class="card"><p class="muted" style="margin-bottom:.8rem">'+(db.lastExport?"גיבוי אחרון: "+esc(new Date(db.lastExport).toLocaleDateString("he-IL")):"עוד לא בוצע גיבוי")+'</p><div class="row"><button class="btn" id="exp">'+ICON.down+' ייצוא נתונים</button><button class="btn ghost" id="imp">'+ICON.up+' ייבוא נתונים</button></div></div><div class="card"><div id="snaps"><p class="muted">אין גיבויים אוטומטיים עדיין.</p></div></div>');
+ $("exp").onclick=exportData;
+ $("imp").onclick=function(){$("file").value="";$("file").click()};
+ idbList(function(list){
+  var el=$("snaps");if(!el||!list.length)return;
+  el.innerHTML='<div class="muted" style="margin-bottom:.4rem">גיבויים אוטומטיים בדפדפן (עד 7 ימים אחרונים)</div>'+list.map(function(o){
+   var n="";try{n=Object.keys(JSON.parse(o.v.json).logs).length+" ימים מתועדים"}catch(e){}
+   return '<div class="qitem"><span>'+esc((o.key==="pre-sync"?"לפני הסנכרון האחרון":o.key==="pre-dedupe"?"לפני איחוד כפילויות":heDate(o.key.slice(1))))+' <span class="muted">· '+n+'</span></span><button class="btn ghost sm" data-sk="'+o.key+'">שחזור</button></div>';
+  }).join("");
+  el.querySelectorAll("[data-sk]").forEach(function(b){b.onclick=function(){
+   var o=list.filter(function(x){return x.key===b.dataset.sk})[0];
+   if(!o||!window.confirm("לשחזר את הגיבוי הזה? הנתונים הנוכחיים יוחלפו."))return;
+   try{var d=JSON.parse(o.v.json);if(!valid(d))throw 0;db=d;if(persist()){W.date=today();loadDraft();$("overlay").innerHTML="";toast("הגיבוי שוחזר");render()}}
+   catch(e){toast("הגיבוי פגום")}
+  }});
+ });
+}
 
 boot();
 if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
